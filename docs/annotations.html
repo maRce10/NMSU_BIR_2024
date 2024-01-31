@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-99.9.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>OTS Bioacoustic Analysis in R 2023 - Import annotations into R</title>
+<title>Bioacoustic Analysis in R, NMSU 2024 - Import annotations into R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,11 +17,12 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -109,6 +80,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "panel-placement": "end",
   "type": "overlay",
   "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -118,10 +95,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
-
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
@@ -135,23 +112,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">OTS Bioacoustic Analysis in R 2023</span>
+    <span class="navbar-title">Bioacoustic Analysis in R, NMSU 2024</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html">
- <span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./program.html">
- <span class="menu-text">Program</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -228,48 +202,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./course_prep.html">
- <span class="menu-text">Course prep</span></a>
+    <a class="nav-link" href="./course_prep.html"> 
+<span class="menu-text">Course prep</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./code_redirect.html">
- <span class="menu-text">Code sharing</span></a>
+    <a class="nav-link" href="./code_redirect.html"> 
+<span class="menu-text">Code sharing</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./instructor.html">
- <span class="menu-text">Instructor</span></a>
+    <a class="nav-link" href="./instructor.html"> 
+<span class="menu-text">Instructor</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/maRce10/OTS_BIR_2023/"><i class="bi bi-github" role="img" aria-label="GitHub">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/maRce10/NMSU_BIR_2024/"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text">https://github.com/maRce10/NMSU_BIR_2024/</span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#annotation-tables" id="toc-annotation-tables" class="nav-link active" data-scroll-target="#annotation-tables"><span class="toc-section-number">1</span>  Annotation tables</a></li>
-  <li><a href="#raven" id="toc-raven" class="nav-link" data-scroll-target="#raven"><span class="toc-section-number">2</span>  Raven</a></li>
-  <li><a href="#rraven" id="toc-rraven" class="nav-link" data-scroll-target="#rraven"><span class="toc-section-number">3</span>  Rraven</a></li>
-  <li><a href="#import-raven-data" id="toc-import-raven-data" class="nav-link" data-scroll-target="#import-raven-data"><span class="toc-section-number">4</span>  Import Raven data</a></li>
-  <li><a href="#export-r-data-to-raven" id="toc-export-r-data-to-raven" class="nav-link" data-scroll-target="#export-r-data-to-raven"><span class="toc-section-number">5</span>  Export R data to Raven</a></li>
-  <li><a href="#warbler-formats" id="toc-warbler-formats" class="nav-link" data-scroll-target="#warbler-formats"><span class="toc-section-number">6</span>  warbleR formats</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">7</span>  References</a></li>
+  <li><a href="#annotation-tables" id="toc-annotation-tables" class="nav-link active" data-scroll-target="#annotation-tables"><span class="header-section-number">1</span> Annotation tables</a></li>
+  <li><a href="#raven" id="toc-raven" class="nav-link" data-scroll-target="#raven"><span class="header-section-number">2</span> Raven</a></li>
+  <li><a href="#rraven" id="toc-rraven" class="nav-link" data-scroll-target="#rraven"><span class="header-section-number">3</span> Rraven</a></li>
+  <li><a href="#import-raven-data" id="toc-import-raven-data" class="nav-link" data-scroll-target="#import-raven-data"><span class="header-section-number">4</span> Import Raven data</a></li>
+  <li><a href="#export-r-data-to-raven" id="toc-export-r-data-to-raven" class="nav-link" data-scroll-target="#export-r-data-to-raven"><span class="header-section-number">5</span> Export R data to Raven</a></li>
+  <li><a href="#warbler-formats" id="toc-warbler-formats" class="nav-link" data-scroll-target="#warbler-formats"><span class="header-section-number">6</span> warbleR formats</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">7</span> References</a></li>
   </ul>
 </nav>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
@@ -291,7 +267,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
+
 </header>
+
 
 <p>&nbsp;</p>
 <section id="objetives" class="level2 unnumbered unlisted alert alert-info">
@@ -307,38 +285,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>An annotation table (or selection table in Raven’s terminology and <strong>warbleR</strong>) is a spreadsheet that contains information about the location (and frequency) of the sounds of interest in one or more sound files. Therefore, the basic annotation table should contain at least 3 columns:</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<table class="table table-striped" style="font-size: 14px; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:center;"> sound.files </th>
-   <th style="text-align:center;"> start </th>
-   <th style="text-align:center;"> end </th>
-  </tr>
- </thead>
+<table class="table table-striped table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">sound.files</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">start</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">end</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:center;"> sound_file_1.wav </td>
-   <td style="text-align:center;"> 2.44 </td>
-   <td style="text-align:center;"> 3.56 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> sound_file_1.wav </td>
-   <td style="text-align:center;"> 3.95 </td>
-   <td style="text-align:center;"> 5.90 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> sound_file_2.wav </td>
-   <td style="text-align:center;"> 2.14 </td>
-   <td style="text-align:center;"> 3.14 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> sound_file_2.wav </td>
-   <td style="text-align:center;"> 2.33 </td>
-   <td style="text-align:center;"> 3.21 </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: center;">sound_file_1.wav</td>
+<td style="text-align: center;">3.45</td>
+<td style="text-align: center;">4.81</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">sound_file_1.wav</td>
+<td style="text-align: center;">3.79</td>
+<td style="text-align: center;">3.92</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">sound_file_2.wav</td>
+<td style="text-align: center;">4.13</td>
+<td style="text-align: center;">5.62</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">sound_file_2.wav</td>
+<td style="text-align: center;">4.30</td>
+<td style="text-align: center;">5.29</td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -346,48 +324,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Ideally we should also include the frequency range of the annotations:</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<table class="table table-striped" style="font-size: 14px; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:center;"> sound.files </th>
-   <th style="text-align:center;"> start </th>
-   <th style="text-align:center;"> end </th>
-   <th style="text-align:center;"> bottom.freq </th>
-   <th style="text-align:center;"> top.freq </th>
-  </tr>
- </thead>
+<table class="table table-striped table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">sound.files</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">start</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">end</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">bottom.freq</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">top.freq</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:center;"> sound_file_1.wav </td>
-   <td style="text-align:center;"> 2.44 </td>
-   <td style="text-align:center;"> 3.56 </td>
-   <td style="text-align:center;background-color: #ccebff !important;"> 4.54 </td>
-   <td style="text-align:center;background-color: #ccebff !important;"> 9.38 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> sound_file_1.wav </td>
-   <td style="text-align:center;"> 3.95 </td>
-   <td style="text-align:center;"> 5.90 </td>
-   <td style="text-align:center;background-color: #ccebff !important;"> 6.16 </td>
-   <td style="text-align:center;background-color: #ccebff !important;"> 9.87 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> sound_file_2.wav </td>
-   <td style="text-align:center;"> 2.14 </td>
-   <td style="text-align:center;"> 3.14 </td>
-   <td style="text-align:center;background-color: #ccebff !important;"> 4.50 </td>
-   <td style="text-align:center;background-color: #ccebff !important;"> 6.37 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> sound_file_2.wav </td>
-   <td style="text-align:center;"> 2.33 </td>
-   <td style="text-align:center;"> 3.21 </td>
-   <td style="text-align:center;background-color: #ccebff !important;"> 3.89 </td>
-   <td style="text-align:center;background-color: #ccebff !important;"> 9.35 </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: center;">sound_file_1.wav</td>
+<td style="text-align: center;">3.45</td>
+<td style="text-align: center;">4.81</td>
+<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">5.12</td>
+<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">8.25</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">sound_file_1.wav</td>
+<td style="text-align: center;">3.79</td>
+<td style="text-align: center;">3.92</td>
+<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">5.28</td>
+<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">8.83</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">sound_file_2.wav</td>
+<td style="text-align: center;">4.13</td>
+<td style="text-align: center;">5.62</td>
+<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">4.49</td>
+<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">10.30</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">sound_file_2.wav</td>
+<td style="text-align: center;">4.30</td>
+<td style="text-align: center;">5.29</td>
+<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">5.70</td>
+<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">9.96</td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -395,111 +373,111 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>.. and a unique identifier (at least within each sound file) for each annotation:</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<table class="table table-striped" style="font-size: 14px; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:center;"> sound.files </th>
-   <th style="text-align:center;"> selec </th>
-   <th style="text-align:center;"> start </th>
-   <th style="text-align:center;"> end </th>
-   <th style="text-align:center;"> bottom.freq </th>
-   <th style="text-align:center;"> top.freq </th>
-  </tr>
- </thead>
+<table class="table table-striped table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">sound.files</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">selec</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">start</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">end</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">bottom.freq</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">top.freq</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:center;"> sound_file_1.wav </td>
-   <td style="text-align:center;background-color: #ccebff !important;"> 1 </td>
-   <td style="text-align:center;"> 2.44 </td>
-   <td style="text-align:center;"> 3.56 </td>
-   <td style="text-align:center;"> 4.54 </td>
-   <td style="text-align:center;"> 9.38 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> sound_file_1.wav </td>
-   <td style="text-align:center;background-color: #ccebff !important;"> 2 </td>
-   <td style="text-align:center;"> 3.95 </td>
-   <td style="text-align:center;"> 5.90 </td>
-   <td style="text-align:center;"> 6.16 </td>
-   <td style="text-align:center;"> 9.87 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> sound_file_2.wav </td>
-   <td style="text-align:center;background-color: #ccebff !important;"> 1 </td>
-   <td style="text-align:center;"> 2.14 </td>
-   <td style="text-align:center;"> 3.14 </td>
-   <td style="text-align:center;"> 4.50 </td>
-   <td style="text-align:center;"> 6.37 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> sound_file_2.wav </td>
-   <td style="text-align:center;background-color: #ccebff !important;"> 2 </td>
-   <td style="text-align:center;"> 2.33 </td>
-   <td style="text-align:center;"> 3.21 </td>
-   <td style="text-align:center;"> 3.89 </td>
-   <td style="text-align:center;"> 9.35 </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: center;">sound_file_1.wav</td>
+<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">1</td>
+<td style="text-align: center;">3.45</td>
+<td style="text-align: center;">4.81</td>
+<td style="text-align: center;">5.12</td>
+<td style="text-align: center;">8.25</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">sound_file_1.wav</td>
+<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">2</td>
+<td style="text-align: center;">3.79</td>
+<td style="text-align: center;">3.92</td>
+<td style="text-align: center;">5.28</td>
+<td style="text-align: center;">8.83</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">sound_file_2.wav</td>
+<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">1</td>
+<td style="text-align: center;">4.13</td>
+<td style="text-align: center;">5.62</td>
+<td style="text-align: center;">4.49</td>
+<td style="text-align: center;">10.30</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">sound_file_2.wav</td>
+<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">2</td>
+<td style="text-align: center;">4.30</td>
+<td style="text-align: center;">5.29</td>
+<td style="text-align: center;">5.70</td>
+<td style="text-align: center;">9.96</td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
 <p>Finally, for sound files with multiple channels, the annotation table should indicate in which channel the sound of interest is located:</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<table class="table table-striped" style="font-size: 14px; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:center;"> sound.files </th>
-   <th style="text-align:center;"> channel </th>
-   <th style="text-align:center;"> selec </th>
-   <th style="text-align:center;"> start </th>
-   <th style="text-align:center;"> end </th>
-   <th style="text-align:center;"> bottom.freq </th>
-   <th style="text-align:center;"> top.freq </th>
-  </tr>
- </thead>
+<table class="table table-striped table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">sound.files</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">channel</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">selec</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">start</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">end</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">bottom.freq</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">top.freq</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:center;"> sound_file_1.wav </td>
-   <td style="text-align:center;background-color: #ccebff !important;"> 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 2.44 </td>
-   <td style="text-align:center;"> 3.56 </td>
-   <td style="text-align:center;"> 4.54 </td>
-   <td style="text-align:center;"> 9.38 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> sound_file_1.wav </td>
-   <td style="text-align:center;background-color: #ccebff !important;"> 1 </td>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> 3.95 </td>
-   <td style="text-align:center;"> 5.90 </td>
-   <td style="text-align:center;"> 6.16 </td>
-   <td style="text-align:center;"> 9.87 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> sound_file_2.wav </td>
-   <td style="text-align:center;background-color: #ccebff !important;"> 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 2.14 </td>
-   <td style="text-align:center;"> 3.14 </td>
-   <td style="text-align:center;"> 4.50 </td>
-   <td style="text-align:center;"> 6.37 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> sound_file_2.wav </td>
-   <td style="text-align:center;background-color: #ccebff !important;"> 1 </td>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> 2.33 </td>
-   <td style="text-align:center;"> 3.21 </td>
-   <td style="text-align:center;"> 3.89 </td>
-   <td style="text-align:center;"> 9.35 </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: center;">sound_file_1.wav</td>
+<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">3.45</td>
+<td style="text-align: center;">4.81</td>
+<td style="text-align: center;">5.12</td>
+<td style="text-align: center;">8.25</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">sound_file_1.wav</td>
+<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3.79</td>
+<td style="text-align: center;">3.92</td>
+<td style="text-align: center;">5.28</td>
+<td style="text-align: center;">8.83</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">sound_file_2.wav</td>
+<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">4.13</td>
+<td style="text-align: center;">5.62</td>
+<td style="text-align: center;">4.49</td>
+<td style="text-align: center;">10.30</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">sound_file_2.wav</td>
+<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4.30</td>
+<td style="text-align: center;">5.29</td>
+<td style="text-align: center;">5.70</td>
+<td style="text-align: center;">9.96</td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -562,122 +540,126 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </details>
 </div>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>1 file(s) could not be read:  Label Track3.txt</code></pre>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Some .txt files could not be read (run .Options$Rraven to see which
+ones)</code></pre>
 </div>
 <div class="cell-output-display">
-
-<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:808px; "><table class="table table-striped table-hover table-condensed table-responsive" style="font-size: 11px; width: auto !important; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:center;"> Selection </th>
-   <th style="text-align:center;"> View </th>
-   <th style="text-align:center;"> Channel </th>
-   <th style="text-align:center;"> Begin Time (s) </th>
-   <th style="text-align:center;"> End Time (s) </th>
-   <th style="text-align:center;"> Low Freq (Hz) </th>
-   <th style="text-align:center;"> High Freq (Hz) </th>
-   <th style="text-align:center;"> Begin File </th>
-   <th style="text-align:center;"> channel </th>
-   <th style="text-align:center;"> Begin Path </th>
-   <th style="text-align:center;"> File Offset (s) </th>
-   <th style="text-align:center;"> File Offset </th>
-   <th style="text-align:center;"> selec.file </th>
-  </tr>
- </thead>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:808px; ">
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Selection</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">View</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Channel</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Begin Time (s)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">End Time (s)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Low Freq (Hz)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">High Freq (Hz)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Begin File</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">channel</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Begin Path</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">File Offset (s)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">File Offset</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">selec.file</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> Spectrogram 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1.169 </td>
-   <td style="text-align:center;"> 1.342 </td>
-   <td style="text-align:center;"> 2220 </td>
-   <td style="text-align:center;"> 8604 </td>
-   <td style="text-align:center;"> Phae.long1.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> /tmp/RtmpWpOeaR/Phae.long1.wav </td>
-   <td style="text-align:center;"> 1.169 </td>
-   <td style="text-align:center;"> NA </td>
-   <td style="text-align:center;"> LBH 1 selection table example.txt </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> Spectrogram 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 2.158 </td>
-   <td style="text-align:center;"> 2.321 </td>
-   <td style="text-align:center;"> 2169 </td>
-   <td style="text-align:center;"> 8807 </td>
-   <td style="text-align:center;"> Phae.long1.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> /tmp/RtmpWpOeaR/Phae.long1.wav </td>
-   <td style="text-align:center;"> 2.158 </td>
-   <td style="text-align:center;"> NA </td>
-   <td style="text-align:center;"> LBH 1 selection table example.txt </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 3 </td>
-   <td style="text-align:center;"> Spectrogram 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0.343 </td>
-   <td style="text-align:center;"> 0.518 </td>
-   <td style="text-align:center;"> 2218 </td>
-   <td style="text-align:center;"> 8757 </td>
-   <td style="text-align:center;"> Phae.long1.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> /tmp/RtmpWpOeaR/Phae.long1.wav </td>
-   <td style="text-align:center;"> 0.343 </td>
-   <td style="text-align:center;"> NA </td>
-   <td style="text-align:center;"> LBH 1 selection table example.txt </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> Spectrogram 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0.160 </td>
-   <td style="text-align:center;"> 0.292 </td>
-   <td style="text-align:center;"> 2317 </td>
-   <td style="text-align:center;"> 8822 </td>
-   <td style="text-align:center;"> Phae.long2.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> /tmp/RtmpWpOeaR/Phae.long2.wav </td>
-   <td style="text-align:center;"> 0.160 </td>
-   <td style="text-align:center;"> NA </td>
-   <td style="text-align:center;"> LBH 2 selection table example.txt </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> Spectrogram 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1.457 </td>
-   <td style="text-align:center;"> 1.583 </td>
-   <td style="text-align:center;"> 2284 </td>
-   <td style="text-align:center;"> 8888 </td>
-   <td style="text-align:center;"> Phae.long2.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> /tmp/RtmpWpOeaR/Phae.long2.wav </td>
-   <td style="text-align:center;"> 1.457 </td>
-   <td style="text-align:center;"> NA </td>
-   <td style="text-align:center;"> LBH 2 selection table example.txt </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> Spectrogram 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0.627 </td>
-   <td style="text-align:center;"> 0.758 </td>
-   <td style="text-align:center;"> 3007 </td>
-   <td style="text-align:center;"> 8822 </td>
-   <td style="text-align:center;"> Phae.long3.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> /tmp/RtmpWpOeaR/Phae.long3.wav </td>
-   <td style="text-align:center;"> NA </td>
-   <td style="text-align:center;"> 0.627 </td>
-   <td style="text-align:center;"> LBH 3 selection table example.txt </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Spectrogram 1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1.169</td>
+<td style="text-align: center;">1.342</td>
+<td style="text-align: center;">2220</td>
+<td style="text-align: center;">8604</td>
+<td style="text-align: center;">Phae.long1.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">/tmp/RtmpWpOeaR/Phae.long1.wav</td>
+<td style="text-align: center;">1.169</td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">LBH 1 selection table example.txt</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">Spectrogram 1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2.158</td>
+<td style="text-align: center;">2.321</td>
+<td style="text-align: center;">2169</td>
+<td style="text-align: center;">8807</td>
+<td style="text-align: center;">Phae.long1.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">/tmp/RtmpWpOeaR/Phae.long1.wav</td>
+<td style="text-align: center;">2.158</td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">LBH 1 selection table example.txt</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Spectrogram 1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.343</td>
+<td style="text-align: center;">0.518</td>
+<td style="text-align: center;">2218</td>
+<td style="text-align: center;">8757</td>
+<td style="text-align: center;">Phae.long1.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">/tmp/RtmpWpOeaR/Phae.long1.wav</td>
+<td style="text-align: center;">0.343</td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">LBH 1 selection table example.txt</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Spectrogram 1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.160</td>
+<td style="text-align: center;">0.292</td>
+<td style="text-align: center;">2317</td>
+<td style="text-align: center;">8822</td>
+<td style="text-align: center;">Phae.long2.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">/tmp/RtmpWpOeaR/Phae.long2.wav</td>
+<td style="text-align: center;">0.160</td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">LBH 2 selection table example.txt</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">Spectrogram 1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1.457</td>
+<td style="text-align: center;">1.583</td>
+<td style="text-align: center;">2284</td>
+<td style="text-align: center;">8888</td>
+<td style="text-align: center;">Phae.long2.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">/tmp/RtmpWpOeaR/Phae.long2.wav</td>
+<td style="text-align: center;">1.457</td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">LBH 2 selection table example.txt</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Spectrogram 1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.627</td>
+<td style="text-align: center;">0.758</td>
+<td style="text-align: center;">3007</td>
+<td style="text-align: center;">8822</td>
+<td style="text-align: center;">Phae.long3.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">/tmp/RtmpWpOeaR/Phae.long3.wav</td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">0.627</td>
+<td style="text-align: center;">LBH 3 selection table example.txt</td>
+</tr>
 </tbody>
-</table></div>
+</table>
+</div>
+</div>
 
 </div>
 </div>
@@ -700,94 +682,97 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </details>
 </div>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>1 file(s) could not be read:  Label Track3.txt</code></pre>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Some .txt files could not be read (run .Options$Rraven to see which
+ones)</code></pre>
 </div>
 <div class="cell-output-display">
-
-<table class="table table-striped table-hover table-condensed table-responsive" style="font-size: 12px; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:center;"> selec </th>
-   <th style="text-align:center;"> Channel </th>
-   <th style="text-align:center;"> start </th>
-   <th style="text-align:center;"> end </th>
-   <th style="text-align:center;"> bottom.freq </th>
-   <th style="text-align:center;"> top.freq </th>
-   <th style="text-align:center;"> sound.files </th>
-   <th style="text-align:center;"> channel </th>
-   <th style="text-align:center;"> selec.file </th>
-  </tr>
- </thead>
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">selec</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Channel</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">start</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">end</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">bottom.freq</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">top.freq</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">sound.files</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">channel</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">selec.file</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1.169355 </td>
-   <td style="text-align:center;"> 1.342388 </td>
-   <td style="text-align:center;"> 2.22011 </td>
-   <td style="text-align:center;"> 8.60438 </td>
-   <td style="text-align:center;"> Phae.long1.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> LBH 1 selection table example.txt </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 2.158408 </td>
-   <td style="text-align:center;"> 2.321457 </td>
-   <td style="text-align:center;"> 2.16944 </td>
-   <td style="text-align:center;"> 8.80705 </td>
-   <td style="text-align:center;"> Phae.long1.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> LBH 1 selection table example.txt </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 3 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0.343337 </td>
-   <td style="text-align:center;"> 0.518255 </td>
-   <td style="text-align:center;"> 2.21829 </td>
-   <td style="text-align:center;"> 8.75660 </td>
-   <td style="text-align:center;"> Phae.long1.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> LBH 1 selection table example.txt </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0.159598 </td>
-   <td style="text-align:center;"> 0.292169 </td>
-   <td style="text-align:center;"> 2.31686 </td>
-   <td style="text-align:center;"> 8.82232 </td>
-   <td style="text-align:center;"> Phae.long2.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> LBH 2 selection table example.txt </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1.457058 </td>
-   <td style="text-align:center;"> 1.583209 </td>
-   <td style="text-align:center;"> 2.28401 </td>
-   <td style="text-align:center;"> 8.88803 </td>
-   <td style="text-align:center;"> Phae.long2.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> LBH 2 selection table example.txt </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0.626552 </td>
-   <td style="text-align:center;"> 0.757771 </td>
-   <td style="text-align:center;"> 3.00683 </td>
-   <td style="text-align:center;"> 8.82232 </td>
-   <td style="text-align:center;"> Phae.long3.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> LBH 3 selection table example.txt </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1.169355</td>
+<td style="text-align: center;">1.342388</td>
+<td style="text-align: center;">2.22011</td>
+<td style="text-align: center;">8.60438</td>
+<td style="text-align: center;">Phae.long1.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">LBH 1 selection table example.txt</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2.158408</td>
+<td style="text-align: center;">2.321457</td>
+<td style="text-align: center;">2.16944</td>
+<td style="text-align: center;">8.80705</td>
+<td style="text-align: center;">Phae.long1.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">LBH 1 selection table example.txt</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.343337</td>
+<td style="text-align: center;">0.518255</td>
+<td style="text-align: center;">2.21829</td>
+<td style="text-align: center;">8.75660</td>
+<td style="text-align: center;">Phae.long1.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">LBH 1 selection table example.txt</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.159598</td>
+<td style="text-align: center;">0.292169</td>
+<td style="text-align: center;">2.31686</td>
+<td style="text-align: center;">8.82232</td>
+<td style="text-align: center;">Phae.long2.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">LBH 2 selection table example.txt</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1.457058</td>
+<td style="text-align: center;">1.583209</td>
+<td style="text-align: center;">2.28401</td>
+<td style="text-align: center;">8.88803</td>
+<td style="text-align: center;">Phae.long2.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">LBH 2 selection table example.txt</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.626552</td>
+<td style="text-align: center;">0.757771</td>
+<td style="text-align: center;">3.00683</td>
+<td style="text-align: center;">8.82232</td>
+<td style="text-align: center;">Phae.long3.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">LBH 3 selection table example.txt</td>
+</tr>
 </tbody>
 </table>
+</div>
+
 
 </div>
 </div>
@@ -807,16 +792,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </details>
 </div>
 <div class="cell">
-
-</div>
-<div class="cell">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">relabel_colms</span>(st1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-</div>
-<div class="cell">
-
 </div>
 <p>&nbsp;</p>
 <p>Additional columns can also be re-labeled:</p>
@@ -829,121 +808,123 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell">
 <div class="cell-output-display">
-
-<table class="table table-striped table-hover table-condensed table-responsive" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:center;"> selec </th>
-   <th style="text-align:center;"> Channel </th>
-   <th style="text-align:center;"> start </th>
-   <th style="text-align:center;"> end </th>
-   <th style="text-align:center;"> bottom.freq </th>
-   <th style="text-align:center;"> top.freq </th>
-   <th style="text-align:center;"> sound.files </th>
-  </tr>
- </thead>
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">selec</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Channel</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">start</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">end</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">bottom.freq</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">top.freq</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">sound.files</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1.169355 </td>
-   <td style="text-align:center;"> 1.342388 </td>
-   <td style="text-align:center;"> 2.22011 </td>
-   <td style="text-align:center;"> 8.60438 </td>
-   <td style="text-align:center;"> Phae.long1.wav </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 2.158408 </td>
-   <td style="text-align:center;"> 2.321457 </td>
-   <td style="text-align:center;"> 2.16944 </td>
-   <td style="text-align:center;"> 8.80705 </td>
-   <td style="text-align:center;"> Phae.long1.wav </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 3 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0.343337 </td>
-   <td style="text-align:center;"> 0.518255 </td>
-   <td style="text-align:center;"> 2.21829 </td>
-   <td style="text-align:center;"> 8.75660 </td>
-   <td style="text-align:center;"> Phae.long1.wav </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0.159598 </td>
-   <td style="text-align:center;"> 0.292169 </td>
-   <td style="text-align:center;"> 2.31686 </td>
-   <td style="text-align:center;"> 8.82232 </td>
-   <td style="text-align:center;"> Phae.long2.wav </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1.457058 </td>
-   <td style="text-align:center;"> 1.583209 </td>
-   <td style="text-align:center;"> 2.28401 </td>
-   <td style="text-align:center;"> 8.88803 </td>
-   <td style="text-align:center;"> Phae.long2.wav </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0.626552 </td>
-   <td style="text-align:center;"> 0.757771 </td>
-   <td style="text-align:center;"> 3.00683 </td>
-   <td style="text-align:center;"> 8.82232 </td>
-   <td style="text-align:center;"> Phae.long3.wav </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1.974213 </td>
-   <td style="text-align:center;"> 2.104392 </td>
-   <td style="text-align:center;"> 2.77684 </td>
-   <td style="text-align:center;"> 8.88803 </td>
-   <td style="text-align:center;"> Phae.long3.wav </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 3 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0.123364 </td>
-   <td style="text-align:center;"> 0.254581 </td>
-   <td style="text-align:center;"> 2.31686 </td>
-   <td style="text-align:center;"> 9.31515 </td>
-   <td style="text-align:center;"> Phae.long3.wav </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1.516812 </td>
-   <td style="text-align:center;"> 1.662236 </td>
-   <td style="text-align:center;"> 2.51400 </td>
-   <td style="text-align:center;"> 9.21659 </td>
-   <td style="text-align:center;"> Phae.long4.wav </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 2.932692 </td>
-   <td style="text-align:center;"> 3.076878 </td>
-   <td style="text-align:center;"> 2.57971 </td>
-   <td style="text-align:center;"> 10.23512 </td>
-   <td style="text-align:center;"> Phae.long4.wav </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 3 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0.145398 </td>
-   <td style="text-align:center;"> 0.290497 </td>
-   <td style="text-align:center;"> 2.57971 </td>
-   <td style="text-align:center;"> 9.74228 </td>
-   <td style="text-align:center;"> Phae.long4.wav </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1.169355</td>
+<td style="text-align: center;">1.342388</td>
+<td style="text-align: center;">2.22011</td>
+<td style="text-align: center;">8.60438</td>
+<td style="text-align: center;">Phae.long1.wav</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2.158408</td>
+<td style="text-align: center;">2.321457</td>
+<td style="text-align: center;">2.16944</td>
+<td style="text-align: center;">8.80705</td>
+<td style="text-align: center;">Phae.long1.wav</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.343337</td>
+<td style="text-align: center;">0.518255</td>
+<td style="text-align: center;">2.21829</td>
+<td style="text-align: center;">8.75660</td>
+<td style="text-align: center;">Phae.long1.wav</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.159598</td>
+<td style="text-align: center;">0.292169</td>
+<td style="text-align: center;">2.31686</td>
+<td style="text-align: center;">8.82232</td>
+<td style="text-align: center;">Phae.long2.wav</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1.457058</td>
+<td style="text-align: center;">1.583209</td>
+<td style="text-align: center;">2.28401</td>
+<td style="text-align: center;">8.88803</td>
+<td style="text-align: center;">Phae.long2.wav</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.626552</td>
+<td style="text-align: center;">0.757771</td>
+<td style="text-align: center;">3.00683</td>
+<td style="text-align: center;">8.82232</td>
+<td style="text-align: center;">Phae.long3.wav</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1.974213</td>
+<td style="text-align: center;">2.104392</td>
+<td style="text-align: center;">2.77684</td>
+<td style="text-align: center;">8.88803</td>
+<td style="text-align: center;">Phae.long3.wav</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.123364</td>
+<td style="text-align: center;">0.254581</td>
+<td style="text-align: center;">2.31686</td>
+<td style="text-align: center;">9.31515</td>
+<td style="text-align: center;">Phae.long3.wav</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1.516812</td>
+<td style="text-align: center;">1.662236</td>
+<td style="text-align: center;">2.51400</td>
+<td style="text-align: center;">9.21659</td>
+<td style="text-align: center;">Phae.long4.wav</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2.932692</td>
+<td style="text-align: center;">3.076878</td>
+<td style="text-align: center;">2.57971</td>
+<td style="text-align: center;">10.23512</td>
+<td style="text-align: center;">Phae.long4.wav</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.145398</td>
+<td style="text-align: center;">0.290497</td>
+<td style="text-align: center;">2.57971</td>
+<td style="text-align: center;">9.74228</td>
+<td style="text-align: center;">Phae.long4.wav</td>
+</tr>
 </tbody>
 </table>
+</div>
+
 
 </div>
 </div>
@@ -973,7 +954,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">exp_raven</span>(st1, <span class="at">file.name =</span> <span class="st">"Phaethornis 1"</span>, <span class="at">khz.to.hz =</span> <span class="cn">TRUE</span>, <span class="at">sound.file.path =</span> <span class="st">"./examples"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><img src="images/exp_raven1.gif" class="img-fluid"></p>
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div>
+<img src="images/exp_raven1.gif" id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="img-fluid figure-img">
+</div>
+</figure>
+</div>
 <p>&nbsp;</p>
 <p>This is useful for adding new selections or even new measurements:</p>
 <p><img src="images/exp_raven2.gif" class="img-fluid"> &nbsp;</p>
@@ -990,7 +977,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/exp_raven3.gif" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">ex</figcaption><p></p>
+<figcaption>ex</figcaption>
 </figure>
 </div>
 <p>&nbsp;</p>
@@ -1023,9 +1010,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>The sample data “lbh_selec_table” contains these columns:</p>
 <div class="cell">
-
-</div>
-<div class="cell">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(warbleR)</span>
@@ -1037,121 +1021,122 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell">
 <div class="cell-output-display">
-
-<div style="border: 1px solid #ddd; padding: 1px; overflow-x: scroll; width:740px; "><table class="table table-striped" style="font-size: 14px; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:center;"> sound.files </th>
-   <th style="text-align:center;"> channel </th>
-   <th style="text-align:center;"> selec </th>
-   <th style="text-align:center;"> start </th>
-   <th style="text-align:center;"> end </th>
-   <th style="text-align:center;"> bottom.freq </th>
-   <th style="text-align:center;"> top.freq </th>
-  </tr>
- </thead>
+<div style="border: 1px solid #ddd; padding: 1px; overflow-x: scroll; width:740px; ">
+<table class="table table-striped table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">sound.files</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">channel</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">selec</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">start</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">end</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">bottom.freq</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">top.freq</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:center;"> Phae.long1.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1.169355 </td>
-   <td style="text-align:center;"> 1.342388 </td>
-   <td style="text-align:center;"> 2.22011 </td>
-   <td style="text-align:center;"> 8.60438 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Phae.long1.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> 2.158408 </td>
-   <td style="text-align:center;"> 2.321457 </td>
-   <td style="text-align:center;"> 2.16944 </td>
-   <td style="text-align:center;"> 8.80705 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Phae.long1.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 3 </td>
-   <td style="text-align:center;"> 0.343337 </td>
-   <td style="text-align:center;"> 0.518255 </td>
-   <td style="text-align:center;"> 2.21829 </td>
-   <td style="text-align:center;"> 8.75660 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Phae.long2.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0.159598 </td>
-   <td style="text-align:center;"> 0.292169 </td>
-   <td style="text-align:center;"> 2.31686 </td>
-   <td style="text-align:center;"> 8.82232 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Phae.long2.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> 1.457058 </td>
-   <td style="text-align:center;"> 1.583209 </td>
-   <td style="text-align:center;"> 2.28401 </td>
-   <td style="text-align:center;"> 8.88803 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Phae.long3.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0.626552 </td>
-   <td style="text-align:center;"> 0.757771 </td>
-   <td style="text-align:center;"> 3.00683 </td>
-   <td style="text-align:center;"> 8.82232 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Phae.long3.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> 1.974213 </td>
-   <td style="text-align:center;"> 2.104392 </td>
-   <td style="text-align:center;"> 2.77684 </td>
-   <td style="text-align:center;"> 8.88803 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Phae.long3.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 3 </td>
-   <td style="text-align:center;"> 0.123364 </td>
-   <td style="text-align:center;"> 0.254581 </td>
-   <td style="text-align:center;"> 2.31686 </td>
-   <td style="text-align:center;"> 9.31515 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Phae.long4.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1.516812 </td>
-   <td style="text-align:center;"> 1.662236 </td>
-   <td style="text-align:center;"> 2.51400 </td>
-   <td style="text-align:center;"> 9.21659 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Phae.long4.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> 2.932692 </td>
-   <td style="text-align:center;"> 3.076878 </td>
-   <td style="text-align:center;"> 2.57971 </td>
-   <td style="text-align:center;"> 10.23512 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Phae.long4.wav </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 3 </td>
-   <td style="text-align:center;"> 0.145398 </td>
-   <td style="text-align:center;"> 0.290497 </td>
-   <td style="text-align:center;"> 2.57971 </td>
-   <td style="text-align:center;"> 9.74228 </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: center;">Phae.long1.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1.169355</td>
+<td style="text-align: center;">1.342388</td>
+<td style="text-align: center;">2.22011</td>
+<td style="text-align: center;">8.60438</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Phae.long1.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2.158408</td>
+<td style="text-align: center;">2.321457</td>
+<td style="text-align: center;">2.16944</td>
+<td style="text-align: center;">8.80705</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Phae.long1.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.343337</td>
+<td style="text-align: center;">0.518255</td>
+<td style="text-align: center;">2.21829</td>
+<td style="text-align: center;">8.75660</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Phae.long2.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.159598</td>
+<td style="text-align: center;">0.292169</td>
+<td style="text-align: center;">2.31686</td>
+<td style="text-align: center;">8.82232</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Phae.long2.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1.457058</td>
+<td style="text-align: center;">1.583209</td>
+<td style="text-align: center;">2.28401</td>
+<td style="text-align: center;">8.88803</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Phae.long3.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.626552</td>
+<td style="text-align: center;">0.757771</td>
+<td style="text-align: center;">3.00683</td>
+<td style="text-align: center;">8.82232</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Phae.long3.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1.974213</td>
+<td style="text-align: center;">2.104392</td>
+<td style="text-align: center;">2.77684</td>
+<td style="text-align: center;">8.88803</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Phae.long3.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.123364</td>
+<td style="text-align: center;">0.254581</td>
+<td style="text-align: center;">2.31686</td>
+<td style="text-align: center;">9.31515</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Phae.long4.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1.516812</td>
+<td style="text-align: center;">1.662236</td>
+<td style="text-align: center;">2.51400</td>
+<td style="text-align: center;">9.21659</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Phae.long4.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2.932692</td>
+<td style="text-align: center;">3.076878</td>
+<td style="text-align: center;">2.57971</td>
+<td style="text-align: center;">10.23512</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Phae.long4.wav</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.145398</td>
+<td style="text-align: center;">0.290497</td>
+<td style="text-align: center;">2.57971</td>
+<td style="text-align: center;">9.74228</td>
+</tr>
 </tbody>
-</table></div>
+</table>
+</div>
 
 </div>
 </div>
@@ -1170,121 +1155,122 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell">
 <div class="cell-output-display">
-
-<div style="border: 1px solid #ddd; padding: 1px; overflow-x: scroll; width:740px; "><table class="table table-striped" style="font-size: 14px; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;"> sound.files </th>
-   <th style="text-align:right;"> channel </th>
-   <th style="text-align:right;"> selec </th>
-   <th style="text-align:right;"> start </th>
-   <th style="text-align:right;"> end </th>
-   <th style="text-align:right;"> bottom.freq </th>
-   <th style="text-align:right;"> top.freq </th>
-  </tr>
- </thead>
+<div style="border: 1px solid #ddd; padding: 1px; overflow-x: scroll; width:740px; ">
+<table class="table table-striped table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">sound.files</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">channel</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">selec</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">start</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">end</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">bottom.freq</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">top.freq</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;"> Phae.long1.wav </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 1.169355 </td>
-   <td style="text-align:right;"> 1.342388 </td>
-   <td style="text-align:right;"> 2.22011 </td>
-   <td style="text-align:right;"> 8.60438 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Phae.long1.wav </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 2.158408 </td>
-   <td style="text-align:right;"> 2.321457 </td>
-   <td style="text-align:right;"> 2.16944 </td>
-   <td style="text-align:right;"> 8.80705 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Phae.long1.wav </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 0.343337 </td>
-   <td style="text-align:right;"> 0.518255 </td>
-   <td style="text-align:right;"> 2.21829 </td>
-   <td style="text-align:right;"> 8.75660 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Phae.long2.wav </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0.159598 </td>
-   <td style="text-align:right;"> 0.292169 </td>
-   <td style="text-align:right;"> 2.31686 </td>
-   <td style="text-align:right;"> 8.82232 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Phae.long2.wav </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 1.457058 </td>
-   <td style="text-align:right;"> 1.583209 </td>
-   <td style="text-align:right;"> 2.28401 </td>
-   <td style="text-align:right;"> 8.88803 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Phae.long3.wav </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0.626552 </td>
-   <td style="text-align:right;"> 0.757771 </td>
-   <td style="text-align:right;"> 3.00683 </td>
-   <td style="text-align:right;"> 8.82232 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Phae.long3.wav </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 1.974213 </td>
-   <td style="text-align:right;"> 2.104392 </td>
-   <td style="text-align:right;"> 2.77684 </td>
-   <td style="text-align:right;"> 8.88803 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Phae.long3.wav </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 0.123364 </td>
-   <td style="text-align:right;"> 0.254581 </td>
-   <td style="text-align:right;"> 2.31686 </td>
-   <td style="text-align:right;"> 9.31515 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Phae.long4.wav </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 1.516812 </td>
-   <td style="text-align:right;"> 1.662236 </td>
-   <td style="text-align:right;"> 2.51400 </td>
-   <td style="text-align:right;"> 9.21659 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Phae.long4.wav </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 2.932692 </td>
-   <td style="text-align:right;"> 3.076878 </td>
-   <td style="text-align:right;"> 2.57971 </td>
-   <td style="text-align:right;"> 10.23512 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Phae.long4.wav </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 0.145398 </td>
-   <td style="text-align:right;"> 0.290497 </td>
-   <td style="text-align:right;"> 2.57971 </td>
-   <td style="text-align:right;"> 9.74228 </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left;">Phae.long1.wav</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.169355</td>
+<td style="text-align: right;">1.342388</td>
+<td style="text-align: right;">2.22011</td>
+<td style="text-align: right;">8.60438</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Phae.long1.wav</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2.158408</td>
+<td style="text-align: right;">2.321457</td>
+<td style="text-align: right;">2.16944</td>
+<td style="text-align: right;">8.80705</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Phae.long1.wav</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.343337</td>
+<td style="text-align: right;">0.518255</td>
+<td style="text-align: right;">2.21829</td>
+<td style="text-align: right;">8.75660</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Phae.long2.wav</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.159598</td>
+<td style="text-align: right;">0.292169</td>
+<td style="text-align: right;">2.31686</td>
+<td style="text-align: right;">8.82232</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Phae.long2.wav</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1.457058</td>
+<td style="text-align: right;">1.583209</td>
+<td style="text-align: right;">2.28401</td>
+<td style="text-align: right;">8.88803</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Phae.long3.wav</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.626552</td>
+<td style="text-align: right;">0.757771</td>
+<td style="text-align: right;">3.00683</td>
+<td style="text-align: right;">8.82232</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Phae.long3.wav</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1.974213</td>
+<td style="text-align: right;">2.104392</td>
+<td style="text-align: right;">2.77684</td>
+<td style="text-align: right;">8.88803</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Phae.long3.wav</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.123364</td>
+<td style="text-align: right;">0.254581</td>
+<td style="text-align: right;">2.31686</td>
+<td style="text-align: right;">9.31515</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Phae.long4.wav</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.516812</td>
+<td style="text-align: right;">1.662236</td>
+<td style="text-align: right;">2.51400</td>
+<td style="text-align: right;">9.21659</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Phae.long4.wav</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2.932692</td>
+<td style="text-align: right;">3.076878</td>
+<td style="text-align: right;">2.57971</td>
+<td style="text-align: right;">10.23512</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Phae.long4.wav</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.145398</td>
+<td style="text-align: right;">0.290497</td>
+<td style="text-align: right;">2.57971</td>
+<td style="text-align: right;">9.74228</td>
+</tr>
 </tbody>
-</table></div>
+</table>
+</div>
 
 </div>
 </div>
@@ -1315,9 +1301,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">extended =</span> <span class="cn">TRUE</span>, <span class="at">confirm.extended =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell">
-
-</div>
 <p>&nbsp;</p>
 <p>And that is. Now the acoustic data and the selection data (as well as the additional metadata) are all together in a single R object. The wave objects contained in the <em>extended_selection_table</em> can be easily extracted using the <strong>warbleR</strong> function <a href="https://marce10.github.io/warbleR/reference/read_sound_file.html">read_sound_file</a>:</p>
 <div class="cell">
@@ -1344,7 +1327,7 @@ Wave Object
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>URL <span class="ot">&lt;-</span> <span class="st">"https://github.com/maRce10/OTS_BIR_2023/raw/master/data/extended.selection.table.araya-salas.et.al.2017.bioacoustics.100.sels.rds"</span></span>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>URL <span class="ot">&lt;-</span> <span class="st">"https://github.com/maRce10/NMSU_BIR_2024/raw/master/data/extended.selection.table.araya-salas.et.al.2017.bioacoustics.100.sels.rds"</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">gzcon</span>(<span class="fu">url</span>(URL)))</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1378,7 +1361,13 @@ Wave Object
 <span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="annotations_files/figure-html/extn.sel_21-1.png" class="img-fluid" width="750"></p>
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="quarto-figure quarto-figure-center anchored" width="750">
+<figure class="quarto-float quarto-float-fig figure">
+<div>
+<img src="annotations_files/figure-html/extn.sel_21-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="img-fluid figure-img" width="750">
+</div>
+</figure>
+</div>
 </div>
 </div>
 <p>&nbsp;</p>
@@ -1405,38 +1394,40 @@ Wave Object
 <p><font size="4">Session information</font></p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.2.2 Patched (2022-11-10 r83330)
+<pre><code>R version 4.3.1 (2023-06-16)
 Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 20.04.5 LTS
+Running under: Ubuntu 20.04.2 LTS
 
 Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
-LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
+BLAS:   /usr/lib/x86_64-linux-gnu/atlas/libblas.so.3.10.3 
+LAPACK: /usr/lib/x86_64-linux-gnu/atlas/liblapack.so.3.10.3;  LAPACK version 3.9.0
 
 locale:
- [1] LC_CTYPE=es_ES.UTF-8       LC_NUMERIC=C               LC_TIME=es_CR.UTF-8       
- [4] LC_COLLATE=es_ES.UTF-8     LC_MONETARY=es_CR.UTF-8    LC_MESSAGES=es_ES.UTF-8   
+ [1] LC_CTYPE=pt_BR.UTF-8       LC_NUMERIC=C               LC_TIME=es_CR.UTF-8       
+ [4] LC_COLLATE=pt_BR.UTF-8     LC_MONETARY=es_CR.UTF-8    LC_MESSAGES=pt_BR.UTF-8   
  [7] LC_PAPER=es_CR.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
 [10] LC_TELEPHONE=C             LC_MEASUREMENT=es_CR.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: America/Costa_Rica
+tzcode source: system (glibc)
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] kableExtra_1.3.4   warbleR_1.1.28     NatureSounds_1.0.4 knitr_1.42         seewave_2.2.0     
-[6] tuneR_1.4.4       
+[1] kableExtra_1.4.0   warbleR_1.1.30     NatureSounds_1.0.4 knitr_1.45         seewave_2.2.3     
+[6] tuneR_1.4.6       
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.10       compiler_4.2.2    highr_0.10        bitops_1.0-7      tools_4.2.2      
- [6] testthat_3.1.8    digest_0.6.31     jsonlite_1.8.4    evaluate_0.21     lifecycle_1.0.3  
-[11] viridisLite_0.4.2 fftw_1.0-7        rlang_1.1.1       cli_3.6.1         rstudioapi_0.14  
-[16] yaml_2.3.7        parallel_4.2.2    xfun_0.39         fastmap_1.1.1     httr_1.4.6       
-[21] stringr_1.5.0     xml2_1.3.4        htmlwidgets_1.5.4 vctrs_0.6.2       systemfonts_1.0.4
-[26] webshot_0.5.4     svglite_2.1.0     glue_1.6.2        R6_2.5.1          dtw_1.23-1       
-[31] pbapply_1.7-0     rmarkdown_2.21    magrittr_2.0.3    scales_1.2.1      htmltools_0.5.5  
-[36] MASS_7.3-58.2     rvest_1.0.3       colorspace_2.1-0  proxy_0.4-27      stringi_1.7.12   
-[41] RCurl_1.98-1.12   signal_0.7-7      munsell_0.5.0     rjson_0.2.21      Rraven_1.0.14    
-[46] brio_1.1.3       </code></pre>
+ [1] jsonlite_1.8.8    compiler_4.3.1    rjson_0.2.21      highr_0.10        brio_1.1.4       
+ [6] Rcpp_1.0.12       xml2_1.3.6        stringr_1.5.1     bitops_1.0-7      parallel_4.3.1   
+[11] signal_1.8-0      systemfonts_1.0.5 scales_1.3.0      yaml_2.3.8        fastmap_1.1.1    
+[16] R6_2.5.1          dtw_1.23-1        htmlwidgets_1.6.4 MASS_7.3-60       munsell_0.5.0    
+[21] svglite_2.1.3     Rraven_1.0.14     rlang_1.1.3       testthat_3.2.1    stringi_1.8.3    
+[26] xfun_0.41         fftw_1.0-8        viridisLite_0.4.2 cli_3.6.2         magrittr_2.0.3   
+[31] digest_0.6.34     rstudioapi_0.15.0 pbapply_1.7-2     lifecycle_1.0.4   vctrs_0.6.5      
+[36] proxy_0.4-27      evaluate_0.23     glue_1.7.0        RCurl_1.98-1.14   colorspace_2.1-0 
+[41] rmarkdown_2.25    tools_4.3.1       htmltools_0.5.7  </code></pre>
 </div>
 </div>
 
@@ -1473,9 +1464,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1562,10 +1567,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1575,8 +1579,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1591,6 +1604,194 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1629,12 +1830,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp(/https:\/\/marce10\.github\.io\/OTS_BIR_2023\//);
+      var filterRegex = new RegExp("https:\/\/marce10\.github\.io\/NMSU_BIR_2024\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
-    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -1681,18 +1882,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE}</span></span>
 <span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">digits=</span><span class="dv">3</span>)</span>
+<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a><span class="in">options(digits=3)</span></span>
 <span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a>start <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">4</span>, <span class="at">mean =</span> <span class="dv">3</span>)</span>
-<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a>end <span class="ot">&lt;-</span> start <span class="sc">+</span> <span class="fu">abs</span>(<span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">4</span>, <span class="at">mean =</span> <span class="dv">1</span>))</span>
+<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a><span class="in">start &lt;- rnorm(n = 4, mean = 3)</span></span>
+<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a><span class="in">end &lt;- start + abs(rnorm(n = 4, mean = 1))</span></span>
 <span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a>cd.anot <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sound.files =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"sound_file_1.wav"</span>, <span class="st">"sound_file_2.wav"</span>), <span class="at">each =</span> <span class="dv">2</span>), start, end) </span>
+<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a><span class="in">cd.anot &lt;- data.frame(sound.files = rep(c("sound_file_1.wav", "sound_file_2.wav"), each = 2), start, end) </span></span>
 <span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> knitr<span class="sc">::</span><span class="fu">kable</span>(cd.anot, <span class="at">align =</span> <span class="st">"c"</span>, <span class="at">row.names =</span> F,  <span class="at">format =</span> <span class="st">"html"</span>)</span>
+<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- knitr::kable(cd.anot, align = "c", row.names = F,  format = "html")</span></span>
 <span id="cb27-44"><a href="#cb27-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-45"><a href="#cb27-45" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(kbl, <span class="at">bootstrap_options =</span> <span class="st">"striped"</span>, <span class="at">font_size =</span> <span class="dv">14</span>)</span>
+<span id="cb27-45"><a href="#cb27-45" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;-  kableExtra::kable_styling(kbl, bootstrap_options = "striped", font_size = 14)</span></span>
 <span id="cb27-46"><a href="#cb27-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-47"><a href="#cb27-47" aria-hidden="true" tabindex="-1"></a>kbl</span>
+<span id="cb27-47"><a href="#cb27-47" aria-hidden="true" tabindex="-1"></a><span class="in">kbl</span></span>
 <span id="cb27-48"><a href="#cb27-48" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-49"><a href="#cb27-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-50"><a href="#cb27-50" aria-hidden="true" tabindex="-1"></a></span>
@@ -1702,16 +1903,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-54"><a href="#cb27-54" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-55"><a href="#cb27-55" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE}</span></span>
 <span id="cb27-56"><a href="#cb27-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-57"><a href="#cb27-57" aria-hidden="true" tabindex="-1"></a>cd.anot<span class="sc">$</span>bottom.freq <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">4</span>, <span class="at">mean =</span> <span class="dv">5</span>)</span>
-<span id="cb27-58"><a href="#cb27-58" aria-hidden="true" tabindex="-1"></a>cd.anot<span class="sc">$</span>top.freq <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">4</span>, <span class="at">mean =</span> <span class="dv">9</span>)</span>
+<span id="cb27-57"><a href="#cb27-57" aria-hidden="true" tabindex="-1"></a><span class="in">cd.anot$bottom.freq &lt;- rnorm(n = 4, mean = 5)</span></span>
+<span id="cb27-58"><a href="#cb27-58" aria-hidden="true" tabindex="-1"></a><span class="in">cd.anot$top.freq &lt;- rnorm(n = 4, mean = 9)</span></span>
 <span id="cb27-59"><a href="#cb27-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-60"><a href="#cb27-60" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> knitr<span class="sc">::</span><span class="fu">kable</span>(cd.anot, <span class="at">align =</span> <span class="st">"c"</span>, <span class="at">row.names =</span> F,  <span class="at">format =</span> <span class="st">"html"</span>)</span>
+<span id="cb27-60"><a href="#cb27-60" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- knitr::kable(cd.anot, align = "c", row.names = F,  format = "html")</span></span>
 <span id="cb27-61"><a href="#cb27-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-62"><a href="#cb27-62" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span>  kableExtra<span class="sc">::</span><span class="fu">column_spec</span>(kbl, <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">background =</span> <span class="st">"#ccebff"</span>)</span>
+<span id="cb27-62"><a href="#cb27-62" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;-  kableExtra::column_spec(kbl, 4:5, background = "#ccebff")</span></span>
 <span id="cb27-63"><a href="#cb27-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-64"><a href="#cb27-64" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(kbl, <span class="at">bootstrap_options =</span> <span class="st">"striped"</span>, <span class="at">font_size =</span> <span class="dv">14</span>)</span>
+<span id="cb27-64"><a href="#cb27-64" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;-  kableExtra::kable_styling(kbl, bootstrap_options = "striped", font_size = 14)</span></span>
 <span id="cb27-65"><a href="#cb27-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-66"><a href="#cb27-66" aria-hidden="true" tabindex="-1"></a>kbl</span>
+<span id="cb27-66"><a href="#cb27-66" aria-hidden="true" tabindex="-1"></a><span class="in">kbl</span></span>
 <span id="cb27-67"><a href="#cb27-67" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-68"><a href="#cb27-68" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-69"><a href="#cb27-69" aria-hidden="true" tabindex="-1"></a></span>
@@ -1721,17 +1922,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-73"><a href="#cb27-73" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-74"><a href="#cb27-74" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE}</span></span>
 <span id="cb27-75"><a href="#cb27-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-76"><a href="#cb27-76" aria-hidden="true" tabindex="-1"></a>cd.anot<span class="sc">$</span>selec <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb27-76"><a href="#cb27-76" aria-hidden="true" tabindex="-1"></a><span class="in">cd.anot$selec &lt;- rep(1:2, 2)</span></span>
 <span id="cb27-77"><a href="#cb27-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-78"><a href="#cb27-78" aria-hidden="true" tabindex="-1"></a>cd.anot <span class="ot">&lt;-</span> cd.anot[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>)]</span>
+<span id="cb27-78"><a href="#cb27-78" aria-hidden="true" tabindex="-1"></a><span class="in">cd.anot &lt;- cd.anot[, c(1, 6, 2:5)]</span></span>
 <span id="cb27-79"><a href="#cb27-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-80"><a href="#cb27-80" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> knitr<span class="sc">::</span><span class="fu">kable</span>(cd.anot, <span class="at">align =</span> <span class="st">"c"</span>, <span class="at">row.names =</span> F,  <span class="at">format =</span> <span class="st">"html"</span>)</span>
+<span id="cb27-80"><a href="#cb27-80" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- knitr::kable(cd.anot, align = "c", row.names = F,  format = "html")</span></span>
 <span id="cb27-81"><a href="#cb27-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-82"><a href="#cb27-82" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span>  kableExtra<span class="sc">::</span><span class="fu">column_spec</span>(kbl, <span class="dv">2</span>, <span class="at">background =</span> <span class="st">"#ccebff"</span>)</span>
+<span id="cb27-82"><a href="#cb27-82" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;-  kableExtra::column_spec(kbl, 2, background = "#ccebff")</span></span>
 <span id="cb27-83"><a href="#cb27-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-84"><a href="#cb27-84" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(kbl, <span class="at">bootstrap_options =</span> <span class="st">"striped"</span>, <span class="at">font_size =</span> <span class="dv">14</span>)</span>
+<span id="cb27-84"><a href="#cb27-84" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;-  kableExtra::kable_styling(kbl, bootstrap_options = "striped", font_size = 14)</span></span>
 <span id="cb27-85"><a href="#cb27-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-86"><a href="#cb27-86" aria-hidden="true" tabindex="-1"></a>kbl</span>
+<span id="cb27-86"><a href="#cb27-86" aria-hidden="true" tabindex="-1"></a><span class="in">kbl</span></span>
 <span id="cb27-87"><a href="#cb27-87" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-88"><a href="#cb27-88" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-89"><a href="#cb27-89" aria-hidden="true" tabindex="-1"></a></span>
@@ -1739,17 +1940,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-91"><a href="#cb27-91" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-92"><a href="#cb27-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE}</span></span>
 <span id="cb27-93"><a href="#cb27-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-94"><a href="#cb27-94" aria-hidden="true" tabindex="-1"></a>cd.anot<span class="sc">$</span>channel <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">4</span>)</span>
+<span id="cb27-94"><a href="#cb27-94" aria-hidden="true" tabindex="-1"></a><span class="in">cd.anot$channel &lt;- rep(1, 4)</span></span>
 <span id="cb27-95"><a href="#cb27-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-96"><a href="#cb27-96" aria-hidden="true" tabindex="-1"></a>cd.anot <span class="ot">&lt;-</span> cd.anot[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>)]</span>
+<span id="cb27-96"><a href="#cb27-96" aria-hidden="true" tabindex="-1"></a><span class="in">cd.anot &lt;- cd.anot[, c(1, 7, 2:6)]</span></span>
 <span id="cb27-97"><a href="#cb27-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-98"><a href="#cb27-98" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> knitr<span class="sc">::</span><span class="fu">kable</span>(cd.anot, <span class="at">align =</span> <span class="st">"c"</span>, <span class="at">row.names =</span> F,  <span class="at">format =</span> <span class="st">"html"</span>)</span>
+<span id="cb27-98"><a href="#cb27-98" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- knitr::kable(cd.anot, align = "c", row.names = F,  format = "html")</span></span>
 <span id="cb27-99"><a href="#cb27-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-100"><a href="#cb27-100" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span>  kableExtra<span class="sc">::</span><span class="fu">column_spec</span>(kbl, <span class="dv">2</span>, <span class="at">background =</span> <span class="st">"#ccebff"</span>)</span>
+<span id="cb27-100"><a href="#cb27-100" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;-  kableExtra::column_spec(kbl, 2, background = "#ccebff")</span></span>
 <span id="cb27-101"><a href="#cb27-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-102"><a href="#cb27-102" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(kbl, <span class="at">bootstrap_options =</span> <span class="st">"striped"</span>, <span class="at">font_size =</span> <span class="dv">14</span>)</span>
+<span id="cb27-102"><a href="#cb27-102" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;-  kableExtra::kable_styling(kbl, bootstrap_options = "striped", font_size = 14)</span></span>
 <span id="cb27-103"><a href="#cb27-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-104"><a href="#cb27-104" aria-hidden="true" tabindex="-1"></a>kbl</span>
+<span id="cb27-104"><a href="#cb27-104" aria-hidden="true" tabindex="-1"></a><span class="in">kbl</span></span>
 <span id="cb27-105"><a href="#cb27-105" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-106"><a href="#cb27-106" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-107"><a href="#cb27-107" aria-hidden="true" tabindex="-1"></a></span>
@@ -1765,7 +1966,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-117"><a href="#cb27-117" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-118"><a href="#cb27-118" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb27-119"><a href="#cb27-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-120"><a href="#cb27-120" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">"images/Raven.selec.gif"</span> <span class="er">alt</span><span class="ot">=</span><span class="st">"Raven"</span> <span class="er">width</span><span class="ot">=</span><span class="st">"820"</span><span class="kw">/&gt;</span></span>
+<span id="cb27-120"><a href="#cb27-120" aria-hidden="true" tabindex="-1"></a>&lt;img src="images/Raven.selec.gif" alt="Raven" width="820"/&gt;</span>
 <span id="cb27-121"><a href="#cb27-121" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-122"><a href="#cb27-122" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb27-123"><a href="#cb27-123" aria-hidden="true" tabindex="-1"></a></span>
@@ -1773,7 +1974,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-125"><a href="#cb27-125" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-126"><a href="#cb27-126" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb27-127"><a href="#cb27-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-128"><a href="#cb27-128" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">"images/Raven.open.st.gif"</span> <span class="er">alt</span><span class="ot">=</span><span class="st">"Raven"</span> <span class="er">width</span><span class="ot">=</span><span class="st">"820"</span><span class="kw">/&gt;</span></span>
+<span id="cb27-128"><a href="#cb27-128" aria-hidden="true" tabindex="-1"></a>&lt;img src="images/Raven.open.st.gif" alt="Raven" width="820"/&gt;</span>
 <span id="cb27-129"><a href="#cb27-129" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-130"><a href="#cb27-130" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb27-131"><a href="#cb27-131" aria-hidden="true" tabindex="-1"></a></span>
@@ -1781,7 +1982,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-133"><a href="#cb27-133" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-134"><a href="#cb27-134" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb27-135"><a href="#cb27-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-136"><a href="#cb27-136" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">"images/Raven.create.sst.gif"</span> <span class="er">alt</span><span class="ot">=</span><span class="st">"Raven"</span> <span class="er">width</span><span class="ot">=</span><span class="st">"820"</span><span class="kw">/&gt;</span></span>
+<span id="cb27-136"><a href="#cb27-136" aria-hidden="true" tabindex="-1"></a>&lt;img src="images/Raven.create.sst.gif" alt="Raven" width="820"/&gt;</span>
 <span id="cb27-137"><a href="#cb27-137" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-138"><a href="#cb27-138" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb27-139"><a href="#cb27-139" aria-hidden="true" tabindex="-1"></a></span>
@@ -1789,7 +1990,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-141"><a href="#cb27-141" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-142"><a href="#cb27-142" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb27-143"><a href="#cb27-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-144"><a href="#cb27-144" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">"images/Raven.open.sst.gif"</span> <span class="er">alt</span><span class="ot">=</span><span class="st">"Raven"</span> <span class="er">width</span><span class="ot">=</span><span class="st">"820"</span><span class="kw">/&gt;</span></span>
+<span id="cb27-144"><a href="#cb27-144" aria-hidden="true" tabindex="-1"></a>&lt;img src="images/Raven.open.sst.gif" alt="Raven" width="820"/&gt;</span>
 <span id="cb27-145"><a href="#cb27-145" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-146"><a href="#cb27-146" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb27-147"><a href="#cb27-147" aria-hidden="true" tabindex="-1"></a></span>
@@ -1815,7 +2016,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-167"><a href="#cb27-167" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-168"><a href="#cb27-168" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=T, echo=T}</span></span>
 <span id="cb27-169"><a href="#cb27-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-170"><a href="#cb27-170" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">path =</span> <span class="st">"./examples"</span>, <span class="at">pattern =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">.txt$"</span>)</span>
+<span id="cb27-170"><a href="#cb27-170" aria-hidden="true" tabindex="-1"></a><span class="in">list.files(path = "./examples", pattern = "\\.txt$")</span></span>
 <span id="cb27-171"><a href="#cb27-171" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-172"><a href="#cb27-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-173"><a href="#cb27-173" aria-hidden="true" tabindex="-1"></a></span>
@@ -1825,24 +2026,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-177"><a href="#cb27-177" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-178"><a href="#cb27-178" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
 <span id="cb27-179"><a href="#cb27-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-180"><a href="#cb27-180" aria-hidden="true" tabindex="-1"></a>rvn.dat <span class="ot">&lt;-</span> <span class="fu">imp_raven</span>(<span class="at">all.data =</span> <span class="cn">TRUE</span>, <span class="at">path =</span> <span class="st">"./examples"</span>)</span>
+<span id="cb27-180"><a href="#cb27-180" aria-hidden="true" tabindex="-1"></a><span class="in">rvn.dat &lt;- imp_raven(all.data = TRUE, path = "./examples")</span></span>
 <span id="cb27-181"><a href="#cb27-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-182"><a href="#cb27-182" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rvn.dat)</span>
+<span id="cb27-182"><a href="#cb27-182" aria-hidden="true" tabindex="-1"></a><span class="in">head(rvn.dat)</span></span>
 <span id="cb27-183"><a href="#cb27-183" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-184"><a href="#cb27-184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-185"><a href="#cb27-185" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-186"><a href="#cb27-186" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=TRUE, echo=F, message=F}</span></span>
 <span id="cb27-187"><a href="#cb27-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-188"><a href="#cb27-188" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Rraven)</span>
+<span id="cb27-188"><a href="#cb27-188" aria-hidden="true" tabindex="-1"></a><span class="in">library(Rraven)</span></span>
 <span id="cb27-189"><a href="#cb27-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-190"><a href="#cb27-190" aria-hidden="true" tabindex="-1"></a>rvn.dat <span class="ot">&lt;-</span> <span class="fu">imp_raven</span>(<span class="at">all.data =</span> <span class="cn">TRUE</span>, <span class="at">path =</span> <span class="st">"./examples"</span>)</span>
+<span id="cb27-190"><a href="#cb27-190" aria-hidden="true" tabindex="-1"></a><span class="in">rvn.dat &lt;- imp_raven(all.data = TRUE, path = "./examples")</span></span>
 <span id="cb27-191"><a href="#cb27-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-192"><a href="#cb27-192" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(rvn.dat), <span class="at">align =</span> <span class="st">"c"</span>, <span class="at">row.names =</span> F, <span class="at">escape =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb27-192"><a href="#cb27-192" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- knitr::kable(head(rvn.dat), align = "c", row.names = F, escape = FALSE) </span></span>
 <span id="cb27-193"><a href="#cb27-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-194"><a href="#cb27-194" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(kbl, <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">font_size =</span> <span class="dv">11</span>)</span>
+<span id="cb27-194"><a href="#cb27-194" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- kableExtra::kable_styling(kbl, bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 11)</span></span>
 <span id="cb27-195"><a href="#cb27-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-196"><a href="#cb27-196" aria-hidden="true" tabindex="-1"></a>kableExtra<span class="sc">::</span><span class="fu">scroll_box</span>(kbl, <span class="at">width =</span> <span class="st">"808px"</span>,</span>
-<span id="cb27-197"><a href="#cb27-197" aria-hidden="true" tabindex="-1"></a><span class="at">box_css =</span> <span class="st">"border: 1px solid #ddd; padding: 5px; "</span>, <span class="at">extra_css =</span> <span class="cn">NULL</span>)</span>
+<span id="cb27-196"><a href="#cb27-196" aria-hidden="true" tabindex="-1"></a><span class="in">kableExtra::scroll_box(kbl, width = "808px",</span></span>
+<span id="cb27-197"><a href="#cb27-197" aria-hidden="true" tabindex="-1"></a><span class="in">box_css = "border: 1px solid #ddd; padding: 5px; ", extra_css = NULL)</span></span>
 <span id="cb27-198"><a href="#cb27-198" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-199"><a href="#cb27-199" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-200"><a href="#cb27-200" aria-hidden="true" tabindex="-1"></a></span>
@@ -1852,7 +2053,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-204"><a href="#cb27-204" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-205"><a href="#cb27-205" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
 <span id="cb27-206"><a href="#cb27-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-207"><a href="#cb27-207" aria-hidden="true" tabindex="-1"></a>rvn.dat <span class="ot">&lt;-</span> <span class="fu">imp_raven</span>(<span class="at">all.data =</span> <span class="cn">TRUE</span>, <span class="at">waveform =</span> <span class="cn">TRUE</span>, <span class="at">path =</span> <span class="st">"./examples"</span>)</span>
+<span id="cb27-207"><a href="#cb27-207" aria-hidden="true" tabindex="-1"></a><span class="in">rvn.dat &lt;- imp_raven(all.data = TRUE, waveform = TRUE, path = "./examples")</span></span>
 <span id="cb27-208"><a href="#cb27-208" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-209"><a href="#cb27-209" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-210"><a href="#cb27-210" aria-hidden="true" tabindex="-1"></a></span>
@@ -1862,22 +2063,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-214"><a href="#cb27-214" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-215"><a href="#cb27-215" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
 <span id="cb27-216"><a href="#cb27-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-217"><a href="#cb27-217" aria-hidden="true" tabindex="-1"></a>rvn.dat <span class="ot">&lt;-</span> <span class="fu">imp_raven</span>(<span class="at">all.data =</span> <span class="cn">FALSE</span>, <span class="at">freq.cols =</span> <span class="cn">TRUE</span>, <span class="at">path =</span> <span class="st">"./examples"</span>, <span class="at">warbler.format =</span> <span class="cn">TRUE</span>, <span class="at">all.data =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb27-217"><a href="#cb27-217" aria-hidden="true" tabindex="-1"></a><span class="in">rvn.dat &lt;- imp_raven(all.data = FALSE, freq.cols = TRUE, path = "./examples", warbler.format = TRUE, all.data = FALSE)</span></span>
 <span id="cb27-218"><a href="#cb27-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-219"><a href="#cb27-219" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rvn.dat)</span>
+<span id="cb27-219"><a href="#cb27-219" aria-hidden="true" tabindex="-1"></a><span class="in">head(rvn.dat)</span></span>
 <span id="cb27-220"><a href="#cb27-220" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-221"><a href="#cb27-221" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-222"><a href="#cb27-222" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-223"><a href="#cb27-223" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=TRUE, echo=FALSE}</span></span>
 <span id="cb27-224"><a href="#cb27-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-225"><a href="#cb27-225" aria-hidden="true" tabindex="-1"></a>rvn.dat <span class="ot">&lt;-</span> <span class="fu">imp_raven</span>(<span class="at">warbler.format =</span> <span class="cn">TRUE</span>, <span class="at">all.data =</span> <span class="cn">FALSE</span>, <span class="at">freq.cols =</span> <span class="cn">TRUE</span>, <span class="at">path =</span> <span class="st">"./examples/"</span>)</span>
+<span id="cb27-225"><a href="#cb27-225" aria-hidden="true" tabindex="-1"></a><span class="in">rvn.dat &lt;- imp_raven(warbler.format = TRUE, all.data = FALSE, freq.cols = TRUE, path = "./examples/")</span></span>
 <span id="cb27-226"><a href="#cb27-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-227"><a href="#cb27-227" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(rvn.dat), <span class="at">align =</span> <span class="st">"c"</span>, <span class="at">row.names =</span> F, <span class="at">escape =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb27-227"><a href="#cb27-227" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- knitr::kable(head(rvn.dat), align = "c", row.names = F, escape = FALSE)</span></span>
 <span id="cb27-228"><a href="#cb27-228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-229"><a href="#cb27-229" aria-hidden="true" tabindex="-1"></a>kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(kbl, <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>), <span class="at">full_width =</span> <span class="cn">TRUE</span>, <span class="at">font_size =</span> <span class="dv">12</span>)</span>
+<span id="cb27-229"><a href="#cb27-229" aria-hidden="true" tabindex="-1"></a><span class="in">kableExtra::kable_styling(kbl, bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = TRUE, font_size = 12)</span></span>
 <span id="cb27-230"><a href="#cb27-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-231"><a href="#cb27-231" aria-hidden="true" tabindex="-1"></a><span class="co"># kableExtra::scroll_box(kbl, width = "808",</span></span>
-<span id="cb27-232"><a href="#cb27-232" aria-hidden="true" tabindex="-1"></a><span class="co"># box_css = "border: 1px solid #ddd; padding: 5px; ", extra_css = NULL)</span></span>
+<span id="cb27-231"><a href="#cb27-231" aria-hidden="true" tabindex="-1"></a><span class="in"># kableExtra::scroll_box(kbl, width = "808",</span></span>
+<span id="cb27-232"><a href="#cb27-232" aria-hidden="true" tabindex="-1"></a><span class="in"># box_css = "border: 1px solid #ddd; padding: 5px; ", extra_css = NULL)</span></span>
 <span id="cb27-233"><a href="#cb27-233" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-234"><a href="#cb27-234" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-235"><a href="#cb27-235" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
@@ -1890,36 +2091,36 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-242"><a href="#cb27-242" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-243"><a href="#cb27-243" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F, echo = T}</span></span>
 <span id="cb27-244"><a href="#cb27-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-245"><a href="#cb27-245" aria-hidden="true" tabindex="-1"></a><span class="co"># para simplificar solo las primeras 7 columnas</span></span>
-<span id="cb27-246"><a href="#cb27-246" aria-hidden="true" tabindex="-1"></a>st1 <span class="ot">&lt;-</span> rvn.dat[ ,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>]</span>
+<span id="cb27-245"><a href="#cb27-245" aria-hidden="true" tabindex="-1"></a><span class="in"># para simplificar solo las primeras 7 columnas</span></span>
+<span id="cb27-246"><a href="#cb27-246" aria-hidden="true" tabindex="-1"></a><span class="in">st1 &lt;- rvn.dat[ ,1:7]</span></span>
 <span id="cb27-247"><a href="#cb27-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-248"><a href="#cb27-248" aria-hidden="true" tabindex="-1"></a>st1</span>
+<span id="cb27-248"><a href="#cb27-248" aria-hidden="true" tabindex="-1"></a><span class="in">st1</span></span>
 <span id="cb27-249"><a href="#cb27-249" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-250"><a href="#cb27-250" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-251"><a href="#cb27-251" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = T, echo = F}</span></span>
 <span id="cb27-252"><a href="#cb27-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-253"><a href="#cb27-253" aria-hidden="true" tabindex="-1"></a><span class="co">#to simplify the example select a subset of the columns </span></span>
-<span id="cb27-254"><a href="#cb27-254" aria-hidden="true" tabindex="-1"></a>st1 <span class="ot">&lt;-</span> rvn.dat[ ,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>]</span>
+<span id="cb27-253"><a href="#cb27-253" aria-hidden="true" tabindex="-1"></a><span class="in">#to simplify the example select a subset of the columns </span></span>
+<span id="cb27-254"><a href="#cb27-254" aria-hidden="true" tabindex="-1"></a><span class="in">st1 &lt;- rvn.dat[ ,1:7]</span></span>
 <span id="cb27-255"><a href="#cb27-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-256"><a href="#cb27-256" aria-hidden="true" tabindex="-1"></a><span class="co">#check original column names</span></span>
-<span id="cb27-257"><a href="#cb27-257" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> knitr<span class="sc">::</span><span class="fu">kable</span>(st1, <span class="at">align =</span> <span class="st">"c"</span>, <span class="at">row.names =</span> F, <span class="at">escape =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb27-256"><a href="#cb27-256" aria-hidden="true" tabindex="-1"></a><span class="in">#check original column names</span></span>
+<span id="cb27-257"><a href="#cb27-257" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- knitr::kable(st1, align = "c", row.names = F, escape = FALSE) </span></span>
 <span id="cb27-258"><a href="#cb27-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-259"><a href="#cb27-259" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(kbl, <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">font_size =</span> <span class="dv">14</span>)</span>
+<span id="cb27-259"><a href="#cb27-259" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- kableExtra::kable_styling(kbl, bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)</span></span>
 <span id="cb27-260"><a href="#cb27-260" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-261"><a href="#cb27-261" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-262"><a href="#cb27-262" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-263"><a href="#cb27-263" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F, echo = T}</span></span>
 <span id="cb27-264"><a href="#cb27-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-265"><a href="#cb27-265" aria-hidden="true" tabindex="-1"></a><span class="fu">relabel_colms</span>(st1)</span>
+<span id="cb27-265"><a href="#cb27-265" aria-hidden="true" tabindex="-1"></a><span class="in">relabel_colms(st1)</span></span>
 <span id="cb27-266"><a href="#cb27-266" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-267"><a href="#cb27-267" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-268"><a href="#cb27-268" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-269"><a href="#cb27-269" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = T, echo = F}</span></span>
-<span id="cb27-270"><a href="#cb27-270" aria-hidden="true" tabindex="-1"></a>rc <span class="ot">&lt;-</span> <span class="fu">relabel_colms</span>(st1)</span>
+<span id="cb27-270"><a href="#cb27-270" aria-hidden="true" tabindex="-1"></a><span class="in">rc &lt;- relabel_colms(st1)</span></span>
 <span id="cb27-271"><a href="#cb27-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-272"><a href="#cb27-272" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> knitr<span class="sc">::</span><span class="fu">kable</span>(rc, <span class="at">align =</span> <span class="st">"c"</span>, <span class="at">row.names =</span> F, <span class="at">escape =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb27-272"><a href="#cb27-272" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- knitr::kable(rc, align = "c", row.names = F, escape = FALSE) </span></span>
 <span id="cb27-273"><a href="#cb27-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-274"><a href="#cb27-274" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(kbl, <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">font_size =</span> <span class="dv">14</span>)</span>
+<span id="cb27-274"><a href="#cb27-274" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- kableExtra::kable_styling(kbl, bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)</span></span>
 <span id="cb27-275"><a href="#cb27-275" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-276"><a href="#cb27-276" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-277"><a href="#cb27-277" aria-hidden="true" tabindex="-1"></a></span>
@@ -1929,19 +2130,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-281"><a href="#cb27-281" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-282"><a href="#cb27-282" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F, echo = T}</span></span>
 <span id="cb27-283"><a href="#cb27-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-284"><a href="#cb27-284" aria-hidden="true" tabindex="-1"></a><span class="fu">relabel_colms</span>(st1, <span class="at">extra.cols.name =</span> <span class="st">"View"</span>,</span>
-<span id="cb27-285"><a href="#cb27-285" aria-hidden="true" tabindex="-1"></a>              <span class="at">extra.cols.new.name =</span> <span class="st">"Raven view"</span>)</span>
+<span id="cb27-284"><a href="#cb27-284" aria-hidden="true" tabindex="-1"></a><span class="in">relabel_colms(st1, extra.cols.name = "View",</span></span>
+<span id="cb27-285"><a href="#cb27-285" aria-hidden="true" tabindex="-1"></a><span class="in">              extra.cols.new.name = "Raven view")</span></span>
 <span id="cb27-286"><a href="#cb27-286" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-287"><a href="#cb27-287" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-288"><a href="#cb27-288" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-289"><a href="#cb27-289" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = T, echo = F}</span></span>
 <span id="cb27-290"><a href="#cb27-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-291"><a href="#cb27-291" aria-hidden="true" tabindex="-1"></a>rc <span class="ot">&lt;-</span> <span class="fu">relabel_colms</span>(st1, <span class="at">extra.cols.name =</span> <span class="st">"View"</span>,</span>
-<span id="cb27-292"><a href="#cb27-292" aria-hidden="true" tabindex="-1"></a> <span class="st">"Raven view"</span>)</span>
+<span id="cb27-291"><a href="#cb27-291" aria-hidden="true" tabindex="-1"></a><span class="in">rc &lt;- relabel_colms(st1, extra.cols.name = "View",</span></span>
+<span id="cb27-292"><a href="#cb27-292" aria-hidden="true" tabindex="-1"></a><span class="in"> "Raven view")</span></span>
 <span id="cb27-293"><a href="#cb27-293" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-294"><a href="#cb27-294" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> knitr<span class="sc">::</span><span class="fu">kable</span>(rc, <span class="at">align =</span> <span class="st">"c"</span>, <span class="at">row.names =</span> F, <span class="at">escape =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb27-294"><a href="#cb27-294" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- knitr::kable(rc, align = "c", row.names = F, escape = FALSE) </span></span>
 <span id="cb27-295"><a href="#cb27-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-296"><a href="#cb27-296" aria-hidden="true" tabindex="-1"></a>kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(kbl, <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">font_size =</span> <span class="dv">14</span>)</span>
+<span id="cb27-296"><a href="#cb27-296" aria-hidden="true" tabindex="-1"></a><span class="in">kableExtra::kable_styling(kbl, bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 14)</span></span>
 <span id="cb27-297"><a href="#cb27-297" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-298"><a href="#cb27-298" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-299"><a href="#cb27-299" aria-hidden="true" tabindex="-1"></a></span>
@@ -1955,9 +2156,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-307"><a href="#cb27-307" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-308"><a href="#cb27-308" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE, echo=T}</span></span>
 <span id="cb27-309"><a href="#cb27-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-310"><a href="#cb27-310" aria-hidden="true" tabindex="-1"></a>st1 <span class="ot">&lt;-</span> lbh_selec_table[lbh_selec_table<span class="sc">$</span>sound.files <span class="sc">==</span> <span class="st">"Phae.long1.wav"</span>,]</span>
+<span id="cb27-310"><a href="#cb27-310" aria-hidden="true" tabindex="-1"></a><span class="in">st1 &lt;- lbh_selec_table[lbh_selec_table$sound.files == "Phae.long1.wav",]</span></span>
 <span id="cb27-311"><a href="#cb27-311" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-312"><a href="#cb27-312" aria-hidden="true" tabindex="-1"></a><span class="fu">exp_raven</span>(st1, <span class="at">file.name =</span> <span class="st">"Phaethornis 1"</span>, <span class="at">khz.to.hz =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb27-312"><a href="#cb27-312" aria-hidden="true" tabindex="-1"></a><span class="in">exp_raven(st1, file.name = "Phaethornis 1", khz.to.hz = TRUE)</span></span>
 <span id="cb27-313"><a href="#cb27-313" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-314"><a href="#cb27-314" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-315"><a href="#cb27-315" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
@@ -1966,9 +2167,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-318"><a href="#cb27-318" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-319"><a href="#cb27-319" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE, echo=T}</span></span>
 <span id="cb27-320"><a href="#cb27-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-321"><a href="#cb27-321" aria-hidden="true" tabindex="-1"></a>st1 <span class="ot">&lt;-</span> lbh_selec_table[lbh_selec_table<span class="sc">$</span>sound.files <span class="sc">==</span> <span class="st">"Phae.long1.wav"</span>,]</span>
+<span id="cb27-321"><a href="#cb27-321" aria-hidden="true" tabindex="-1"></a><span class="in">st1 &lt;- lbh_selec_table[lbh_selec_table$sound.files == "Phae.long1.wav",]</span></span>
 <span id="cb27-322"><a href="#cb27-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-323"><a href="#cb27-323" aria-hidden="true" tabindex="-1"></a><span class="fu">exp_raven</span>(st1, <span class="at">file.name =</span> <span class="st">"Phaethornis 1"</span>, <span class="at">khz.to.hz =</span> <span class="cn">TRUE</span>, <span class="at">sound.file.path =</span> <span class="st">"./examples"</span>)</span>
+<span id="cb27-323"><a href="#cb27-323" aria-hidden="true" tabindex="-1"></a><span class="in">exp_raven(st1, file.name = "Phaethornis 1", khz.to.hz = TRUE, sound.file.path = "./examples")</span></span>
 <span id="cb27-324"><a href="#cb27-324" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-325"><a href="#cb27-325" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-326"><a href="#cb27-326" aria-hidden="true" tabindex="-1"></a></span>
@@ -1984,8 +2185,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-336"><a href="#cb27-336" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-337"><a href="#cb27-337" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE, echo=T}</span></span>
 <span id="cb27-338"><a href="#cb27-338" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-339"><a href="#cb27-339" aria-hidden="true" tabindex="-1"></a><span class="fu">exp_raven</span>(<span class="at">X =</span> lbh_selec_table, <span class="at">file.name =</span> <span class="st">"Phaethornis multiple sound files"</span>, </span>
-<span id="cb27-340"><a href="#cb27-340" aria-hidden="true" tabindex="-1"></a><span class="at">sound.file.path =</span> <span class="st">"./examples"</span>, <span class="at">single.file =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb27-339"><a href="#cb27-339" aria-hidden="true" tabindex="-1"></a><span class="in">exp_raven(X = lbh_selec_table, file.name = "Phaethornis multiple sound files", </span></span>
+<span id="cb27-340"><a href="#cb27-340" aria-hidden="true" tabindex="-1"></a><span class="in">sound.file.path = "./examples", single.file = TRUE)</span></span>
 <span id="cb27-341"><a href="#cb27-341" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-342"><a href="#cb27-342" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-343"><a href="#cb27-343" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
@@ -2001,7 +2202,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-353"><a href="#cb27-353" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb27-354"><a href="#cb27-354" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-355"><a href="#cb27-355" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert-info}</span>
-<span id="cb27-356"><a href="#cb27-356" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Exercise<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb27-356"><a href="#cb27-356" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Exercise&lt;/font&gt;</span>
 <span id="cb27-357"><a href="#cb27-357" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-358"><a href="#cb27-358" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb27-359"><a href="#cb27-359" aria-hidden="true" tabindex="-1"></a></span>
@@ -2029,48 +2230,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-381"><a href="#cb27-381" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-382"><a href="#cb27-382" aria-hidden="true" tabindex="-1"></a><span class="in">```{r extn_sel_2, echo = FALSE, message = FALSE}</span></span>
 <span id="cb27-383"><a href="#cb27-383" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-384"><a href="#cb27-384" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb27-384"><a href="#cb27-384" aria-hidden="true" tabindex="-1"></a><span class="in">rm(list = ls())</span></span>
 <span id="cb27-385"><a href="#cb27-385" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-386"><a href="#cb27-386" aria-hidden="true" tabindex="-1"></a><span class="co"># unload all non-based packages</span></span>
-<span id="cb27-387"><a href="#cb27-387" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="fu">paste</span>(<span class="st">'package:'</span>, <span class="fu">names</span>(<span class="fu">sessionInfo</span>()<span class="sc">$</span>otherPkgs), <span class="at">sep =</span> <span class="st">""</span>), <span class="cf">function</span>(x) <span class="fu">try</span>(<span class="fu">detach</span>(x, <span class="at">unload =</span> <span class="cn">FALSE</span>, <span class="at">character.only =</span> <span class="cn">TRUE</span>), <span class="at">silent =</span> T))</span>
+<span id="cb27-386"><a href="#cb27-386" aria-hidden="true" tabindex="-1"></a><span class="in"># unload all non-based packages</span></span>
+<span id="cb27-387"><a href="#cb27-387" aria-hidden="true" tabindex="-1"></a><span class="in">out &lt;- sapply(paste('package:', names(sessionInfo()$otherPkgs), sep = ""), function(x) try(detach(x, unload = FALSE, character.only = TRUE), silent = T))</span></span>
 <span id="cb27-388"><a href="#cb27-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-389"><a href="#cb27-389" aria-hidden="true" tabindex="-1"></a><span class="co">#load packages</span></span>
-<span id="cb27-390"><a href="#cb27-390" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(warbleR)</span>
-<span id="cb27-391"><a href="#cb27-391" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb27-392"><a href="#cb27-392" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb27-389"><a href="#cb27-389" aria-hidden="true" tabindex="-1"></a><span class="in">#load packages</span></span>
+<span id="cb27-390"><a href="#cb27-390" aria-hidden="true" tabindex="-1"></a><span class="in">library(warbleR)</span></span>
+<span id="cb27-391"><a href="#cb27-391" aria-hidden="true" tabindex="-1"></a><span class="in">library(knitr)</span></span>
+<span id="cb27-392"><a href="#cb27-392" aria-hidden="true" tabindex="-1"></a><span class="in">library(kableExtra)</span></span>
 <span id="cb27-393"><a href="#cb27-393" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-394"><a href="#cb27-394" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-395"><a href="#cb27-395" aria-hidden="true" tabindex="-1"></a>cf <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"./data/cuadro de funciones warbleR.csv"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb27-395"><a href="#cb27-395" aria-hidden="true" tabindex="-1"></a><span class="in">cf &lt;- read.csv("./data/cuadro de funciones warbleR.csv", stringsAsFactors = FALSE)</span></span>
 <span id="cb27-396"><a href="#cb27-396" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-397"><a href="#cb27-397" aria-hidden="true" tabindex="-1"></a><span class="fu">warbleR_options</span>(<span class="at">wav.path =</span> <span class="st">"./examples"</span>) </span>
+<span id="cb27-397"><a href="#cb27-397" aria-hidden="true" tabindex="-1"></a><span class="in">warbleR_options(wav.path = "./examples") </span></span>
 <span id="cb27-398"><a href="#cb27-398" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-399"><a href="#cb27-399" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">knitr.table.format =</span> <span class="st">"html"</span>) </span>
-<span id="cb27-400"><a href="#cb27-400" aria-hidden="true" tabindex="-1"></a>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">comment =</span> <span class="st">""</span>)</span>
-<span id="cb27-401"><a href="#cb27-401" aria-hidden="true" tabindex="-1"></a>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">root.dir =</span> <span class="fu">tempdir</span>())</span>
-<span id="cb27-402"><a href="#cb27-402" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">width =</span> <span class="dv">100</span>, <span class="at">max.print =</span> <span class="dv">100</span>)</span>
+<span id="cb27-399"><a href="#cb27-399" aria-hidden="true" tabindex="-1"></a><span class="in">options(knitr.table.format = "html") </span></span>
+<span id="cb27-400"><a href="#cb27-400" aria-hidden="true" tabindex="-1"></a><span class="in">opts_chunk$set(comment = "")</span></span>
+<span id="cb27-401"><a href="#cb27-401" aria-hidden="true" tabindex="-1"></a><span class="in">opts_knit$set(root.dir = tempdir())</span></span>
+<span id="cb27-402"><a href="#cb27-402" aria-hidden="true" tabindex="-1"></a><span class="in">options(width = 100, max.print = 100)</span></span>
 <span id="cb27-403"><a href="#cb27-403" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-404"><a href="#cb27-404" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-405"><a href="#cb27-405" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-406"><a href="#cb27-406" aria-hidden="true" tabindex="-1"></a><span class="in">```{r extn_sel_4.1, eval=FALSE}</span></span>
 <span id="cb27-407"><a href="#cb27-407" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-408"><a href="#cb27-408" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(warbleR)</span>
+<span id="cb27-408"><a href="#cb27-408" aria-hidden="true" tabindex="-1"></a><span class="in">library(warbleR)</span></span>
 <span id="cb27-409"><a href="#cb27-409" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-410"><a href="#cb27-410" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"lbh_selec_table"</span>)</span>
+<span id="cb27-410"><a href="#cb27-410" aria-hidden="true" tabindex="-1"></a><span class="in">data("lbh_selec_table")</span></span>
 <span id="cb27-411"><a href="#cb27-411" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-412"><a href="#cb27-412" aria-hidden="true" tabindex="-1"></a>lbh_selec_table</span>
+<span id="cb27-412"><a href="#cb27-412" aria-hidden="true" tabindex="-1"></a><span class="in">lbh_selec_table</span></span>
 <span id="cb27-413"><a href="#cb27-413" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-414"><a href="#cb27-414" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-415"><a href="#cb27-415" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-416"><a href="#cb27-416" aria-hidden="true" tabindex="-1"></a><span class="in">```{r extn_sel_4.2, echo=FALSE}</span></span>
 <span id="cb27-417"><a href="#cb27-417" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-418"><a href="#cb27-418" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> knitr<span class="sc">::</span><span class="fu">kable</span>(lbh_selec_table, <span class="at">align =</span> <span class="st">"c"</span>, <span class="at">row.names =</span> F,  <span class="at">format =</span> <span class="st">"html"</span>)</span>
+<span id="cb27-418"><a href="#cb27-418" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- knitr::kable(lbh_selec_table, align = "c", row.names = F,  format = "html")</span></span>
 <span id="cb27-419"><a href="#cb27-419" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-420"><a href="#cb27-420" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(kbl, <span class="at">bootstrap_options =</span> <span class="st">"striped"</span>, <span class="at">font_size =</span> <span class="dv">14</span>)</span>
+<span id="cb27-420"><a href="#cb27-420" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;-  kableExtra::kable_styling(kbl, bootstrap_options = "striped", font_size = 14)</span></span>
 <span id="cb27-421"><a href="#cb27-421" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-422"><a href="#cb27-422" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> kableExtra<span class="sc">::</span><span class="fu">scroll_box</span>(kbl, <span class="at">width =</span> <span class="st">"740px"</span>,</span>
-<span id="cb27-423"><a href="#cb27-423" aria-hidden="true" tabindex="-1"></a><span class="at">box_css =</span> <span class="st">"border: 1px solid #ddd; padding: 1px; "</span>, <span class="at">extra_css =</span> <span class="cn">NULL</span>)</span>
+<span id="cb27-422"><a href="#cb27-422" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- kableExtra::scroll_box(kbl, width = "740px",</span></span>
+<span id="cb27-423"><a href="#cb27-423" aria-hidden="true" tabindex="-1"></a><span class="in">box_css = "border: 1px solid #ddd; padding: 1px; ", extra_css = NULL)</span></span>
 <span id="cb27-424"><a href="#cb27-424" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-425"><a href="#cb27-425" aria-hidden="true" tabindex="-1"></a>kbl</span>
+<span id="cb27-425"><a href="#cb27-425" aria-hidden="true" tabindex="-1"></a><span class="in">kbl</span></span>
 <span id="cb27-426"><a href="#cb27-426" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-427"><a href="#cb27-427" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-428"><a href="#cb27-428" aria-hidden="true" tabindex="-1"></a></span>
@@ -2080,26 +2281,26 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-432"><a href="#cb27-432" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-433"><a href="#cb27-433" aria-hidden="true" tabindex="-1"></a><span class="in">```{r extn_sel_4.32, eval = FALSE}</span></span>
 <span id="cb27-434"><a href="#cb27-434" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-435"><a href="#cb27-435" aria-hidden="true" tabindex="-1"></a><span class="co"># global parameters</span></span>
-<span id="cb27-436"><a href="#cb27-436" aria-hidden="true" tabindex="-1"></a><span class="fu">warbleR_options</span>(<span class="at">wav.path =</span> <span class="st">"./examples"</span>)</span>
+<span id="cb27-435"><a href="#cb27-435" aria-hidden="true" tabindex="-1"></a><span class="in"># global parameters</span></span>
+<span id="cb27-436"><a href="#cb27-436" aria-hidden="true" tabindex="-1"></a><span class="in">warbleR_options(wav.path = "./examples")</span></span>
 <span id="cb27-437"><a href="#cb27-437" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-438"><a href="#cb27-438" aria-hidden="true" tabindex="-1"></a>st <span class="ot">&lt;-</span> <span class="fu">selection_table</span>(<span class="at">X =</span> lbh_selec_table, <span class="at">pb =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb27-438"><a href="#cb27-438" aria-hidden="true" tabindex="-1"></a><span class="in">st &lt;- selection_table(X = lbh_selec_table, pb = FALSE)</span></span>
 <span id="cb27-439"><a href="#cb27-439" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-440"><a href="#cb27-440" aria-hidden="true" tabindex="-1"></a>st</span>
+<span id="cb27-440"><a href="#cb27-440" aria-hidden="true" tabindex="-1"></a><span class="in">st</span></span>
 <span id="cb27-441"><a href="#cb27-441" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-442"><a href="#cb27-442" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-443"><a href="#cb27-443" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = TRUE, echo = FALSE}</span></span>
 <span id="cb27-444"><a href="#cb27-444" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-445"><a href="#cb27-445" aria-hidden="true" tabindex="-1"></a>st <span class="ot">&lt;-</span> <span class="fu">selection_table</span>(<span class="at">X =</span> lbh_selec_table, <span class="at">pb =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb27-445"><a href="#cb27-445" aria-hidden="true" tabindex="-1"></a><span class="in">st &lt;- selection_table(X = lbh_selec_table, pb = FALSE)</span></span>
 <span id="cb27-446"><a href="#cb27-446" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-447"><a href="#cb27-447" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> knitr<span class="sc">::</span><span class="fu">kable</span>(st)</span>
+<span id="cb27-447"><a href="#cb27-447" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- knitr::kable(st)</span></span>
 <span id="cb27-448"><a href="#cb27-448" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-449"><a href="#cb27-449" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(kbl, <span class="at">bootstrap_options =</span> <span class="st">"striped"</span>, <span class="at">font_size =</span> <span class="dv">14</span>)</span>
+<span id="cb27-449"><a href="#cb27-449" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;-  kableExtra::kable_styling(kbl, bootstrap_options = "striped", font_size = 14)</span></span>
 <span id="cb27-450"><a href="#cb27-450" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-451"><a href="#cb27-451" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> kableExtra<span class="sc">::</span><span class="fu">scroll_box</span>(kbl, <span class="at">width =</span> <span class="st">"740px"</span>,</span>
-<span id="cb27-452"><a href="#cb27-452" aria-hidden="true" tabindex="-1"></a><span class="at">box_css =</span> <span class="st">"border: 1px solid #ddd; padding: 1px; "</span>, <span class="at">extra_css =</span> <span class="cn">NULL</span>)</span>
+<span id="cb27-451"><a href="#cb27-451" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- kableExtra::scroll_box(kbl, width = "740px",</span></span>
+<span id="cb27-452"><a href="#cb27-452" aria-hidden="true" tabindex="-1"></a><span class="in">box_css = "border: 1px solid #ddd; padding: 1px; ", extra_css = NULL)</span></span>
 <span id="cb27-453"><a href="#cb27-453" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-454"><a href="#cb27-454" aria-hidden="true" tabindex="-1"></a>kbl</span>
+<span id="cb27-454"><a href="#cb27-454" aria-hidden="true" tabindex="-1"></a><span class="in">kbl</span></span>
 <span id="cb27-455"><a href="#cb27-455" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-456"><a href="#cb27-456" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-457"><a href="#cb27-457" aria-hidden="true" tabindex="-1"></a></span>
@@ -2123,18 +2324,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-477"><a href="#cb27-477" aria-hidden="true" tabindex="-1"></a><span class="in">```{r extn_sel_4.3, eval = FALSE}</span></span>
 <span id="cb27-478"><a href="#cb27-478" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-479"><a href="#cb27-479" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-480"><a href="#cb27-480" aria-hidden="true" tabindex="-1"></a><span class="co">#  global parameters</span></span>
-<span id="cb27-481"><a href="#cb27-481" aria-hidden="true" tabindex="-1"></a><span class="fu">warbleR_options</span>(<span class="at">wav.path =</span> <span class="st">"./examples"</span>)</span>
+<span id="cb27-480"><a href="#cb27-480" aria-hidden="true" tabindex="-1"></a><span class="in">#  global parameters</span></span>
+<span id="cb27-481"><a href="#cb27-481" aria-hidden="true" tabindex="-1"></a><span class="in">warbleR_options(wav.path = "./examples")</span></span>
 <span id="cb27-482"><a href="#cb27-482" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-483"><a href="#cb27-483" aria-hidden="true" tabindex="-1"></a>ext_st <span class="ot">&lt;-</span> <span class="fu">selection_table</span>(<span class="at">X =</span> lbh_selec_table, <span class="at">pb =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb27-484"><a href="#cb27-484" aria-hidden="true" tabindex="-1"></a>          <span class="at">extended =</span> <span class="cn">TRUE</span>, <span class="at">confirm.extended =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb27-483"><a href="#cb27-483" aria-hidden="true" tabindex="-1"></a><span class="in">ext_st &lt;- selection_table(X = lbh_selec_table, pb = FALSE, </span></span>
+<span id="cb27-484"><a href="#cb27-484" aria-hidden="true" tabindex="-1"></a><span class="in">          extended = TRUE, confirm.extended = FALSE)</span></span>
 <span id="cb27-485"><a href="#cb27-485" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-486"><a href="#cb27-486" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-487"><a href="#cb27-487" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-488"><a href="#cb27-488" aria-hidden="true" tabindex="-1"></a><span class="in">```{r extn_sel_4.33, eval = TRUE, echo = FALSE}</span></span>
 <span id="cb27-489"><a href="#cb27-489" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-490"><a href="#cb27-490" aria-hidden="true" tabindex="-1"></a>ext_st <span class="ot">&lt;-</span> <span class="fu">selection_table</span>(<span class="at">X =</span> lbh_selec_table, <span class="at">pb =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb27-491"><a href="#cb27-491" aria-hidden="true" tabindex="-1"></a>          <span class="at">extended =</span> <span class="cn">TRUE</span>, <span class="at">confirm.extended =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb27-490"><a href="#cb27-490" aria-hidden="true" tabindex="-1"></a><span class="in">ext_st &lt;- selection_table(X = lbh_selec_table, pb = FALSE, </span></span>
+<span id="cb27-491"><a href="#cb27-491" aria-hidden="true" tabindex="-1"></a><span class="in">          extended = TRUE, confirm.extended = FALSE)</span></span>
 <span id="cb27-492"><a href="#cb27-492" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-493"><a href="#cb27-493" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-494"><a href="#cb27-494" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -2157,13 +2358,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-513"><a href="#cb27-513" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-514"><a href="#cb27-514" aria-hidden="true" tabindex="-1"></a><span class="in">```{r extn.sel_19, eval = T}</span></span>
 <span id="cb27-515"><a href="#cb27-515" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-516"><a href="#cb27-516" aria-hidden="true" tabindex="-1"></a>URL <span class="ot">&lt;-</span> <span class="st">"https://github.com/maRce10/OTS_BIR_2023/raw/master/data/extended.selection.table.araya-salas.et.al.2017.bioacoustics.100.sels.rds"</span></span>
+<span id="cb27-516"><a href="#cb27-516" aria-hidden="true" tabindex="-1"></a><span class="in">URL &lt;- "https://github.com/maRce10/NMSU_BIR_2024/raw/master/data/extended.selection.table.araya-salas.et.al.2017.bioacoustics.100.sels.rds"</span></span>
 <span id="cb27-517"><a href="#cb27-517" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-518"><a href="#cb27-518" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">gzcon</span>(<span class="fu">url</span>(URL)))</span>
+<span id="cb27-518"><a href="#cb27-518" aria-hidden="true" tabindex="-1"></a><span class="in">dat &lt;- readRDS(gzcon(url(URL)))</span></span>
 <span id="cb27-519"><a href="#cb27-519" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-520"><a href="#cb27-520" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(dat)</span>
+<span id="cb27-520"><a href="#cb27-520" aria-hidden="true" tabindex="-1"></a><span class="in">nrow(dat)</span></span>
 <span id="cb27-521"><a href="#cb27-521" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-522"><a href="#cb27-522" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span>(<span class="fu">object.size</span>(dat), <span class="at">units =</span> <span class="st">"auto"</span>)</span>
+<span id="cb27-522"><a href="#cb27-522" aria-hidden="true" tabindex="-1"></a><span class="in">format(object.size(dat), units = "auto")</span></span>
 <span id="cb27-523"><a href="#cb27-523" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-524"><a href="#cb27-524" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-525"><a href="#cb27-525" aria-hidden="true" tabindex="-1"></a></span>
@@ -2173,23 +2374,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-529"><a href="#cb27-529" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-530"><a href="#cb27-530" aria-hidden="true" tabindex="-1"></a><span class="in">```{r extn.sel_21, out.width= 750}</span></span>
 <span id="cb27-531"><a href="#cb27-531" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-532"><a href="#cb27-532" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>), <span class="at">mar =</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">4</span>))</span>
+<span id="cb27-532"><a href="#cb27-532" aria-hidden="true" tabindex="-1"></a><span class="in">par(mfrow = c(3, 2), mar = rep(0, 4))</span></span>
 <span id="cb27-533"><a href="#cb27-533" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-534"><a href="#cb27-534" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>){</span>
-<span id="cb27-535"><a href="#cb27-535" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb27-536"><a href="#cb27-536" aria-hidden="true" tabindex="-1"></a>  wv <span class="ot">&lt;-</span> <span class="fu">read_wave</span>(<span class="at">X =</span> dat, <span class="at">index =</span> i, <span class="at">from =</span> <span class="fl">0.17</span>, <span class="at">to =</span> <span class="fl">0.4</span>)</span>
+<span id="cb27-534"><a href="#cb27-534" aria-hidden="true" tabindex="-1"></a><span class="in">for(i in 1:6){</span></span>
+<span id="cb27-535"><a href="#cb27-535" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb27-536"><a href="#cb27-536" aria-hidden="true" tabindex="-1"></a><span class="in">  wv &lt;- read_wave(X = dat, index = i, from = 0.17, to = 0.4)</span></span>
 <span id="cb27-537"><a href="#cb27-537" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-538"><a href="#cb27-538" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spectro</span>(wv, <span class="at">wl =</span> <span class="dv">250</span>, <span class="at">grid =</span> <span class="cn">FALSE</span>, <span class="at">scale =</span> <span class="cn">FALSE</span>, <span class="at">axisX =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb27-539"><a href="#cb27-539" aria-hidden="true" tabindex="-1"></a>          <span class="at">axisY =</span> <span class="cn">FALSE</span>, <span class="at">ovlp =</span> <span class="dv">90</span>, <span class="at">flim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">12</span>), </span>
-<span id="cb27-540"><a href="#cb27-540" aria-hidden="true" tabindex="-1"></a>          <span class="at">palette =</span> reverse.gray.colors<span class="fl">.1</span>)</span>
-<span id="cb27-541"><a href="#cb27-541" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb27-538"><a href="#cb27-538" aria-hidden="true" tabindex="-1"></a><span class="in">  spectro(wv, wl = 250, grid = FALSE, scale = FALSE, axisX = FALSE,</span></span>
+<span id="cb27-539"><a href="#cb27-539" aria-hidden="true" tabindex="-1"></a><span class="in">          axisY = FALSE, ovlp = 90, flim = c(0, 12), </span></span>
+<span id="cb27-540"><a href="#cb27-540" aria-hidden="true" tabindex="-1"></a><span class="in">          palette = reverse.gray.colors.1)</span></span>
+<span id="cb27-541"><a href="#cb27-541" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
 <span id="cb27-542"><a href="#cb27-542" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-543"><a href="#cb27-543" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb27-544"><a href="#cb27-544" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-545"><a href="#cb27-545" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb27-546"><a href="#cb27-546" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-547"><a href="#cb27-547" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert-info}</span>
-<span id="cb27-548"><a href="#cb27-548" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Exercise<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb27-548"><a href="#cb27-548" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Exercise&lt;/font&gt;</span>
 <span id="cb27-549"><a href="#cb27-549" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-550"><a href="#cb27-550" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb27-551"><a href="#cb27-551" aria-hidden="true" tabindex="-1"></a></span>
@@ -2212,11 +2413,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb27-568"><a href="#cb27-568" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-569"><a href="#cb27-569" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb27-570"><a href="#cb27-570" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-571"><a href="#cb27-571" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"4"</span><span class="kw">&gt;</span>Session information<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb27-571"><a href="#cb27-571" aria-hidden="true" tabindex="-1"></a>&lt;font size="4"&gt;Session information&lt;/font&gt;</span>
 <span id="cb27-572"><a href="#cb27-572" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-573"><a href="#cb27-573" aria-hidden="true" tabindex="-1"></a><span class="in">```{r session info, echo=F}</span></span>
 <span id="cb27-574"><a href="#cb27-574" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-575"><a href="#cb27-575" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
+<span id="cb27-575"><a href="#cb27-575" aria-hidden="true" tabindex="-1"></a><span class="in">sessionInfo()</span></span>
 <span id="cb27-576"><a href="#cb27-576" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-577"><a href="#cb27-577" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2224,9 +2425,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-      <div class="nav-footer-center">Copyright 2023 | <a href="https://marce10.github.io">Marcelo Araya-Salas</a></div>
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Copyright 2024 | <a href="https://marce10.github.io">Marcelo Araya-Salas</a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
   </div>
 </footer>
+
 
 
 

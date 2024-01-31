@@ -70,7 +70,7 @@ install.packages("Sim.DiffProc")
 install.packages("bioacoustics")
 install.packages("phonTools")
 install.packages("soundgen")
-
+install.packages("audio")
 ```
 
 -   if you have any issue installing 'bioacoustics' take a look at this fix: <https://stackoverflow.com/questions/53092646/unable-to-install-warbler-package-using-mac-os>
