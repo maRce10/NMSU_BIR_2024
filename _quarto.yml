@@ -20,8 +20,8 @@ website:
       #   href: program.qmd
       - text: "Tutorials"
         menu:
-        - text: "Introduction"
-          href: introduction.qmd
+        # - text: "Introduction"
+        #   href: introduction.qmd
         - text: "R basics"
           href: r_basics.qmd
         - text: "Sound"
@@ -32,8 +32,8 @@ website:
           href: seewave.qmd
         - text: "Annotations"
           href: annotations.qmd
-        - text: "ohun: automatic detection"
-          href: ohun.qmd
+        # - text: "ohun: automatic detection"
+        #   href: ohun.qmd
         - text: "Intro to warbleR"
           href: intro_to_warbler.qmd 
         - text: "Measure acoustic structure"

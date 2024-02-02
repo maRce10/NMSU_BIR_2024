@@ -30,8 +30,7 @@ version$version.string
 
 ```
 
-2) Update all R packages if you already had R installed:
-
+2)  Update all R packages if you already had R installed (`r emo::ji("warning")` this step can take a long time to run `r emo::ji("warning")`):
 
 ```{r}
 
@@ -77,9 +76,9 @@ install.packages("audio")
 
 9)  warbleR depends heavily on the R package seewave. Seewave may require some extra steps to get installed. Take a look at seewave's website for further help: [http://rug.mnhn.fr/seewave](http://rug.mnhn.fr/seewave/) (and then go to "installation" and scroll down)
 
-10)  Install Raven lite (scroll down to "Raven Lite 2.0" and click on "Order Free Raven Lite 2.0 License"):
+10) Install Raven lite (scroll down to "Raven Lite 2.0" and click on "Order Free Raven Lite 2.0 License"):
 
-[http://ravensoundsoftware.com/raven-pricing/](http://ravensoundsoftware.com/raven-pricing/)
+<http://ravensoundsoftware.com/raven-pricing/>
 
 11) Note that you can also run the code using google colab. Take a look at this notebook: [https://colab.research.google.com/](https://colab.research.google.com/drive/1KKmndmWB73ZDLfT0eVBArEZX4eVGsVMc?usp=sharing#scrollTo=05bsvm_f7UNt)
 
