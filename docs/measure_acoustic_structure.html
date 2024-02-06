@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-99.9.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,6 +80,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "panel-placement": "end",
   "type": "overlay",
   "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -93,7 +99,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
@@ -107,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Bioacoustic Analysis in R, NMSU 2024</span>
     </a>
@@ -119,106 +124,98 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Tutorials</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
         <li>
-    <a class="dropdown-item" href="./introduction.html" rel="" target="">
- <span class="dropdown-text">Introduction</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./r_basics.html" rel="" target="">
+    <a class="dropdown-item" href="./r_basics.html">
  <span class="dropdown-text">R basics</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./sound.html" rel="" target="">
+    <a class="dropdown-item" href="./sound.html">
  <span class="dropdown-text">Sound</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./spectrograms.html" rel="" target="">
+    <a class="dropdown-item" href="./spectrograms.html">
  <span class="dropdown-text">Spectrograms</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./seewave.html" rel="" target="">
+    <a class="dropdown-item" href="./seewave.html">
  <span class="dropdown-text">seewave</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./annotations.html" rel="" target="">
+    <a class="dropdown-item" href="./annotations.html">
  <span class="dropdown-text">Annotations</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./ohun.html" rel="" target="">
- <span class="dropdown-text">ohun: automatic detection</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./intro_to_warbler.html" rel="" target="">
+    <a class="dropdown-item" href="./intro_to_warbler.html">
  <span class="dropdown-text">Intro to warbleR</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./measure_acoustic_structure.html" rel="" target="">
+    <a class="dropdown-item" href="./measure_acoustic_structure.html">
  <span class="dropdown-text">Measure acoustic structure</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./comparing_methods.html" rel="" target="">
+    <a class="dropdown-item" href="./comparing_methods.html">
  <span class="dropdown-text">Comparing measuring methods</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./quality_checks.html" rel="" target="">
+    <a class="dropdown-item" href="./quality_checks.html">
  <span class="dropdown-text">Quality checks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./measure_structure_green_hermit.html" rel="" target="">
+    <a class="dropdown-item" href="./measure_structure_green_hermit.html">
  <span class="dropdown-text">Measure structure on XC recordings</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-colab-notebooks" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-colab-notebooks" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Colab notebooks</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-colab-notebooks">    
         <li>
-    <a class="dropdown-item" href="./general_redirect.html" rel="" target="">
+    <a class="dropdown-item" href="./general_redirect.html">
  <span class="dropdown-text">General</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./dynaspec_redirect.html" rel="" target="">
+    <a class="dropdown-item" href="./dynaspec_redirect.html">
  <span class="dropdown-text">dynaSpec</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./ohun_redirect.html" rel="" target="">
+    <a class="dropdown-item" href="./ohun_redirect.html">
  <span class="dropdown-text">ohun</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./course_prep.html" rel="" target="">
- <span class="menu-text">Course prep</span></a>
+    <a class="nav-link" href="./course_prep.html"> 
+<span class="menu-text">Course prep</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./code_redirect.html" rel="" target="">
- <span class="menu-text">Code sharing</span></a>
+    <a class="nav-link" href="./code_redirect.html"> 
+<span class="menu-text">Code sharing</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./instructor.html" rel="" target="">
- <span class="menu-text">Instructor</span></a>
+    <a class="nav-link" href="./instructor.html"> 
+<span class="menu-text">Instructor</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/maRce10/NMSU_BIR_2024/" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/maRce10/NMSU_BIR_2024/"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text">https://github.com/maRce10/NMSU_BIR_2024/</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -261,7 +258,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <p>&nbsp;</p>
 <section id="objetives" class="level2 unnumbered unlisted alert alert-info">
@@ -435,14 +434,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: center;">0.8885049</td>
 <td style="text-align: center;">0.8382390</td>
 <td style="text-align: center;">0.6510692</td>
-<td style="text-align: center;">6.481045</td>
-<td style="text-align: center;">2.86875</td>
+<td style="text-align: center;">6.477971</td>
+<td style="text-align: center;">2.30625</td>
 <td style="text-align: center;">8.38125</td>
-<td style="text-align: center;">5.5125</td>
-<td style="text-align: center;">5.979592</td>
+<td style="text-align: center;">6.0750</td>
+<td style="text-align: center;">5.518518</td>
 <td style="text-align: center;">7.03125</td>
-<td style="text-align: center;">2.86875</td>
-<td style="text-align: center;">-24.056042</td>
+<td style="text-align: center;">2.30625</td>
+<td style="text-align: center;">-27.306859</td>
 <td style="text-align: center;">7.14375</td>
 </tr>
 <tr class="even">
@@ -3233,20 +3232,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td style="text-align: left;">Phae.long1.wav-1</td>
 <td style="text-align: center;">0.0000</td>
-<td style="text-align: center;">12.1613</td>
-<td style="text-align: center;">27.2602</td>
-<td style="text-align: center;">18.7335</td>
-<td style="text-align: center;">21.1790</td>
-<td style="text-align: center;">20.6645</td>
-<td style="text-align: center;">18.9116</td>
-<td style="text-align: center;">24.5375</td>
-<td style="text-align: center;">25.1648</td>
-<td style="text-align: center;">26.0236</td>
-<td style="text-align: center;">22.7189</td>
+<td style="text-align: center;">12.7239</td>
+<td style="text-align: center;">27.8228</td>
+<td style="text-align: center;">19.2961</td>
+<td style="text-align: center;">21.7416</td>
+<td style="text-align: center;">21.2271</td>
+<td style="text-align: center;">19.4742</td>
+<td style="text-align: center;">25.1001</td>
+<td style="text-align: center;">26.2900</td>
+<td style="text-align: center;">27.1488</td>
+<td style="text-align: center;">23.8441</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Phae.long1.wav-2</td>
-<td style="text-align: center;">12.1613</td>
+<td style="text-align: center;">12.7239</td>
 <td style="text-align: center;">0.0000</td>
 <td style="text-align: center;">18.5390</td>
 <td style="text-align: center;">15.8735</td>
@@ -3260,7 +3259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Phae.long1.wav-3</td>
-<td style="text-align: center;">27.2602</td>
+<td style="text-align: center;">27.8228</td>
 <td style="text-align: center;">18.5390</td>
 <td style="text-align: center;">0.0000</td>
 <td style="text-align: center;">29.5158</td>
@@ -3274,7 +3273,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td style="text-align: left;">Phae.long2.wav-1</td>
-<td style="text-align: center;">18.7335</td>
+<td style="text-align: center;">19.2961</td>
 <td style="text-align: center;">15.8735</td>
 <td style="text-align: center;">29.5158</td>
 <td style="text-align: center;">0.0000</td>
@@ -3288,7 +3287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Phae.long2.wav-2</td>
-<td style="text-align: center;">21.1790</td>
+<td style="text-align: center;">21.7416</td>
 <td style="text-align: center;">20.2081</td>
 <td style="text-align: center;">29.0963</td>
 <td style="text-align: center;">14.3232</td>
@@ -3302,7 +3301,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td style="text-align: left;">Phae.long3.wav-1</td>
-<td style="text-align: center;">20.6645</td>
+<td style="text-align: center;">21.2271</td>
 <td style="text-align: center;">17.6739</td>
 <td style="text-align: center;">24.9517</td>
 <td style="text-align: center;">13.8198</td>
@@ -3316,7 +3315,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Phae.long3.wav-2</td>
-<td style="text-align: center;">18.9116</td>
+<td style="text-align: center;">19.4742</td>
 <td style="text-align: center;">18.1535</td>
 <td style="text-align: center;">28.4032</td>
 <td style="text-align: center;">12.7713</td>
@@ -3330,7 +3329,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td style="text-align: left;">Phae.long3.wav-3</td>
-<td style="text-align: center;">24.5375</td>
+<td style="text-align: center;">25.1001</td>
 <td style="text-align: center;">24.4244</td>
 <td style="text-align: center;">28.1725</td>
 <td style="text-align: center;">17.9298</td>
@@ -3344,7 +3343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Phae.long4.wav-1</td>
-<td style="text-align: center;">25.1648</td>
+<td style="text-align: center;">26.2900</td>
 <td style="text-align: center;">26.3725</td>
 <td style="text-align: center;">31.7433</td>
 <td style="text-align: center;">20.9547</td>
@@ -3358,7 +3357,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td style="text-align: left;">Phae.long4.wav-2</td>
-<td style="text-align: center;">26.0236</td>
+<td style="text-align: center;">27.1488</td>
 <td style="text-align: center;">27.7397</td>
 <td style="text-align: center;">33.2878</td>
 <td style="text-align: center;">19.6867</td>
@@ -3372,7 +3371,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Phae.long4.wav-3</td>
-<td style="text-align: center;">22.7189</td>
+<td style="text-align: center;">23.8441</td>
 <td style="text-align: center;">24.8443</td>
 <td style="text-align: center;">31.1858</td>
 <td style="text-align: center;">20.0898</td>
@@ -4328,21 +4327,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><font size="4">Session information</font></p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.3.2 (2023-10-31)
+<pre><code>R version 4.3.1 (2023-06-16)
 Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 22.04.2 LTS
+Running under: Ubuntu 20.04.2 LTS
 
 Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.10.0 
-LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.10.0
+BLAS:   /usr/lib/x86_64-linux-gnu/atlas/libblas.so.3.10.3 
+LAPACK: /usr/lib/x86_64-linux-gnu/atlas/liblapack.so.3.10.3;  LAPACK version 3.9.0
 
 locale:
- [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
- [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
- [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
- [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [1] LC_CTYPE=pt_BR.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=es_CR.UTF-8        LC_COLLATE=pt_BR.UTF-8    
+ [5] LC_MONETARY=es_CR.UTF-8    LC_MESSAGES=pt_BR.UTF-8   
+ [7] LC_PAPER=es_CR.UTF-8       LC_NAME=C                 
  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+[11] LC_MEASUREMENT=es_CR.UTF-8 LC_IDENTIFICATION=C       
 
 time zone: America/Costa_Rica
 tzcode source: system (glibc)
@@ -4351,23 +4350,23 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] kableExtra_1.3.4   warbleR_1.1.30     NatureSounds_1.0.4 knitr_1.45        
+[1] kableExtra_1.4.0   warbleR_1.1.30     NatureSounds_1.0.4 knitr_1.45        
 [5] seewave_2.2.3      tuneR_1.4.6       
 
 loaded via a namespace (and not attached):
  [1] Sim.DiffProc_4.8  shinyBS_0.61.1    bitops_1.0-7      xml2_1.3.6       
  [5] stringi_1.8.3     digest_0.6.34     magrittr_2.0.3    evaluate_0.23    
  [9] soundgen_2.6.2    iterators_1.0.14  fastmap_1.1.1     foreach_1.5.2    
-[13] jsonlite_1.8.8    brio_1.1.4        httr_1.4.7        rvest_1.0.3      
-[17] viridisLite_0.4.2 scales_1.3.0      pbapply_1.7-2     codetools_0.2-18 
-[21] cli_3.6.2         rlang_1.1.3       fftw_1.0-8        munsell_0.5.0    
-[25] yaml_2.3.8        tools_4.3.2       parallel_4.3.2    colorspace_2.1-0 
-[29] webshot_0.5.5     Deriv_4.1.3       vctrs_0.6.5       R6_2.5.1         
-[33] proxy_0.4-27      lifecycle_1.0.4   dtw_1.23-1        stringr_1.5.1    
-[37] htmlwidgets_1.6.4 MASS_7.3-55       glue_1.7.0        Rcpp_1.0.12      
-[41] systemfonts_1.0.5 xfun_0.41         highr_0.10        rstudioapi_0.15.0
-[45] rjson_0.2.21      htmltools_0.5.7   rmarkdown_2.25    svglite_2.1.3    
-[49] testthat_3.2.1    signal_1.8-0      compiler_4.3.2    RCurl_1.98-1.14  </code></pre>
+[13] jsonlite_1.8.8    brio_1.1.4        viridisLite_0.4.2 scales_1.3.0     
+[17] pbapply_1.7-2     codetools_0.2-19  cli_3.6.2         rlang_1.1.3      
+[21] fftw_1.0-8        munsell_0.5.0     yaml_2.3.8        tools_4.3.1      
+[25] parallel_4.3.1    colorspace_2.1-0  Deriv_4.1.3       vctrs_0.6.5      
+[29] R6_2.5.1          proxy_0.4-27      lifecycle_1.0.4   dtw_1.23-1       
+[33] stringr_1.5.1     htmlwidgets_1.6.4 MASS_7.3-60.0.1   glue_1.7.0       
+[37] Rcpp_1.0.12       systemfonts_1.0.5 xfun_0.41         highr_0.10       
+[41] rstudioapi_0.15.0 rjson_0.2.21      htmltools_0.5.7   rmarkdown_2.25   
+[45] svglite_2.1.3     testthat_3.2.1    signal_1.8-0      compiler_4.3.1   
+[49] RCurl_1.98-1.14  </code></pre>
 </div>
 </div>
 
@@ -4507,10 +4506,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -4520,8 +4518,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -4534,6 +4541,81 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -4577,6 +4659,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -4602,6 +4685,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -4665,7 +4774,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -4824,54 +4933,54 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-145"><a href="#cb16-145" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-146"><a href="#cb16-146" aria-hidden="true" tabindex="-1"></a><span class="in">```{r clean session, echo=F, warning=FALSE, message=FALSE}</span></span>
 <span id="cb16-147"><a href="#cb16-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-148"><a href="#cb16-148" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb16-148"><a href="#cb16-148" aria-hidden="true" tabindex="-1"></a><span class="in">rm(list = ls())</span></span>
 <span id="cb16-149"><a href="#cb16-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-150"><a href="#cb16-150" aria-hidden="true" tabindex="-1"></a><span class="co"># unload all non-based packages</span></span>
-<span id="cb16-151"><a href="#cb16-151" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="fu">paste</span>(<span class="st">'package:'</span>, <span class="fu">names</span>(<span class="fu">sessionInfo</span>()<span class="sc">$</span>otherPkgs), <span class="at">sep =</span> <span class="st">""</span>), <span class="cf">function</span>(x) <span class="fu">try</span>(<span class="fu">detach</span>(x, <span class="at">unload =</span> <span class="cn">FALSE</span>, <span class="at">character.only =</span> <span class="cn">TRUE</span>), <span class="at">silent =</span> T))</span>
+<span id="cb16-150"><a href="#cb16-150" aria-hidden="true" tabindex="-1"></a><span class="in"># unload all non-based packages</span></span>
+<span id="cb16-151"><a href="#cb16-151" aria-hidden="true" tabindex="-1"></a><span class="in">out &lt;- sapply(paste('package:', names(sessionInfo()$otherPkgs), sep = ""), function(x) try(detach(x, unload = FALSE, character.only = TRUE), silent = T))</span></span>
 <span id="cb16-152"><a href="#cb16-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-153"><a href="#cb16-153" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">dpi =</span> <span class="dv">200</span>)</span>
+<span id="cb16-153"><a href="#cb16-153" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(dpi = 200)</span></span>
 <span id="cb16-154"><a href="#cb16-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-155"><a href="#cb16-155" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(warbleR)</span>
+<span id="cb16-155"><a href="#cb16-155" aria-hidden="true" tabindex="-1"></a><span class="in">library(warbleR)</span></span>
 <span id="cb16-156"><a href="#cb16-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-157"><a href="#cb16-157" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb16-157"><a href="#cb16-157" aria-hidden="true" tabindex="-1"></a><span class="in">library(kableExtra)</span></span>
 <span id="cb16-158"><a href="#cb16-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-159"><a href="#cb16-159" aria-hidden="true" tabindex="-1"></a><span class="fu">warbleR_options</span>(<span class="at">wav.path =</span> <span class="st">"./examples/"</span>, <span class="at">flim =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="at">wl =</span> <span class="dv">200</span>, <span class="at">ovlp =</span> <span class="dv">90</span>, <span class="at">pb =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb16-159"><a href="#cb16-159" aria-hidden="true" tabindex="-1"></a><span class="in">warbleR_options(wav.path = "./examples/", flim = c(1, 10), wl = 200, ovlp = 90, pb = FALSE)</span></span>
 <span id="cb16-160"><a href="#cb16-160" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-161"><a href="#cb16-161" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-162"><a href="#cb16-162" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-163"><a href="#cb16-163" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval= FALSE, echo=TRUE, warning=FALSE, message=FALSE}</span></span>
 <span id="cb16-164"><a href="#cb16-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-165"><a href="#cb16-165" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(warbleR)</span>
+<span id="cb16-165"><a href="#cb16-165" aria-hidden="true" tabindex="-1"></a><span class="in">library(warbleR)</span></span>
 <span id="cb16-166"><a href="#cb16-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-167"><a href="#cb16-167" aria-hidden="true" tabindex="-1"></a><span class="co"># load examples</span></span>
-<span id="cb16-168"><a href="#cb16-168" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"lbh_selec_table"</span>)</span>
+<span id="cb16-167"><a href="#cb16-167" aria-hidden="true" tabindex="-1"></a><span class="in"># load examples</span></span>
+<span id="cb16-168"><a href="#cb16-168" aria-hidden="true" tabindex="-1"></a><span class="in">data("lbh_selec_table")</span></span>
 <span id="cb16-169"><a href="#cb16-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-170"><a href="#cb16-170" aria-hidden="true" tabindex="-1"></a><span class="co"># global parameters</span></span>
-<span id="cb16-171"><a href="#cb16-171" aria-hidden="true" tabindex="-1"></a><span class="fu">warbleR_options</span>(<span class="at">wav.path =</span> <span class="st">"./examples"</span>, <span class="at">flim =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="at">wl =</span> <span class="dv">200</span>, <span class="at">ovlp =</span> <span class="dv">90</span>, <span class="at">pb =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb16-170"><a href="#cb16-170" aria-hidden="true" tabindex="-1"></a><span class="in"># global parameters</span></span>
+<span id="cb16-171"><a href="#cb16-171" aria-hidden="true" tabindex="-1"></a><span class="in">warbleR_options(wav.path = "./examples", flim = c(1, 10), wl = 200, ovlp = 90, pb = FALSE)</span></span>
 <span id="cb16-172"><a href="#cb16-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-173"><a href="#cb16-173" aria-hidden="true" tabindex="-1"></a>sp <span class="ot">&lt;-</span> <span class="fu">spectro_analysis</span>(lbh_selec_table)</span>
+<span id="cb16-173"><a href="#cb16-173" aria-hidden="true" tabindex="-1"></a><span class="in">sp &lt;- spectro_analysis(lbh_selec_table)</span></span>
 <span id="cb16-174"><a href="#cb16-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-175"><a href="#cb16-175" aria-hidden="true" tabindex="-1"></a>sp</span>
+<span id="cb16-175"><a href="#cb16-175" aria-hidden="true" tabindex="-1"></a><span class="in">sp</span></span>
 <span id="cb16-176"><a href="#cb16-176" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-177"><a href="#cb16-177" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-178"><a href="#cb16-178" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-179"><a href="#cb16-179" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE}</span></span>
 <span id="cb16-180"><a href="#cb16-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-181"><a href="#cb16-181" aria-hidden="true" tabindex="-1"></a>sp <span class="ot">&lt;-</span> <span class="fu">spectro_analysis</span>(lbh_selec_table)</span>
+<span id="cb16-181"><a href="#cb16-181" aria-hidden="true" tabindex="-1"></a><span class="in">sp &lt;- spectro_analysis(lbh_selec_table)</span></span>
 <span id="cb16-182"><a href="#cb16-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-183"><a href="#cb16-183" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> <span class="fu">kable</span>(sp, <span class="at">align =</span> <span class="st">"c"</span>, <span class="at">row.names =</span> F,  <span class="at">format =</span> <span class="st">"html"</span>)</span>
+<span id="cb16-183"><a href="#cb16-183" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- kable(sp, align = "c", row.names = F,  format = "html")</span></span>
 <span id="cb16-184"><a href="#cb16-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-185"><a href="#cb16-185" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> <span class="fu">kable_styling</span>(kbl, <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">font_size =</span> <span class="dv">11</span>)</span>
+<span id="cb16-185"><a href="#cb16-185" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- kable_styling(kbl, bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 11)</span></span>
 <span id="cb16-186"><a href="#cb16-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-187"><a href="#cb16-187" aria-hidden="true" tabindex="-1"></a><span class="fu">scroll_box</span>(kbl, <span class="at">width =</span> <span class="st">"808px"</span>,</span>
-<span id="cb16-188"><a href="#cb16-188" aria-hidden="true" tabindex="-1"></a><span class="at">box_css =</span> <span class="st">"border: 1px solid #ddd; padding: 5px; "</span>, <span class="at">extra_css =</span> <span class="cn">NULL</span>)</span>
+<span id="cb16-187"><a href="#cb16-187" aria-hidden="true" tabindex="-1"></a><span class="in">scroll_box(kbl, width = "808px",</span></span>
+<span id="cb16-188"><a href="#cb16-188" aria-hidden="true" tabindex="-1"></a><span class="in">box_css = "border: 1px solid #ddd; padding: 5px; ", extra_css = NULL)</span></span>
 <span id="cb16-189"><a href="#cb16-189" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-190"><a href="#cb16-190" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-191"><a href="#cb16-191" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-192"><a href="#cb16-192" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb16-193"><a href="#cb16-193" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-194"><a href="#cb16-194" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert-info}</span>
-<span id="cb16-195"><a href="#cb16-195" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Exercise<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb16-195"><a href="#cb16-195" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Exercise&lt;/font&gt;</span>
 <span id="cb16-196"><a href="#cb16-196" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-197"><a href="#cb16-197" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb16-198"><a href="#cb16-198" aria-hidden="true" tabindex="-1"></a></span>
@@ -4894,22 +5003,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-215"><a href="#cb16-215" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-216"><a href="#cb16-216" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
 <span id="cb16-217"><a href="#cb16-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-218"><a href="#cb16-218" aria-hidden="true" tabindex="-1"></a>cc <span class="ot">&lt;-</span> <span class="fu">mfcc_stats</span>(<span class="at">X =</span> lbh_selec_table)</span>
+<span id="cb16-218"><a href="#cb16-218" aria-hidden="true" tabindex="-1"></a><span class="in">cc &lt;- mfcc_stats(X = lbh_selec_table)</span></span>
 <span id="cb16-219"><a href="#cb16-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-220"><a href="#cb16-220" aria-hidden="true" tabindex="-1"></a>cc</span>
+<span id="cb16-220"><a href="#cb16-220" aria-hidden="true" tabindex="-1"></a><span class="in">cc</span></span>
 <span id="cb16-221"><a href="#cb16-221" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-222"><a href="#cb16-222" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-223"><a href="#cb16-223" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-224"><a href="#cb16-224" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval= TRUE, echo=FALSE, warning=FALSE, message=FALSE}</span></span>
 <span id="cb16-225"><a href="#cb16-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-226"><a href="#cb16-226" aria-hidden="true" tabindex="-1"></a>cc <span class="ot">&lt;-</span> <span class="fu">mfcc_stats</span>(<span class="at">X =</span> lbh_selec_table)</span>
+<span id="cb16-226"><a href="#cb16-226" aria-hidden="true" tabindex="-1"></a><span class="in">cc &lt;- mfcc_stats(X = lbh_selec_table)</span></span>
 <span id="cb16-227"><a href="#cb16-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-228"><a href="#cb16-228" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> <span class="fu">kable</span>(cc, <span class="at">align =</span> <span class="st">"c"</span>, <span class="at">row.names =</span> F,  <span class="at">format =</span> <span class="st">"html"</span>)</span>
+<span id="cb16-228"><a href="#cb16-228" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- kable(cc, align = "c", row.names = F,  format = "html")</span></span>
 <span id="cb16-229"><a href="#cb16-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-230"><a href="#cb16-230" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> <span class="fu">kable_styling</span>(kbl, <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">font_size =</span> <span class="dv">11</span>)</span>
+<span id="cb16-230"><a href="#cb16-230" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- kable_styling(kbl, bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 11)</span></span>
 <span id="cb16-231"><a href="#cb16-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-232"><a href="#cb16-232" aria-hidden="true" tabindex="-1"></a><span class="fu">scroll_box</span>(kbl, <span class="at">width =</span> <span class="st">"808px"</span>,</span>
-<span id="cb16-233"><a href="#cb16-233" aria-hidden="true" tabindex="-1"></a><span class="at">box_css =</span> <span class="st">"border: 1px solid #ddd; padding: 5px; "</span>, <span class="at">extra_css =</span> <span class="cn">NULL</span>)</span>
+<span id="cb16-232"><a href="#cb16-232" aria-hidden="true" tabindex="-1"></a><span class="in">scroll_box(kbl, width = "808px",</span></span>
+<span id="cb16-233"><a href="#cb16-233" aria-hidden="true" tabindex="-1"></a><span class="in">box_css = "border: 1px solid #ddd; padding: 5px; ", extra_css = NULL)</span></span>
 <span id="cb16-234"><a href="#cb16-234" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-235"><a href="#cb16-235" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-236"><a href="#cb16-236" aria-hidden="true" tabindex="-1"></a></span>
@@ -4921,21 +5030,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-242"><a href="#cb16-242" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-243"><a href="#cb16-243" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
 <span id="cb16-244"><a href="#cb16-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-245"><a href="#cb16-245" aria-hidden="true" tabindex="-1"></a>xcor <span class="ot">&lt;-</span> <span class="fu">cross_correlation</span>(<span class="at">X =</span> lbh_selec_table)</span>
+<span id="cb16-245"><a href="#cb16-245" aria-hidden="true" tabindex="-1"></a><span class="in">xcor &lt;- cross_correlation(X = lbh_selec_table)</span></span>
 <span id="cb16-246"><a href="#cb16-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-247"><a href="#cb16-247" aria-hidden="true" tabindex="-1"></a>xcor</span>
+<span id="cb16-247"><a href="#cb16-247" aria-hidden="true" tabindex="-1"></a><span class="in">xcor</span></span>
 <span id="cb16-248"><a href="#cb16-248" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-249"><a href="#cb16-249" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-250"><a href="#cb16-250" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE}</span></span>
 <span id="cb16-251"><a href="#cb16-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-252"><a href="#cb16-252" aria-hidden="true" tabindex="-1"></a>xcor <span class="ot">&lt;-</span> <span class="fu">cross_correlation</span>(<span class="at">X =</span> lbh_selec_table)</span>
+<span id="cb16-252"><a href="#cb16-252" aria-hidden="true" tabindex="-1"></a><span class="in">xcor &lt;- cross_correlation(X = lbh_selec_table)</span></span>
 <span id="cb16-253"><a href="#cb16-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-254"><a href="#cb16-254" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> <span class="fu">kable</span>(xcor, <span class="at">align =</span> <span class="st">"c"</span>, <span class="at">row.names =</span> <span class="cn">TRUE</span>,  <span class="at">format =</span> <span class="st">"html"</span>)</span>
+<span id="cb16-254"><a href="#cb16-254" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- kable(xcor, align = "c", row.names = TRUE,  format = "html")</span></span>
 <span id="cb16-255"><a href="#cb16-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-256"><a href="#cb16-256" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> <span class="fu">kable_styling</span>(kbl, <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">font_size =</span> <span class="dv">11</span>)</span>
+<span id="cb16-256"><a href="#cb16-256" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- kable_styling(kbl, bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 11)</span></span>
 <span id="cb16-257"><a href="#cb16-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-258"><a href="#cb16-258" aria-hidden="true" tabindex="-1"></a><span class="fu">scroll_box</span>(kbl, <span class="at">width =</span> <span class="st">"808px"</span>,</span>
-<span id="cb16-259"><a href="#cb16-259" aria-hidden="true" tabindex="-1"></a><span class="at">box_css =</span> <span class="st">"border: 1px solid #ddd; padding: 5px; "</span>, <span class="at">extra_css =</span> <span class="cn">NULL</span>)</span>
+<span id="cb16-258"><a href="#cb16-258" aria-hidden="true" tabindex="-1"></a><span class="in">scroll_box(kbl, width = "808px",</span></span>
+<span id="cb16-259"><a href="#cb16-259" aria-hidden="true" tabindex="-1"></a><span class="in">box_css = "border: 1px solid #ddd; padding: 5px; ", extra_css = NULL)</span></span>
 <span id="cb16-260"><a href="#cb16-260" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-261"><a href="#cb16-261" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-262"><a href="#cb16-262" aria-hidden="true" tabindex="-1"></a></span>
@@ -4944,7 +5053,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-265"><a href="#cb16-265" aria-hidden="true" tabindex="-1"></a>Spectrographic cross-correlation is the standard way to calculate signal similarity for amplitude variation in frequency and time</span>
 <span id="cb16-266"><a href="#cb16-266" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-267"><a href="#cb16-267" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert-info}</span>
-<span id="cb16-268"><a href="#cb16-268" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Exercise<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb16-268"><a href="#cb16-268" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Exercise&lt;/font&gt;</span>
 <span id="cb16-269"><a href="#cb16-269" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-270"><a href="#cb16-270" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb16-271"><a href="#cb16-271" aria-hidden="true" tabindex="-1"></a></span>
@@ -4959,7 +5068,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-280"><a href="#cb16-280" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-281"><a href="#cb16-281" aria-hidden="true" tabindex="-1"></a>In time series analysis, time dynamics distortion (DTW) is one of the algorithms to measure the similarity between two time sequences, which may vary in their 'speed'. The sequences are nonlinearly 'warped' in the temporal dimension to determine a measure of their similarity independent of certain nonlinear variations in the temporal dimension.</span>
 <span id="cb16-282"><a href="#cb16-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-283"><a href="#cb16-283" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">"images/dtw.jpg"</span> <span class="er">alt</span><span class="ot">=</span><span class="st">"viewSpec"</span> <span class="er">width</span><span class="ot">=</span><span class="st">"640"</span><span class="kw">/&gt;</span></span>
+<span id="cb16-283"><a href="#cb16-283" aria-hidden="true" tabindex="-1"></a>&lt;img src="images/dtw.jpg" alt="viewSpec" width="640"/&gt;</span>
 <span id="cb16-284"><a href="#cb16-284" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-285"><a href="#cb16-285" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb16-286"><a href="#cb16-286" aria-hidden="true" tabindex="-1"></a></span>
@@ -4967,20 +5076,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-288"><a href="#cb16-288" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-289"><a href="#cb16-289" aria-hidden="true" tabindex="-1"></a><span class="in">```{r measure, eval = FALSE}</span></span>
 <span id="cb16-290"><a href="#cb16-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-291"><a href="#cb16-291" aria-hidden="true" tabindex="-1"></a>dtwdist <span class="ot">&lt;-</span> <span class="fu">freq_DTW</span>(lbh_selec_table)</span>
+<span id="cb16-291"><a href="#cb16-291" aria-hidden="true" tabindex="-1"></a><span class="in">dtwdist &lt;- freq_DTW(lbh_selec_table)</span></span>
 <span id="cb16-292"><a href="#cb16-292" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-293"><a href="#cb16-293" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-294"><a href="#cb16-294" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-295"><a href="#cb16-295" aria-hidden="true" tabindex="-1"></a><span class="in">```{r measure 2, echo=FALSE}</span></span>
 <span id="cb16-296"><a href="#cb16-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-297"><a href="#cb16-297" aria-hidden="true" tabindex="-1"></a>dtwdist <span class="ot">&lt;-</span> <span class="fu">freq_DTW</span>(lbh_selec_table)</span>
+<span id="cb16-297"><a href="#cb16-297" aria-hidden="true" tabindex="-1"></a><span class="in">dtwdist &lt;- freq_DTW(lbh_selec_table)</span></span>
 <span id="cb16-298"><a href="#cb16-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-299"><a href="#cb16-299" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> <span class="fu">kable</span>(dtwdist, <span class="at">align =</span> <span class="st">"c"</span>, <span class="at">row.names =</span> <span class="cn">TRUE</span>,  <span class="at">format =</span> <span class="st">"html"</span>)</span>
+<span id="cb16-299"><a href="#cb16-299" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- kable(dtwdist, align = "c", row.names = TRUE,  format = "html")</span></span>
 <span id="cb16-300"><a href="#cb16-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-301"><a href="#cb16-301" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> <span class="fu">kable_styling</span>(kbl, <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">font_size =</span> <span class="dv">11</span>)</span>
+<span id="cb16-301"><a href="#cb16-301" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- kable_styling(kbl, bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 11)</span></span>
 <span id="cb16-302"><a href="#cb16-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-303"><a href="#cb16-303" aria-hidden="true" tabindex="-1"></a><span class="fu">scroll_box</span>(kbl, <span class="at">width =</span> <span class="st">"808px"</span>,</span>
-<span id="cb16-304"><a href="#cb16-304" aria-hidden="true" tabindex="-1"></a><span class="at">box_css =</span> <span class="st">"border: 1px solid #ddd; padding: 5px; "</span>, <span class="at">extra_css =</span> <span class="cn">NULL</span>)</span>
+<span id="cb16-303"><a href="#cb16-303" aria-hidden="true" tabindex="-1"></a><span class="in">scroll_box(kbl, width = "808px",</span></span>
+<span id="cb16-304"><a href="#cb16-304" aria-hidden="true" tabindex="-1"></a><span class="in">box_css = "border: 1px solid #ddd; padding: 5px; ", extra_css = NULL)</span></span>
 <span id="cb16-305"><a href="#cb16-305" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-306"><a href="#cb16-306" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-307"><a href="#cb16-307" aria-hidden="true" tabindex="-1"></a></span>
@@ -4992,20 +5101,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-313"><a href="#cb16-313" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-314"><a href="#cb16-314" aria-hidden="true" tabindex="-1"></a><span class="in">```{r measure 3, eval = FALSE}</span></span>
 <span id="cb16-315"><a href="#cb16-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-316"><a href="#cb16-316" aria-hidden="true" tabindex="-1"></a><span class="fu">freq_DTW</span>(lbh_selec_table, <span class="at">img =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">line =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb16-316"><a href="#cb16-316" aria-hidden="true" tabindex="-1"></a><span class="in">freq_DTW(lbh_selec_table, img = TRUE, col = "red", pch = 21, line = FALSE)</span></span>
 <span id="cb16-317"><a href="#cb16-317" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-318"><a href="#cb16-318" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-319"><a href="#cb16-319" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-320"><a href="#cb16-320" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb16-321"><a href="#cb16-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-322"><a href="#cb16-322" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">"images/Phae.long1.wav-1-dfDTW.jpeg"</span> <span class="er">alt</span><span class="ot">=</span><span class="st">"dfdtw"</span> <span class="er">width</span><span class="ot">=</span><span class="st">"480"</span><span class="kw">/&gt;</span></span>
+<span id="cb16-322"><a href="#cb16-322" aria-hidden="true" tabindex="-1"></a>&lt;img src="images/Phae.long1.wav-1-dfDTW.jpeg" alt="dfdtw" width="480"/&gt;</span>
 <span id="cb16-323"><a href="#cb16-323" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-324"><a href="#cb16-324" aria-hidden="true" tabindex="-1"></a>Frequency contours can be calculated independently using the <span class="in">`freq_ts()`</span> function. These contours can be adjusted manually with the <span class="in">`tailor_sels()`</span> function.</span>
 <span id="cb16-325"><a href="#cb16-325" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-326"><a href="#cb16-326" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb16-327"><a href="#cb16-327" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-328"><a href="#cb16-328" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert-info}</span>
-<span id="cb16-329"><a href="#cb16-329" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Exercise<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb16-329"><a href="#cb16-329" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Exercise&lt;/font&gt;</span>
 <span id="cb16-330"><a href="#cb16-330" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-331"><a href="#cb16-331" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb16-332"><a href="#cb16-332" aria-hidden="true" tabindex="-1"></a></span>
@@ -5015,8 +5124,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-336"><a href="#cb16-336" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-337"><a href="#cb16-337" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
 <span id="cb16-338"><a href="#cb16-338" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-339"><a href="#cb16-339" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="at">url =</span> <span class="st">"https://ndownloader.figshare.com/files/21167052"</span>, </span>
-<span id="cb16-340"><a href="#cb16-340" aria-hidden="true" tabindex="-1"></a> <span class="at">destfile =</span> <span class="st">"iniquiry_calls.RDS"</span>)</span>
+<span id="cb16-339"><a href="#cb16-339" aria-hidden="true" tabindex="-1"></a><span class="in">download.file(url = "https://ndownloader.figshare.com/files/21167052", </span></span>
+<span id="cb16-340"><a href="#cb16-340" aria-hidden="true" tabindex="-1"></a><span class="in"> destfile = "iniquiry_calls.RDS")</span></span>
 <span id="cb16-341"><a href="#cb16-341" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-342"><a href="#cb16-342" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-343"><a href="#cb16-343" aria-hidden="true" tabindex="-1"></a></span>
@@ -5024,27 +5133,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-345"><a href="#cb16-345" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-346"><a href="#cb16-346" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
 <span id="cb16-347"><a href="#cb16-347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-348"><a href="#cb16-348" aria-hidden="true" tabindex="-1"></a><span class="co">#function to create group membership binary matrix</span></span>
-<span id="cb16-349"><a href="#cb16-349" aria-hidden="true" tabindex="-1"></a>bi_mats <span class="ot">&lt;-</span> <span class="cf">function</span>(X, labels) {</span>
-<span id="cb16-350"><a href="#cb16-350" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb16-351"><a href="#cb16-351" aria-hidden="true" tabindex="-1"></a>  <span class="co"># create empty matrix to store memebership matrix</span></span>
-<span id="cb16-352"><a href="#cb16-352" aria-hidden="true" tabindex="-1"></a>  mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">nrow =</span> <span class="fu">ncol</span>(X), <span class="at">ncol =</span> <span class="fu">ncol</span>(X))</span>
-<span id="cb16-353"><a href="#cb16-353" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb16-354"><a href="#cb16-354" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add labels to row and col names</span></span>
-<span id="cb16-355"><a href="#cb16-355" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames</span>(mat) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(mat) <span class="ot">&lt;-</span> labels</span>
-<span id="cb16-356"><a href="#cb16-356" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb16-357"><a href="#cb16-357" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add 0 if same group and 1 if else </span></span>
-<span id="cb16-358"><a href="#cb16-358" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span>(<span class="fu">length</span>(labels) <span class="sc">-</span> <span class="dv">1</span>), <span class="cf">function</span>(i){</span>
-<span id="cb16-359"><a href="#cb16-359" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sapply</span>((i <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">:</span><span class="fu">length</span>(labels), <span class="cf">function</span>(j) </span>
-<span id="cb16-360"><a href="#cb16-360" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (labels[i] <span class="sc">==</span> labels[j]) <span class="dv">0</span> <span class="cf">else</span> <span class="dv">1</span>)  </span>
-<span id="cb16-361"><a href="#cb16-361" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb16-348"><a href="#cb16-348" aria-hidden="true" tabindex="-1"></a><span class="in">#function to create group membership binary matrix</span></span>
+<span id="cb16-349"><a href="#cb16-349" aria-hidden="true" tabindex="-1"></a><span class="in">bi_mats &lt;- function(X, labels) {</span></span>
+<span id="cb16-350"><a href="#cb16-350" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb16-351"><a href="#cb16-351" aria-hidden="true" tabindex="-1"></a><span class="in">  # create empty matrix to store memebership matrix</span></span>
+<span id="cb16-352"><a href="#cb16-352" aria-hidden="true" tabindex="-1"></a><span class="in">  mat &lt;- matrix(nrow = ncol(X), ncol = ncol(X))</span></span>
+<span id="cb16-353"><a href="#cb16-353" aria-hidden="true" tabindex="-1"></a><span class="in"> </span></span>
+<span id="cb16-354"><a href="#cb16-354" aria-hidden="true" tabindex="-1"></a><span class="in">  # add labels to row and col names</span></span>
+<span id="cb16-355"><a href="#cb16-355" aria-hidden="true" tabindex="-1"></a><span class="in">  rownames(mat) &lt;- colnames(mat) &lt;- labels</span></span>
+<span id="cb16-356"><a href="#cb16-356" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb16-357"><a href="#cb16-357" aria-hidden="true" tabindex="-1"></a><span class="in">  # add 0 if same group and 1 if else </span></span>
+<span id="cb16-358"><a href="#cb16-358" aria-hidden="true" tabindex="-1"></a><span class="in">  out &lt;- lapply(1:(length(labels) - 1), function(i){</span></span>
+<span id="cb16-359"><a href="#cb16-359" aria-hidden="true" tabindex="-1"></a><span class="in">  sapply((i + 1):length(labels), function(j) </span></span>
+<span id="cb16-360"><a href="#cb16-360" aria-hidden="true" tabindex="-1"></a><span class="in">    if (labels[i] == labels[j]) 0 else 1)  </span></span>
+<span id="cb16-361"><a href="#cb16-361" aria-hidden="true" tabindex="-1"></a><span class="in">    })</span></span>
 <span id="cb16-362"><a href="#cb16-362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-363"><a href="#cb16-363" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add to mat</span></span>
-<span id="cb16-364"><a href="#cb16-364" aria-hidden="true" tabindex="-1"></a>  mat[<span class="fu">lower.tri</span>(mat)] <span class="ot">&lt;-</span> <span class="fu">unlist</span>(out)</span>
+<span id="cb16-363"><a href="#cb16-363" aria-hidden="true" tabindex="-1"></a><span class="in">  # add to mat</span></span>
+<span id="cb16-364"><a href="#cb16-364" aria-hidden="true" tabindex="-1"></a><span class="in">  mat[lower.tri(mat)] &lt;- unlist(out)</span></span>
 <span id="cb16-365"><a href="#cb16-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-366"><a href="#cb16-366" aria-hidden="true" tabindex="-1"></a>  <span class="co"># retunr as distance matrix</span></span>
-<span id="cb16-367"><a href="#cb16-367" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">as.dist</span>(mat))</span>
-<span id="cb16-368"><a href="#cb16-368" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb16-366"><a href="#cb16-366" aria-hidden="true" tabindex="-1"></a><span class="in">  # retunr as distance matrix</span></span>
+<span id="cb16-367"><a href="#cb16-367" aria-hidden="true" tabindex="-1"></a><span class="in">  return(as.dist(mat))</span></span>
+<span id="cb16-368"><a href="#cb16-368" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
 <span id="cb16-369"><a href="#cb16-369" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-370"><a href="#cb16-370" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-371"><a href="#cb16-371" aria-hidden="true" tabindex="-1"></a>The function takes as arguments the cross-correlation similarity matrix ('X' argument) and a label vector indicating group membership ('labels' argument). Compare dissimilarity from cross-correlation (1 - correlation matrix) with call membership using Mantel test (you can use <span class="in">`vegan::mantel()`</span>)</span>
@@ -5066,19 +5175,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-387"><a href="#cb16-387" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-388"><a href="#cb16-388" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
 <span id="cb16-389"><a href="#cb16-389" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-390"><a href="#cb16-390" aria-hidden="true" tabindex="-1"></a>snr <span class="ot">&lt;-</span> <span class="fu">sig2noise</span>(<span class="at">X =</span> lbh_selec_table, <span class="at">mar =</span> <span class="fl">0.06</span>)</span>
+<span id="cb16-390"><a href="#cb16-390" aria-hidden="true" tabindex="-1"></a><span class="in">snr &lt;- sig2noise(X = lbh_selec_table, mar = 0.06)</span></span>
 <span id="cb16-391"><a href="#cb16-391" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-392"><a href="#cb16-392" aria-hidden="true" tabindex="-1"></a>snr</span>
+<span id="cb16-392"><a href="#cb16-392" aria-hidden="true" tabindex="-1"></a><span class="in">snr</span></span>
 <span id="cb16-393"><a href="#cb16-393" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-394"><a href="#cb16-394" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-395"><a href="#cb16-395" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-396"><a href="#cb16-396" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval= TRUE, echo=FALSE, warning=FALSE, message=FALSE}</span></span>
 <span id="cb16-397"><a href="#cb16-397" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-398"><a href="#cb16-398" aria-hidden="true" tabindex="-1"></a>snr <span class="ot">&lt;-</span> <span class="fu">sig2noise</span>(<span class="at">X =</span> lbh_selec_table, <span class="at">mar =</span> <span class="fl">0.06</span>)</span>
+<span id="cb16-398"><a href="#cb16-398" aria-hidden="true" tabindex="-1"></a><span class="in">snr &lt;- sig2noise(X = lbh_selec_table, mar = 0.06)</span></span>
 <span id="cb16-399"><a href="#cb16-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-400"><a href="#cb16-400" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> <span class="fu">kable</span>(snr, <span class="at">align =</span> <span class="st">"c"</span>, <span class="at">row.names =</span> F,  <span class="at">format =</span> <span class="st">"html"</span>)</span>
+<span id="cb16-400"><a href="#cb16-400" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- kable(snr, align = "c", row.names = F,  format = "html")</span></span>
 <span id="cb16-401"><a href="#cb16-401" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-402"><a href="#cb16-402" aria-hidden="true" tabindex="-1"></a><span class="fu">kable_styling</span>(kbl, <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">font_size =</span> <span class="dv">11</span>)</span>
+<span id="cb16-402"><a href="#cb16-402" aria-hidden="true" tabindex="-1"></a><span class="in">kable_styling(kbl, bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 11)</span></span>
 <span id="cb16-403"><a href="#cb16-403" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-404"><a href="#cb16-404" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-405"><a href="#cb16-405" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -5091,22 +5200,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-412"><a href="#cb16-412" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-413"><a href="#cb16-413" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
 <span id="cb16-414"><a href="#cb16-414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-415"><a href="#cb16-415" aria-hidden="true" tabindex="-1"></a>cntrs <span class="ot">&lt;-</span> <span class="fu">freq_ts</span>(<span class="at">X =</span> lbh_selec_table)</span>
+<span id="cb16-415"><a href="#cb16-415" aria-hidden="true" tabindex="-1"></a><span class="in">cntrs &lt;- freq_ts(X = lbh_selec_table)</span></span>
 <span id="cb16-416"><a href="#cb16-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-417"><a href="#cb16-417" aria-hidden="true" tabindex="-1"></a>inflcts <span class="ot">&lt;-</span> <span class="fu">inflections</span>(cntrs)</span>
+<span id="cb16-417"><a href="#cb16-417" aria-hidden="true" tabindex="-1"></a><span class="in">inflcts &lt;- inflections(cntrs)</span></span>
 <span id="cb16-418"><a href="#cb16-418" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-419"><a href="#cb16-419" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-420"><a href="#cb16-420" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-421"><a href="#cb16-421" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval= TRUE, echo=FALSE, warning=FALSE, message=FALSE}</span></span>
 <span id="cb16-422"><a href="#cb16-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-423"><a href="#cb16-423" aria-hidden="true" tabindex="-1"></a>cntrs <span class="ot">&lt;-</span> <span class="fu">freq_ts</span>(<span class="at">X =</span> lbh_selec_table)</span>
+<span id="cb16-423"><a href="#cb16-423" aria-hidden="true" tabindex="-1"></a><span class="in">cntrs &lt;- freq_ts(X = lbh_selec_table)</span></span>
 <span id="cb16-424"><a href="#cb16-424" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-425"><a href="#cb16-425" aria-hidden="true" tabindex="-1"></a>inflcts <span class="ot">&lt;-</span> <span class="fu">inflections</span>(cntrs)</span>
+<span id="cb16-425"><a href="#cb16-425" aria-hidden="true" tabindex="-1"></a><span class="in">inflcts &lt;- inflections(cntrs)</span></span>
 <span id="cb16-426"><a href="#cb16-426" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-427"><a href="#cb16-427" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-428"><a href="#cb16-428" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> <span class="fu">kable</span>(inflcts, <span class="at">align =</span> <span class="st">"c"</span>, <span class="at">row.names =</span> F,  <span class="at">format =</span> <span class="st">"html"</span>)</span>
+<span id="cb16-428"><a href="#cb16-428" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- kable(inflcts, align = "c", row.names = F,  format = "html")</span></span>
 <span id="cb16-429"><a href="#cb16-429" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-430"><a href="#cb16-430" aria-hidden="true" tabindex="-1"></a><span class="fu">kable_styling</span>(kbl, <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">font_size =</span> <span class="dv">11</span>)</span>
+<span id="cb16-430"><a href="#cb16-430" aria-hidden="true" tabindex="-1"></a><span class="in">kable_styling(kbl, bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 11)</span></span>
 <span id="cb16-431"><a href="#cb16-431" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-432"><a href="#cb16-432" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-433"><a href="#cb16-433" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -5119,25 +5228,25 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-440"><a href="#cb16-440" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-441"><a href="#cb16-441" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
 <span id="cb16-442"><a href="#cb16-442" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-443"><a href="#cb16-443" aria-hidden="true" tabindex="-1"></a><span class="co"># add a 'song' column</span></span>
-<span id="cb16-444"><a href="#cb16-444" aria-hidden="true" tabindex="-1"></a>lbh_selec_table<span class="sc">$</span>song <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">each =</span> <span class="dv">3</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>]</span>
+<span id="cb16-443"><a href="#cb16-443" aria-hidden="true" tabindex="-1"></a><span class="in"># add a 'song' column</span></span>
+<span id="cb16-444"><a href="#cb16-444" aria-hidden="true" tabindex="-1"></a><span class="in">lbh_selec_table$song &lt;- rep(1:4, each = 3)[1:11]</span></span>
 <span id="cb16-445"><a href="#cb16-445" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-446"><a href="#cb16-446" aria-hidden="true" tabindex="-1"></a><span class="co"># measure default parameters</span></span>
-<span id="cb16-447"><a href="#cb16-447" aria-hidden="true" tabindex="-1"></a><span class="fu">song_analysis</span>(<span class="at">X =</span> lbh_selec_table, <span class="at">song_colm =</span> <span class="st">"song"</span>, <span class="at">parallel =</span> <span class="dv">1</span>, <span class="at">pb =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-446"><a href="#cb16-446" aria-hidden="true" tabindex="-1"></a><span class="in"># measure default parameters</span></span>
+<span id="cb16-447"><a href="#cb16-447" aria-hidden="true" tabindex="-1"></a><span class="in">song_analysis(X = lbh_selec_table, song_colm = "song", parallel = 1, pb = TRUE)</span></span>
 <span id="cb16-448"><a href="#cb16-448" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-449"><a href="#cb16-449" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-450"><a href="#cb16-450" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval= TRUE, echo=FALSE, warning=FALSE, message=FALSE}</span></span>
 <span id="cb16-451"><a href="#cb16-451" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-452"><a href="#cb16-452" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-453"><a href="#cb16-453" aria-hidden="true" tabindex="-1"></a><span class="co"># add a 'song' column</span></span>
-<span id="cb16-454"><a href="#cb16-454" aria-hidden="true" tabindex="-1"></a>lbh_selec_table<span class="sc">$</span>song <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">each =</span> <span class="dv">3</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>]</span>
+<span id="cb16-453"><a href="#cb16-453" aria-hidden="true" tabindex="-1"></a><span class="in"># add a 'song' column</span></span>
+<span id="cb16-454"><a href="#cb16-454" aria-hidden="true" tabindex="-1"></a><span class="in">lbh_selec_table$song &lt;- rep(1:4, each = 3)[1:11]</span></span>
 <span id="cb16-455"><a href="#cb16-455" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-456"><a href="#cb16-456" aria-hidden="true" tabindex="-1"></a><span class="co"># measure default parameters</span></span>
-<span id="cb16-457"><a href="#cb16-457" aria-hidden="true" tabindex="-1"></a>W <span class="ot">&lt;-</span> <span class="fu">song_analysis</span>(<span class="at">X =</span> lbh_selec_table, <span class="at">song_colm =</span> <span class="st">"song"</span>, <span class="at">parallel =</span> <span class="dv">1</span>, <span class="at">pb =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-456"><a href="#cb16-456" aria-hidden="true" tabindex="-1"></a><span class="in"># measure default parameters</span></span>
+<span id="cb16-457"><a href="#cb16-457" aria-hidden="true" tabindex="-1"></a><span class="in">W &lt;- song_analysis(X = lbh_selec_table, song_colm = "song", parallel = 1, pb = TRUE)</span></span>
 <span id="cb16-458"><a href="#cb16-458" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-459"><a href="#cb16-459" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> <span class="fu">kable</span>(W, <span class="at">align =</span> <span class="st">"c"</span>, <span class="at">row.names =</span> F,  <span class="at">format =</span> <span class="st">"html"</span>)</span>
+<span id="cb16-459"><a href="#cb16-459" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- kable(W, align = "c", row.names = F,  format = "html")</span></span>
 <span id="cb16-460"><a href="#cb16-460" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-461"><a href="#cb16-461" aria-hidden="true" tabindex="-1"></a><span class="fu">kable_styling</span>(kbl, <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">font_size =</span> <span class="dv">11</span>)</span>
+<span id="cb16-461"><a href="#cb16-461" aria-hidden="true" tabindex="-1"></a><span class="in">kable_styling(kbl, bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 11)</span></span>
 <span id="cb16-462"><a href="#cb16-462" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-463"><a href="#cb16-463" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-464"><a href="#cb16-464" aria-hidden="true" tabindex="-1"></a></span>
@@ -5145,38 +5254,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-466"><a href="#cb16-466" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-467"><a href="#cb16-467" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval = FALSE}</span></span>
 <span id="cb16-468"><a href="#cb16-468" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-469"><a href="#cb16-469" aria-hidden="true" tabindex="-1"></a><span class="co"># measure acoustic parameters</span></span>
-<span id="cb16-470"><a href="#cb16-470" aria-hidden="true" tabindex="-1"></a>sp <span class="ot">&lt;-</span> <span class="fu">spectro_analysis</span>(lbh_selec_table[<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>, ], <span class="at">bp =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">11</span>), <span class="dv">300</span>, <span class="at">fast =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-469"><a href="#cb16-469" aria-hidden="true" tabindex="-1"></a><span class="in"># measure acoustic parameters</span></span>
+<span id="cb16-470"><a href="#cb16-470" aria-hidden="true" tabindex="-1"></a><span class="in">sp &lt;- spectro_analysis(lbh_selec_table[1:8, ], bp = c(1, 11), 300, fast = TRUE)</span></span>
 <span id="cb16-471"><a href="#cb16-471" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-472"><a href="#cb16-472" aria-hidden="true" tabindex="-1"></a>sp <span class="ot">&lt;-</span> <span class="fu">merge</span>(sp, lbh_selec_table[<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>, ], <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"sound.files"</span>, <span class="st">"selec"</span>))</span>
+<span id="cb16-472"><a href="#cb16-472" aria-hidden="true" tabindex="-1"></a><span class="in">sp &lt;- merge(sp, lbh_selec_table[1:8, ], by = c("sound.files", "selec"))</span></span>
 <span id="cb16-473"><a href="#cb16-473" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-474"><a href="#cb16-474" aria-hidden="true" tabindex="-1"></a><span class="co"># caculate song-level parameters for all numeric parameters</span></span>
-<span id="cb16-475"><a href="#cb16-475" aria-hidden="true" tabindex="-1"></a><span class="fu">song_analysis</span>(<span class="at">X =</span> sp, <span class="at">song_colm =</span> <span class="st">"song"</span>, <span class="at">parallel =</span> <span class="dv">1</span>, <span class="at">pb =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-474"><a href="#cb16-474" aria-hidden="true" tabindex="-1"></a><span class="in"># caculate song-level parameters for all numeric parameters</span></span>
+<span id="cb16-475"><a href="#cb16-475" aria-hidden="true" tabindex="-1"></a><span class="in">song_analysis(X = sp, song_colm = "song", parallel = 1, pb = TRUE)</span></span>
 <span id="cb16-476"><a href="#cb16-476" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-477"><a href="#cb16-477" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-478"><a href="#cb16-478" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-479"><a href="#cb16-479" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-480"><a href="#cb16-480" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval= TRUE, echo=FALSE, warning=FALSE, message=FALSE}</span></span>
 <span id="cb16-481"><a href="#cb16-481" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-482"><a href="#cb16-482" aria-hidden="true" tabindex="-1"></a><span class="fu">warbleR_options</span>(<span class="at">wav.path =</span> <span class="st">"./examples"</span>)</span>
+<span id="cb16-482"><a href="#cb16-482" aria-hidden="true" tabindex="-1"></a><span class="in">warbleR_options(wav.path = "./examples")</span></span>
 <span id="cb16-483"><a href="#cb16-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-484"><a href="#cb16-484" aria-hidden="true" tabindex="-1"></a><span class="co"># add a 'song' column</span></span>
-<span id="cb16-485"><a href="#cb16-485" aria-hidden="true" tabindex="-1"></a>lbh_selec_table<span class="sc">$</span>song <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">each =</span> <span class="dv">3</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>]</span>
+<span id="cb16-484"><a href="#cb16-484" aria-hidden="true" tabindex="-1"></a><span class="in"># add a 'song' column</span></span>
+<span id="cb16-485"><a href="#cb16-485" aria-hidden="true" tabindex="-1"></a><span class="in">lbh_selec_table$song &lt;- rep(1:4, each = 3)[1:11]</span></span>
 <span id="cb16-486"><a href="#cb16-486" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-487"><a href="#cb16-487" aria-hidden="true" tabindex="-1"></a><span class="co"># measure acoustic parameters</span></span>
-<span id="cb16-488"><a href="#cb16-488" aria-hidden="true" tabindex="-1"></a>sp <span class="ot">&lt;-</span> <span class="fu">spectro_analysis</span>(lbh_selec_table[<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>, ], <span class="at">bp =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">11</span>), <span class="dv">300</span>, <span class="at">fast =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-487"><a href="#cb16-487" aria-hidden="true" tabindex="-1"></a><span class="in"># measure acoustic parameters</span></span>
+<span id="cb16-488"><a href="#cb16-488" aria-hidden="true" tabindex="-1"></a><span class="in">sp &lt;- spectro_analysis(lbh_selec_table[1:8, ], bp = c(1, 11), 300, fast = TRUE)</span></span>
 <span id="cb16-489"><a href="#cb16-489" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-490"><a href="#cb16-490" aria-hidden="true" tabindex="-1"></a>sp <span class="ot">&lt;-</span> <span class="fu">merge</span>(sp, lbh_selec_table[<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>, ], <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"sound.files"</span>, <span class="st">"selec"</span>))</span>
+<span id="cb16-490"><a href="#cb16-490" aria-hidden="true" tabindex="-1"></a><span class="in">sp &lt;- merge(sp, lbh_selec_table[1:8, ], by = c("sound.files", "selec"))</span></span>
 <span id="cb16-491"><a href="#cb16-491" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-492"><a href="#cb16-492" aria-hidden="true" tabindex="-1"></a><span class="co"># caculate song-level parameters for all numeric parameters</span></span>
-<span id="cb16-493"><a href="#cb16-493" aria-hidden="true" tabindex="-1"></a>W <span class="ot">&lt;-</span> <span class="fu">song_analysis</span>(<span class="at">X =</span> sp, <span class="at">song_colm =</span> <span class="st">"song"</span>, <span class="at">parallel =</span> <span class="dv">1</span>, <span class="at">pb =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-492"><a href="#cb16-492" aria-hidden="true" tabindex="-1"></a><span class="in"># caculate song-level parameters for all numeric parameters</span></span>
+<span id="cb16-493"><a href="#cb16-493" aria-hidden="true" tabindex="-1"></a><span class="in">W &lt;- song_analysis(X = sp, song_colm = "song", parallel = 1, pb = TRUE)</span></span>
 <span id="cb16-494"><a href="#cb16-494" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-495"><a href="#cb16-495" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> <span class="fu">kable</span>(W, <span class="at">align =</span> <span class="st">"c"</span>, <span class="at">row.names =</span> F,  <span class="at">format =</span> <span class="st">"html"</span>)</span>
+<span id="cb16-495"><a href="#cb16-495" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- kable(W, align = "c", row.names = F,  format = "html")</span></span>
 <span id="cb16-496"><a href="#cb16-496" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-497"><a href="#cb16-497" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> <span class="fu">kable_styling</span>(kbl, <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">font_size =</span> <span class="dv">11</span>)</span>
+<span id="cb16-497"><a href="#cb16-497" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- kable_styling(kbl, bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 11)</span></span>
 <span id="cb16-498"><a href="#cb16-498" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-499"><a href="#cb16-499" aria-hidden="true" tabindex="-1"></a><span class="fu">scroll_box</span>(kbl, <span class="at">width =</span> <span class="st">"808px"</span>,</span>
-<span id="cb16-500"><a href="#cb16-500" aria-hidden="true" tabindex="-1"></a><span class="at">box_css =</span> <span class="st">"border: 1px solid #ddd; padding: 5px; "</span>, <span class="at">extra_css =</span> <span class="cn">NULL</span>)</span>
+<span id="cb16-499"><a href="#cb16-499" aria-hidden="true" tabindex="-1"></a><span class="in">scroll_box(kbl, width = "808px",</span></span>
+<span id="cb16-500"><a href="#cb16-500" aria-hidden="true" tabindex="-1"></a><span class="in">box_css = "border: 1px solid #ddd; padding: 5px; ", extra_css = NULL)</span></span>
 <span id="cb16-501"><a href="#cb16-501" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-502"><a href="#cb16-502" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-503"><a href="#cb16-503" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -5187,21 +5296,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-508"><a href="#cb16-508" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-509"><a href="#cb16-509" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
 <span id="cb16-510"><a href="#cb16-510" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-511"><a href="#cb16-511" aria-hidden="true" tabindex="-1"></a><span class="co"># caculate song-level parameters selecting parameters with mean_colm</span></span>
-<span id="cb16-512"><a href="#cb16-512" aria-hidden="true" tabindex="-1"></a><span class="fu">song_analysis</span>(<span class="at">X =</span> sp, <span class="at">song_colm =</span> <span class="st">"song"</span>,<span class="at">mean_colm =</span> <span class="fu">c</span>(<span class="st">"dfrange"</span>, <span class="st">"duration"</span>), <span class="at">parallel =</span> <span class="dv">1</span>, <span class="at">pb =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-511"><a href="#cb16-511" aria-hidden="true" tabindex="-1"></a><span class="in"># caculate song-level parameters selecting parameters with mean_colm</span></span>
+<span id="cb16-512"><a href="#cb16-512" aria-hidden="true" tabindex="-1"></a><span class="in">song_analysis(X = sp, song_colm = "song",mean_colm = c("dfrange", "duration"), parallel = 1, pb = TRUE)</span></span>
 <span id="cb16-513"><a href="#cb16-513" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-514"><a href="#cb16-514" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-515"><a href="#cb16-515" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-516"><a href="#cb16-516" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval= TRUE, echo=FALSE, warning=FALSE, message=FALSE}</span></span>
 <span id="cb16-517"><a href="#cb16-517" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-518"><a href="#cb16-518" aria-hidden="true" tabindex="-1"></a>W <span class="ot">&lt;-</span> <span class="fu">song_analysis</span>(<span class="at">X =</span> sp, <span class="at">song_colm =</span> <span class="st">"song"</span>,<span class="at">mean_colm =</span> <span class="fu">c</span>(<span class="st">"dfrange"</span>, <span class="st">"duration"</span>), <span class="at">parallel =</span> <span class="dv">1</span>, <span class="at">pb =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-518"><a href="#cb16-518" aria-hidden="true" tabindex="-1"></a><span class="in">W &lt;- song_analysis(X = sp, song_colm = "song",mean_colm = c("dfrange", "duration"), parallel = 1, pb = TRUE)</span></span>
 <span id="cb16-519"><a href="#cb16-519" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-520"><a href="#cb16-520" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> <span class="fu">kable</span>(W, <span class="at">align =</span> <span class="st">"c"</span>, <span class="at">row.names =</span> F,  <span class="at">format =</span> <span class="st">"html"</span>)</span>
+<span id="cb16-520"><a href="#cb16-520" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- kable(W, align = "c", row.names = F,  format = "html")</span></span>
 <span id="cb16-521"><a href="#cb16-521" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-522"><a href="#cb16-522" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> <span class="fu">kable_styling</span>(kbl, <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">font_size =</span> <span class="dv">11</span>)</span>
+<span id="cb16-522"><a href="#cb16-522" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- kable_styling(kbl, bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 11)</span></span>
 <span id="cb16-523"><a href="#cb16-523" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-524"><a href="#cb16-524" aria-hidden="true" tabindex="-1"></a><span class="fu">scroll_box</span>(kbl, <span class="at">width =</span> <span class="st">"808px"</span>,</span>
-<span id="cb16-525"><a href="#cb16-525" aria-hidden="true" tabindex="-1"></a><span class="at">box_css =</span> <span class="st">"border: 1px solid #ddd; padding: 5px; "</span>, <span class="at">extra_css =</span> <span class="cn">NULL</span>)</span>
+<span id="cb16-524"><a href="#cb16-524" aria-hidden="true" tabindex="-1"></a><span class="in">scroll_box(kbl, width = "808px",</span></span>
+<span id="cb16-525"><a href="#cb16-525" aria-hidden="true" tabindex="-1"></a><span class="in">box_css = "border: 1px solid #ddd; padding: 5px; ", extra_css = NULL)</span></span>
 <span id="cb16-526"><a href="#cb16-526" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-527"><a href="#cb16-527" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-528"><a href="#cb16-528" aria-hidden="true" tabindex="-1"></a></span>
@@ -5213,25 +5322,25 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-534"><a href="#cb16-534" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-535"><a href="#cb16-535" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
 <span id="cb16-536"><a href="#cb16-536" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-537"><a href="#cb16-537" aria-hidden="true" tabindex="-1"></a><span class="fu">song_analysis</span>(<span class="at">X =</span> sp, <span class="at">weight =</span> <span class="st">"duration"</span>, <span class="at">song_colm =</span> <span class="st">"song"</span>,</span>
-<span id="cb16-538"><a href="#cb16-538" aria-hidden="true" tabindex="-1"></a><span class="at">mean_colm =</span>  <span class="fu">c</span>(<span class="st">"dfrange"</span>, <span class="st">"duration"</span>), <span class="at">min_colm =</span>  <span class="st">"mindom"</span>, <span class="at">max_colm =</span> <span class="st">"maxdom"</span>, </span>
-<span id="cb16-539"><a href="#cb16-539" aria-hidden="true" tabindex="-1"></a>  <span class="at">parallel =</span> <span class="dv">1</span>, <span class="at">pb =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-537"><a href="#cb16-537" aria-hidden="true" tabindex="-1"></a><span class="in">song_analysis(X = sp, weight = "duration", song_colm = "song",</span></span>
+<span id="cb16-538"><a href="#cb16-538" aria-hidden="true" tabindex="-1"></a><span class="in">mean_colm =  c("dfrange", "duration"), min_colm =  "mindom", max_colm = "maxdom", </span></span>
+<span id="cb16-539"><a href="#cb16-539" aria-hidden="true" tabindex="-1"></a><span class="in">  parallel = 1, pb = TRUE)</span></span>
 <span id="cb16-540"><a href="#cb16-540" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-541"><a href="#cb16-541" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-542"><a href="#cb16-542" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-543"><a href="#cb16-543" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-544"><a href="#cb16-544" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval= TRUE, echo=FALSE, warning=FALSE, message=FALSE}</span></span>
 <span id="cb16-545"><a href="#cb16-545" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-546"><a href="#cb16-546" aria-hidden="true" tabindex="-1"></a>W <span class="ot">&lt;-</span> <span class="fu">song_analysis</span>(<span class="at">X =</span> sp, <span class="at">weight =</span> <span class="st">"duration"</span>, <span class="at">song_colm =</span> <span class="st">"song"</span>,</span>
-<span id="cb16-547"><a href="#cb16-547" aria-hidden="true" tabindex="-1"></a><span class="at">mean_colm =</span>  <span class="fu">c</span>(<span class="st">"dfrange"</span>, <span class="st">"duration"</span>), <span class="at">min_colm =</span>  <span class="st">"mindom"</span>, <span class="at">max_colm =</span> <span class="st">"maxdom"</span>, </span>
-<span id="cb16-548"><a href="#cb16-548" aria-hidden="true" tabindex="-1"></a>  <span class="at">parallel =</span> <span class="dv">1</span>, <span class="at">pb =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-546"><a href="#cb16-546" aria-hidden="true" tabindex="-1"></a><span class="in">W &lt;- song_analysis(X = sp, weight = "duration", song_colm = "song",</span></span>
+<span id="cb16-547"><a href="#cb16-547" aria-hidden="true" tabindex="-1"></a><span class="in">mean_colm =  c("dfrange", "duration"), min_colm =  "mindom", max_colm = "maxdom", </span></span>
+<span id="cb16-548"><a href="#cb16-548" aria-hidden="true" tabindex="-1"></a><span class="in">  parallel = 1, pb = TRUE)</span></span>
 <span id="cb16-549"><a href="#cb16-549" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-550"><a href="#cb16-550" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> <span class="fu">kable</span>(W, <span class="at">align =</span> <span class="st">"c"</span>, <span class="at">row.names =</span> F,  <span class="at">format =</span> <span class="st">"html"</span>)</span>
+<span id="cb16-550"><a href="#cb16-550" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- kable(W, align = "c", row.names = F,  format = "html")</span></span>
 <span id="cb16-551"><a href="#cb16-551" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-552"><a href="#cb16-552" aria-hidden="true" tabindex="-1"></a>kbl <span class="ot">&lt;-</span> <span class="fu">kable_styling</span>(kbl, <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">font_size =</span> <span class="dv">11</span>)</span>
+<span id="cb16-552"><a href="#cb16-552" aria-hidden="true" tabindex="-1"></a><span class="in">kbl &lt;- kable_styling(kbl, bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = FALSE, font_size = 11)</span></span>
 <span id="cb16-553"><a href="#cb16-553" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-554"><a href="#cb16-554" aria-hidden="true" tabindex="-1"></a><span class="fu">scroll_box</span>(kbl, <span class="at">width =</span> <span class="st">"808px"</span>,</span>
-<span id="cb16-555"><a href="#cb16-555" aria-hidden="true" tabindex="-1"></a><span class="at">box_css =</span> <span class="st">"border: 1px solid #ddd; padding: 5px; "</span>, <span class="at">extra_css =</span> <span class="cn">NULL</span>)</span>
+<span id="cb16-554"><a href="#cb16-554" aria-hidden="true" tabindex="-1"></a><span class="in">scroll_box(kbl, width = "808px",</span></span>
+<span id="cb16-555"><a href="#cb16-555" aria-hidden="true" tabindex="-1"></a><span class="in">box_css = "border: 1px solid #ddd; padding: 5px; ", extra_css = NULL)</span></span>
 <span id="cb16-556"><a href="#cb16-556" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-557"><a href="#cb16-557" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-558"><a href="#cb16-558" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -5241,7 +5350,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-562"><a href="#cb16-562" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb16-563"><a href="#cb16-563" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-564"><a href="#cb16-564" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert-info}</span>
-<span id="cb16-565"><a href="#cb16-565" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Exercise<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb16-565"><a href="#cb16-565" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Exercise&lt;/font&gt;</span>
 <span id="cb16-566"><a href="#cb16-566" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-567"><a href="#cb16-567" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb16-568"><a href="#cb16-568" aria-hidden="true" tabindex="-1"></a></span>
@@ -5249,7 +5358,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-570"><a href="#cb16-570" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-571"><a href="#cb16-571" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb16-572"><a href="#cb16-572" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-573"><a href="#cb16-573" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">"images/response_thyroptera.png"</span> <span class="er">alt</span><span class="ot">=</span><span class="st">"viewSpec"</span> <span class="er">width</span><span class="ot">=</span><span class="st">"640"</span><span class="kw">/&gt;</span></span>
+<span id="cb16-573"><a href="#cb16-573" aria-hidden="true" tabindex="-1"></a>&lt;img src="images/response_thyroptera.png" alt="viewSpec" width="640"/&gt;</span>
 <span id="cb16-574"><a href="#cb16-574" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-575"><a href="#cb16-575" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb16-576"><a href="#cb16-576" aria-hidden="true" tabindex="-1"></a></span>
@@ -5257,26 +5366,26 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-578"><a href="#cb16-578" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-579"><a href="#cb16-579" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE, echo = FALSE}</span></span>
 <span id="cb16-580"><a href="#cb16-580" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-581"><a href="#cb16-581" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="at">url =</span> <span class="st">"https://github.com/maRce10/NMSU_BIR_2024/raw/master/examples/response_calls.RDS"</span>, </span>
-<span id="cb16-582"><a href="#cb16-582" aria-hidden="true" tabindex="-1"></a> <span class="at">destfile =</span> <span class="st">"./examples/response_calls.RDS"</span>)</span>
+<span id="cb16-581"><a href="#cb16-581" aria-hidden="true" tabindex="-1"></a><span class="in">download.file(url = "https://github.com/maRce10/NMSU_BIR_2024/raw/master/examples/response_calls.RDS", </span></span>
+<span id="cb16-582"><a href="#cb16-582" aria-hidden="true" tabindex="-1"></a><span class="in"> destfile = "./examples/response_calls.RDS")</span></span>
 <span id="cb16-583"><a href="#cb16-583" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-584"><a href="#cb16-584" aria-hidden="true" tabindex="-1"></a>response_calls <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"./examples/response_calls.RDS"</span>)</span>
+<span id="cb16-584"><a href="#cb16-584" aria-hidden="true" tabindex="-1"></a><span class="in">response_calls &lt;- readRDS("./examples/response_calls.RDS")</span></span>
 <span id="cb16-585"><a href="#cb16-585" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-586"><a href="#cb16-586" aria-hidden="true" tabindex="-1"></a>sp_resp <span class="ot">&lt;-</span> <span class="fu">spectro_analysis</span>(response_calls)</span>
+<span id="cb16-586"><a href="#cb16-586" aria-hidden="true" tabindex="-1"></a><span class="in">sp_resp &lt;- spectro_analysis(response_calls)</span></span>
 <span id="cb16-587"><a href="#cb16-587" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-588"><a href="#cb16-588" aria-hidden="true" tabindex="-1"></a>response_calls <span class="ot">&lt;-</span> <span class="fu">cbind</span>(response_calls, sp_resp[, <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)])</span>
+<span id="cb16-588"><a href="#cb16-588" aria-hidden="true" tabindex="-1"></a><span class="in">response_calls &lt;- cbind(response_calls, sp_resp[, -c(1, 2)])</span></span>
 <span id="cb16-589"><a href="#cb16-589" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-590"><a href="#cb16-590" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-591"><a href="#cb16-591" aria-hidden="true" tabindex="-1"></a>sp_resp_by_call <span class="ot">&lt;-</span> <span class="fu">song_analysis</span>(response_calls, <span class="at">song_colm =</span> <span class="st">"call"</span>)</span>
+<span id="cb16-591"><a href="#cb16-591" aria-hidden="true" tabindex="-1"></a><span class="in">sp_resp_by_call &lt;- song_analysis(response_calls, song_colm = "call")</span></span>
 <span id="cb16-592"><a href="#cb16-592" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-593"><a href="#cb16-593" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-594"><a href="#cb16-594" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-595"><a href="#cb16-595" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
 <span id="cb16-596"><a href="#cb16-596" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-597"><a href="#cb16-597" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="at">url =</span> <span class="st">"https://github.com/maRce10/NMSU_BIR_2024/raw/master/examples/response_calls.RDS"</span>, </span>
-<span id="cb16-598"><a href="#cb16-598" aria-hidden="true" tabindex="-1"></a> <span class="at">destfile =</span> <span class="st">"./examples/response_calls.RDS"</span>)</span>
+<span id="cb16-597"><a href="#cb16-597" aria-hidden="true" tabindex="-1"></a><span class="in">download.file(url = "https://github.com/maRce10/NMSU_BIR_2024/raw/master/examples/response_calls.RDS", </span></span>
+<span id="cb16-598"><a href="#cb16-598" aria-hidden="true" tabindex="-1"></a><span class="in"> destfile = "./examples/response_calls.RDS")</span></span>
 <span id="cb16-599"><a href="#cb16-599" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-600"><a href="#cb16-600" aria-hidden="true" tabindex="-1"></a>response_calls <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"./examples/response_calls.RDS"</span>)</span>
+<span id="cb16-600"><a href="#cb16-600" aria-hidden="true" tabindex="-1"></a><span class="in">response_calls &lt;- readRDS("./examples/response_calls.RDS")</span></span>
 <span id="cb16-601"><a href="#cb16-601" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-602"><a href="#cb16-602" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-603"><a href="#cb16-603" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -5302,11 +5411,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-623"><a href="#cb16-623" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-624"><a href="#cb16-624" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Salamon, J., Jacoby, C., &amp; Bello, J. P. (2014). A dataset and taxonomy for urban sound research. In Proceedings of the 22nd ACM international conference on Multimedi. 1041-1044.</span>
 <span id="cb16-625"><a href="#cb16-625" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-626"><a href="#cb16-626" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"4"</span><span class="kw">&gt;</span>Session information<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb16-626"><a href="#cb16-626" aria-hidden="true" tabindex="-1"></a>&lt;font size="4"&gt;Session information&lt;/font&gt;</span>
 <span id="cb16-627"><a href="#cb16-627" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-628"><a href="#cb16-628" aria-hidden="true" tabindex="-1"></a><span class="in">```{r session info, echo=F}</span></span>
 <span id="cb16-629"><a href="#cb16-629" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-630"><a href="#cb16-630" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
+<span id="cb16-630"><a href="#cb16-630" aria-hidden="true" tabindex="-1"></a><span class="in">sessionInfo()</span></span>
 <span id="cb16-631"><a href="#cb16-631" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-632"><a href="#cb16-632" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
@@ -5316,12 +5425,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">Copyright 2024 | <a href="https://marce10.github.io">Marcelo Araya-Salas</a></div>
+    <div class="nav-footer-center">
+<p>Copyright 2024 | <a href="https://marce10.github.io">Marcelo Araya-Salas</a></p>
+</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
+
 
 
 

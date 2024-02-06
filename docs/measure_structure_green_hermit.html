@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-99.9.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,6 +80,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "panel-placement": "end",
   "type": "overlay",
   "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -123,7 +129,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Bioacoustic Analysis in R, NMSU 2024</span>
     </a>
@@ -135,106 +141,98 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Tutorials</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
         <li>
-    <a class="dropdown-item" href="./introduction.html" rel="" target="">
- <span class="dropdown-text">Introduction</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./r_basics.html" rel="" target="">
+    <a class="dropdown-item" href="./r_basics.html">
  <span class="dropdown-text">R basics</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./sound.html" rel="" target="">
+    <a class="dropdown-item" href="./sound.html">
  <span class="dropdown-text">Sound</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./spectrograms.html" rel="" target="">
+    <a class="dropdown-item" href="./spectrograms.html">
  <span class="dropdown-text">Spectrograms</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./seewave.html" rel="" target="">
+    <a class="dropdown-item" href="./seewave.html">
  <span class="dropdown-text">seewave</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./annotations.html" rel="" target="">
+    <a class="dropdown-item" href="./annotations.html">
  <span class="dropdown-text">Annotations</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./ohun.html" rel="" target="">
- <span class="dropdown-text">ohun: automatic detection</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./intro_to_warbler.html" rel="" target="">
+    <a class="dropdown-item" href="./intro_to_warbler.html">
  <span class="dropdown-text">Intro to warbleR</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./measure_acoustic_structure.html" rel="" target="">
+    <a class="dropdown-item" href="./measure_acoustic_structure.html">
  <span class="dropdown-text">Measure acoustic structure</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./comparing_methods.html" rel="" target="">
+    <a class="dropdown-item" href="./comparing_methods.html">
  <span class="dropdown-text">Comparing measuring methods</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./quality_checks.html" rel="" target="">
+    <a class="dropdown-item" href="./quality_checks.html">
  <span class="dropdown-text">Quality checks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./measure_structure_green_hermit.html" rel="" target="">
+    <a class="dropdown-item" href="./measure_structure_green_hermit.html">
  <span class="dropdown-text">Measure structure on XC recordings</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-colab-notebooks" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-colab-notebooks" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Colab notebooks</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-colab-notebooks">    
         <li>
-    <a class="dropdown-item" href="./general_redirect.html" rel="" target="">
+    <a class="dropdown-item" href="./general_redirect.html">
  <span class="dropdown-text">General</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./dynaspec_redirect.html" rel="" target="">
+    <a class="dropdown-item" href="./dynaspec_redirect.html">
  <span class="dropdown-text">dynaSpec</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./ohun_redirect.html" rel="" target="">
+    <a class="dropdown-item" href="./ohun_redirect.html">
  <span class="dropdown-text">ohun</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./course_prep.html" rel="" target="">
- <span class="menu-text">Course prep</span></a>
+    <a class="nav-link" href="./course_prep.html"> 
+<span class="menu-text">Course prep</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./code_redirect.html" rel="" target="">
- <span class="menu-text">Code sharing</span></a>
+    <a class="nav-link" href="./code_redirect.html"> 
+<span class="menu-text">Code sharing</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./instructor.html" rel="" target="">
- <span class="menu-text">Instructor</span></a>
+    <a class="nav-link" href="./instructor.html"> 
+<span class="menu-text">Instructor</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/maRce10/NMSU_BIR_2024/" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/maRce10/NMSU_BIR_2024/"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text">https://github.com/maRce10/NMSU_BIR_2024/</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -278,7 +276,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <section id="objetive" class="level2 unnumbered unlisted alert alert-info">
 <h2 class="unnumbered unlisted anchored" data-anchor-id="objetive"><strong>Objetive</strong></h2>
@@ -316,8 +316,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map_xc</span>(song_pg, <span class="at">leaflet.map =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-b7815296bb032acb053f" style="width:100%;height:361px;"></div>
-<script type="application/json" data-for="htmlwidget-b7815296bb032acb053f">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addAwesomeMarkers","args":[[5.113,10.3064,8.600099999999999,10.1614,7.998,5.0791,-4.108,-2.42,-5.6708],[-75.9401,-84.8075,-80.1251,-83.9376,-77.71380000000001,-75.68519999999999,-78.964,-78.06,-77.6953],{"icon":"ios-close","markerColor":["white","darkgreen","white","darkgreen","darkgreen","white","darkred","darkred","white"],"iconColor":"black","spin":false,"squareMarker":false,"iconRotate":0,"font":"monospace","prefix":"ion"},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["<b><a href='https://www.xeno-canto.org/687234'>XC687234<\/a><\/b><br/><i>Phaethornis guy<\/i><br/> Subspecies: not provided<br/> Country: Colombia<br/> Locality: Distrito de Manejo Integrado Agua linda - Apía, Risaralda <br/> Voc.type: adult, female, song<br/> Recordist: Fabio Agudelo Zapata<b><a href='https://www.xeno-canto.org/687234/download'><br/>listen<\/a>","<b><a href='https://www.xeno-canto.org/665512'>XC665512<\/a><\/b><br/><i>Phaethornis guy<\/i><br/> Subspecies: coruscus<br/> Country: Costa Rica<br/> Locality: Monteverde, Provincia de Puntarenas<br/> Voc.type: adult, male, song<br/> Recordist: Alexis Bukowski<b><a href='https://www.xeno-canto.org/665512/download'><br/>listen<\/a>","<b><a href='https://www.xeno-canto.org/541543'>XC541543<\/a><\/b><br/><i>Phaethornis guy<\/i><br/> Subspecies: not provided<br/> Country: Panama<br/> Locality: El Valle de Antón, Coclé Province<br/> Voc.type: adult, song<br/> Recordist: Kent Livezey<b><a href='https://www.xeno-canto.org/541543/download'><br/>listen<\/a>","<b><a href='https://www.xeno-canto.org/518285'>XC518285<\/a><\/b><br/><i>Phaethornis guy<\/i><br/> Subspecies: coruscus<br/> Country: Costa Rica<br/> Locality: Braulio Carillo NP, San José<br/> Voc.type: song<br/> Recordist: Hans Matheve<b><a href='https://www.xeno-canto.org/518285/download'><br/>listen<\/a>","<b><a href='https://www.xeno-canto.org/359439'>XC359439<\/a><\/b><br/><i>Phaethornis guy<\/i><br/> Subspecies: coruscus<br/> Country: Panama<br/> Locality: Cerro Pirre (middle)<br/> Voc.type: song<br/> Recordist: Hans Matheve<b><a href='https://www.xeno-canto.org/359439/download'><br/>listen<\/a>","<b><a href='https://www.xeno-canto.org/344329'>XC344329<\/a><\/b><br/><i>Phaethornis guy<\/i><br/> Subspecies: not provided<br/> Country: Colombia<br/> Locality: Hotel Tinamú Birding Nature Reserve<br/> Voc.type: song<br/> Recordist: Hotel Tinamu<b><a href='https://www.xeno-canto.org/344329/download'><br/>listen<\/a>","<b><a href='https://www.xeno-canto.org/257788'>XC257788<\/a><\/b><br/><i>Phaethornis guy<\/i><br/> Subspecies: apicalis<br/> Country: Ecuador<br/> Locality: Zamora-Chinchipe: Río Bombuscaro<br/> Voc.type: song<br/> Recordist: John V. Moore<b><a href='https://www.xeno-canto.org/257788/download'><br/>listen<\/a>","<b><a href='https://www.xeno-canto.org/238804'>XC238804<\/a><\/b><br/><i>Phaethornis guy<\/i><br/> Subspecies: apicalis<br/> Country: Ecuador<br/> Locality: Morona-Santiago: w-slope Cord. de Cutucú<br/> Voc.type: song<br/> Recordist: Niels Krabbe<b><a href='https://www.xeno-canto.org/238804/download'><br/>listen<\/a>","<b><a href='https://www.xeno-canto.org/227574'>XC227574<\/a><\/b><br/><i>Phaethornis guy<\/i><br/> Subspecies: not provided<br/> Country: Peru<br/> Locality: Abra Patricia road, San Martín<br/> Voc.type: song<br/> Recordist: Peter Boesman<b><a href='https://www.xeno-canto.org/227574/download'><br/>listen<\/a>"],null,null,null,["Subsp. not provided","coruscus","Subsp. not provided","coruscus","coruscus","Subsp. not provided","apicalis","apicalis","Subsp. not provided"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addMiniMap","args":[null,null,"bottomright",150,150,19,19,-5,false,false,false,false,false,false,{"color":"#ff7800","weight":1,"clickable":false},{"color":"#000000","weight":1,"clickable":false,"opacity":0,"fillOpacity":0},{"hideText":"Hide MiniMap","showText":"Show MiniMap"},[]]},{"method":"addEasyButton","args":[{"icon":"fa-globe","title":"Zoom to full view","onClick":"function(btn, map){ map.setZoom(1); }","position":"topleft"}]}],"limits":{"lat":[-5.6708,10.3064],"lng":[-84.8075,-75.68519999999999]}},"evals":["calls.3.args.0.onClick"],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-b21b84029a818689c63e" style="width:100%;height:361px;"></div>
+<script type="application/json" data-for="htmlwidget-b21b84029a818689c63e">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addAwesomeMarkers","args":[[5.113,10.3064,8.600099999999999,10.1614,7.998,5.0791,-4.108,-2.42,-5.6708],[-75.9401,-84.8075,-80.1251,-83.9376,-77.71380000000001,-75.68519999999999,-78.964,-78.06,-77.6953],{"icon":"ios-close","markerColor":["white","darkgreen","white","darkgreen","darkgreen","white","darkred","darkred","white"],"iconColor":"black","spin":false,"squareMarker":false,"iconRotate":0,"font":"monospace","prefix":"ion"},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["<b><a href='https://www.xeno-canto.org/687234'>XC687234<\/a><\/b><br/><i>Phaethornis guy<\/i><br/> Subspecies: not provided<br/> Country: Colombia<br/> Locality: Distrito de Manejo Integrado Agua linda - Apía, Risaralda <br/> Voc.type: adult, female, song<br/> Recordist: Fabio Agudelo Zapata<b><a href='https://www.xeno-canto.org/687234/download'><br/>listen<\/a>","<b><a href='https://www.xeno-canto.org/665512'>XC665512<\/a><\/b><br/><i>Phaethornis guy<\/i><br/> Subspecies: coruscus<br/> Country: Costa Rica<br/> Locality: Monteverde, Provincia de Puntarenas<br/> Voc.type: adult, male, song<br/> Recordist: Alexis Bukowski<b><a href='https://www.xeno-canto.org/665512/download'><br/>listen<\/a>","<b><a href='https://www.xeno-canto.org/541543'>XC541543<\/a><\/b><br/><i>Phaethornis guy<\/i><br/> Subspecies: not provided<br/> Country: Panama<br/> Locality: El Valle de Antón, Coclé Province<br/> Voc.type: adult, song<br/> Recordist: Kent Livezey<b><a href='https://www.xeno-canto.org/541543/download'><br/>listen<\/a>","<b><a href='https://www.xeno-canto.org/518285'>XC518285<\/a><\/b><br/><i>Phaethornis guy<\/i><br/> Subspecies: coruscus<br/> Country: Costa Rica<br/> Locality: Braulio Carillo NP, San José<br/> Voc.type: song<br/> Recordist: Hans Matheve<b><a href='https://www.xeno-canto.org/518285/download'><br/>listen<\/a>","<b><a href='https://www.xeno-canto.org/359439'>XC359439<\/a><\/b><br/><i>Phaethornis guy<\/i><br/> Subspecies: coruscus<br/> Country: Panama<br/> Locality: Cerro Pirre (middle)<br/> Voc.type: song<br/> Recordist: Hans Matheve<b><a href='https://www.xeno-canto.org/359439/download'><br/>listen<\/a>","<b><a href='https://www.xeno-canto.org/344329'>XC344329<\/a><\/b><br/><i>Phaethornis guy<\/i><br/> Subspecies: not provided<br/> Country: Colombia<br/> Locality: Hotel Tinamú Birding Nature Reserve<br/> Voc.type: song<br/> Recordist: Hotel Tinamu<b><a href='https://www.xeno-canto.org/344329/download'><br/>listen<\/a>","<b><a href='https://www.xeno-canto.org/257788'>XC257788<\/a><\/b><br/><i>Phaethornis guy<\/i><br/> Subspecies: apicalis<br/> Country: Ecuador<br/> Locality: Zamora-Chinchipe: Río Bombuscaro<br/> Voc.type: song<br/> Recordist: John V. Moore<b><a href='https://www.xeno-canto.org/257788/download'><br/>listen<\/a>","<b><a href='https://www.xeno-canto.org/238804'>XC238804<\/a><\/b><br/><i>Phaethornis guy<\/i><br/> Subspecies: apicalis<br/> Country: Ecuador<br/> Locality: Morona-Santiago: w-slope Cord. de Cutucú<br/> Voc.type: song<br/> Recordist: Niels Krabbe<b><a href='https://www.xeno-canto.org/238804/download'><br/>listen<\/a>","<b><a href='https://www.xeno-canto.org/227574'>XC227574<\/a><\/b><br/><i>Phaethornis guy<\/i><br/> Subspecies: not provided<br/> Country: Peru<br/> Locality: Abra Patricia road, San Martín<br/> Voc.type: song<br/> Recordist: Peter Boesman<b><a href='https://www.xeno-canto.org/227574/download'><br/>listen<\/a>"],null,null,null,["Subsp. not provided","coruscus","Subsp. not provided","coruscus","coruscus","Subsp. not provided","apicalis","apicalis","Subsp. not provided"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addMiniMap","args":[null,null,"bottomright",150,150,19,19,-5,false,false,false,false,false,false,{"color":"#ff7800","weight":1,"clickable":false},{"color":"#000000","weight":1,"clickable":false,"opacity":0,"fillOpacity":0},{"hideText":"Hide MiniMap","showText":"Show MiniMap"},[]]},{"method":"addEasyButton","args":[{"icon":"fa-globe","title":"Zoom to full view","onClick":"function(btn, map){ map.setZoom(1); }","position":"topleft"}]}],"limits":{"lat":[-5.6708,10.3064],"lng":[-84.8075,-75.68519999999999]}},"evals":["calls.3.args.0.onClick"],"jsHooks":[]}</script>
 </div>
 <p>&nbsp;</p>
 <p>Once you feel fine with the subset of data you can go ahead and download the sound files and save the metadata as a .csv file:</p>
@@ -508,38 +508,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td style="text-align: left;">Phaethornis-guy-227574.wav</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">22.5940413</td>
-<td style="text-align: right;">13.148139</td>
+<td style="text-align: right;">-22.6069606</td>
+<td style="text-align: right;">-13.127152</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Phaethornis-guy-227574.wav</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">-0.1051713</td>
-<td style="text-align: right;">17.152528</td>
+<td style="text-align: right;">0.0586673</td>
+<td style="text-align: right;">-17.321796</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Phaethornis-guy-227574.wav</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">-8.2102916</td>
-<td style="text-align: right;">-1.806982</td>
+<td style="text-align: right;">5.9795115</td>
+<td style="text-align: right;">5.601346</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Phaethornis-guy-227574.wav</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">6.9500021</td>
-<td style="text-align: right;">-4.559926</td>
+<td style="text-align: right;">-6.8159094</td>
+<td style="text-align: right;">4.462788</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Phaethornis-guy-238804.wav</td>
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">-11.0761462</td>
-<td style="text-align: right;">-7.156525</td>
+<td style="text-align: right;">11.2315003</td>
+<td style="text-align: right;">6.895327</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Phaethornis-guy-238804.wav</td>
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">-4.5189993</td>
-<td style="text-align: right;">-8.129007</td>
+<td style="text-align: right;">4.6828306</td>
+<td style="text-align: right;">7.918963</td>
 </tr>
 </tbody>
 </table>
@@ -580,7 +580,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: viridisLite</code></pre>
+<pre><code>Carregando pacotes exigidos: viridisLite</code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
@@ -590,7 +590,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="measure_structure_green_hermit_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div>
+<img src="measure_structure_green_hermit_files/figure-html/unnamed-chunk-17-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="img-fluid figure-img" width="672">
+</div>
+</figure>
+</div>
 </div>
 </div>
 <p>&nbsp;</p>
@@ -604,7 +610,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="measure_structure_green_hermit_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div>
+<img src="measure_structure_green_hermit_files/figure-html/unnamed-chunk-18-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="img-fluid figure-img" width="672">
+</div>
+</figure>
+</div>
 </div>
 </div>
 <p>&nbsp;</p>
@@ -629,12 +641,12 @@ Mantel statistic based on Pearson's product-moment correlation
 Call:
 mantel(xdis = geo_dist, ydis = acoust_dist) 
 
-Mantel statistic r: 0.02618 
-      Significance: 0.267 
+Mantel statistic r: 0.02928 
+      Significance: 0.241 
 
 Upper quantiles of permutations (null model):
    90%    95%  97.5%    99% 
-0.0819 0.1173 0.1479 0.1828 
+0.0681 0.1063 0.1454 0.1710 
 Permutation: free
 Number of permutations: 999</code></pre>
 </div>
@@ -645,21 +657,21 @@ Number of permutations: 999</code></pre>
 <p><font size="4">Session information</font></p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.3.2 (2023-10-31)
+<pre><code>R version 4.3.1 (2023-06-16)
 Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 22.04.2 LTS
+Running under: Ubuntu 20.04.2 LTS
 
 Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.10.0 
-LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.10.0
+BLAS:   /usr/lib/x86_64-linux-gnu/atlas/libblas.so.3.10.3 
+LAPACK: /usr/lib/x86_64-linux-gnu/atlas/liblapack.so.3.10.3;  LAPACK version 3.9.0
 
 locale:
- [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
- [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
- [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
- [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [1] LC_CTYPE=pt_BR.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=es_CR.UTF-8        LC_COLLATE=pt_BR.UTF-8    
+ [5] LC_MONETARY=es_CR.UTF-8    LC_MESSAGES=pt_BR.UTF-8   
+ [7] LC_PAPER=es_CR.UTF-8       LC_NAME=C                 
  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+[11] LC_MEASUREMENT=es_CR.UTF-8 LC_IDENTIFICATION=C       
 
 time zone: America/Costa_Rica
 tzcode source: system (glibc)
@@ -668,26 +680,26 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] vegan_2.6-4        lattice_0.20-45    permute_0.9-7      viridis_0.6.4     
+ [1] vegan_2.6-4        lattice_0.22-5     permute_0.9-7      viridis_0.6.5     
  [5] viridisLite_0.4.2  ggplot2_3.4.4      readxl_1.4.3       warbleR_1.1.30    
  [9] NatureSounds_1.0.4 knitr_1.45         seewave_2.2.3      tuneR_1.4.6       
 
 loaded via a namespace (and not attached):
  [1] gtable_0.3.4      rjson_0.2.21      xfun_0.41         htmlwidgets_1.6.4
- [5] vctrs_0.6.5       tools_4.3.2       crosstalk_1.2.1   bitops_1.0-7     
- [9] generics_0.1.3    parallel_4.3.2    tibble_3.2.1      proxy_0.4-27     
-[13] fansi_1.0.6       cluster_2.1.2     pkgconfig_2.0.3   Matrix_1.6-5     
-[17] leaflet_2.2.1     lifecycle_1.0.4   compiler_4.3.2    farver_2.1.1     
-[21] brio_1.1.4        munsell_0.5.0     codetools_0.2-18  htmltools_0.5.7  
+ [5] vctrs_0.6.5       tools_4.3.1       crosstalk_1.2.1   bitops_1.0-7     
+ [9] generics_0.1.3    parallel_4.3.1    tibble_3.2.1      proxy_0.4-27     
+[13] fansi_1.0.6       cluster_2.1.6     pkgconfig_2.0.3   Matrix_1.6-5     
+[17] leaflet_2.2.1     lifecycle_1.0.4   compiler_4.3.1    farver_2.1.1     
+[21] brio_1.1.4        munsell_0.5.0     codetools_0.2-19  htmltools_0.5.7  
 [25] maps_3.4.2        RCurl_1.98-1.14   yaml_2.3.8        pillar_1.9.0     
-[29] jquerylib_0.1.4   MASS_7.3-55       ellipsis_0.3.2    iterators_1.0.14 
-[33] foreach_1.5.2     nlme_3.1-155      tidyselect_1.2.0  digest_0.6.34    
-[37] dplyr_1.1.4       splines_4.3.2     labeling_0.4.3    fastmap_1.1.1    
-[41] grid_4.3.2        colorspace_2.1-0  cli_3.6.2         magrittr_2.0.3   
+[29] jquerylib_0.1.4   MASS_7.3-60.0.1   ellipsis_0.3.2    iterators_1.0.14 
+[33] foreach_1.5.2     nlme_3.1-164      tidyselect_1.2.0  digest_0.6.34    
+[37] dplyr_1.1.4       splines_4.3.1     labeling_0.4.3    fastmap_1.1.1    
+[41] grid_4.3.1        colorspace_2.1-0  cli_3.6.2         magrittr_2.0.3   
 [45] utf8_1.2.4        withr_3.0.0       scales_1.3.0      shinyBS_0.61.1   
 [49] rmarkdown_2.25    signal_1.8-0      gridExtra_2.3     cellranger_1.1.0 
 [53] pbapply_1.7-2     evaluate_0.23     dtw_1.23-1        fftw_1.0-8       
-[57] testthat_3.2.1    mgcv_1.8-39       rlang_1.1.3       Rcpp_1.0.12      
+[57] testthat_3.2.1    mgcv_1.9-1        rlang_1.1.3       Rcpp_1.0.12      
 [61] glue_1.7.0        rstudioapi_0.15.0 jsonlite_1.8.8    R6_2.5.1         
 [65] soundgen_2.6.2   </code></pre>
 </div>
@@ -829,10 +841,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -842,8 +853,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -856,6 +876,81 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -899,6 +994,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -924,6 +1020,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1013,14 +1135,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>Get recording metadata for green hermits (*Phaethornis guy*):</span>
 <span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE,message=FALSE,  warning=FALSE}</span></span>
-<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(warbleR)</span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a><span class="in">library(warbleR)</span></span>
 <span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, message=FALSE,  warning=FALSE, eval = FALSE}</span></span>
 <span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(warbleR)</span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a><span class="in">library(warbleR)</span></span>
 <span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a>pg <span class="ot">&lt;-</span> <span class="fu">query_xc</span>(<span class="at">qword =</span> <span class="st">'Phaethornis guy'</span>, <span class="at">download =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a><span class="in">pg &lt;- query_xc(qword = 'Phaethornis guy', download = FALSE)</span></span>
 <span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a></span>
@@ -1030,24 +1152,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
 <span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a>song_pg <span class="ot">&lt;-</span> pg[<span class="fu">grepl</span>(<span class="st">"song"</span>, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>, pg<span class="sc">$</span>Vocalization_type) <span class="sc">&amp;</span> pg<span class="sc">$</span>Quality <span class="sc">==</span> <span class="st">"A"</span>, ]</span>
+<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a><span class="in">song_pg &lt;- pg[grepl("song", ignore.case = TRUE, pg$Vocalization_type) &amp; pg$Quality == "A", ]</span></span>
 <span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a><span class="co"># remove 1 site from Colombia to have a few samples per country</span></span>
-<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a>song_pg <span class="ot">&lt;-</span> song_pg[song_pg<span class="sc">$</span>Locality <span class="sc">!=</span> <span class="st">"Suaita, Santander"</span>, ]</span>
+<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a><span class="in"># remove 1 site from Colombia to have a few samples per country</span></span>
+<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a><span class="in">song_pg &lt;- song_pg[song_pg$Locality != "Suaita, Santander", ]</span></span>
 <span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb20-54"><a href="#cb20-54" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-55"><a href="#cb20-55" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb20-56"><a href="#cb20-56" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-57"><a href="#cb20-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE}</span></span>
-<span id="cb20-58"><a href="#cb20-58" aria-hidden="true" tabindex="-1"></a>song_pg <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"./examples/p_guy/metadata_p_guy_XC.csv"</span>)</span>
+<span id="cb20-58"><a href="#cb20-58" aria-hidden="true" tabindex="-1"></a><span class="in">song_pg &lt;- read.csv("./examples/p_guy/metadata_p_guy_XC.csv")</span></span>
 <span id="cb20-59"><a href="#cb20-59" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb20-60"><a href="#cb20-60" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-61"><a href="#cb20-61" aria-hidden="true" tabindex="-1"></a>Map locations using <span class="co">[</span><span class="ot">`map_xc()`</span><span class="co">](https://marce10.github.io/warbleR/reference/map_xc.html)</span>:</span>
 <span id="cb20-62"><a href="#cb20-62" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-63"><a href="#cb20-63" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, results = 'asis', fig.width=9}</span></span>
 <span id="cb20-64"><a href="#cb20-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-65"><a href="#cb20-65" aria-hidden="true" tabindex="-1"></a><span class="fu">map_xc</span>(song_pg, <span class="at">leaflet.map =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-65"><a href="#cb20-65" aria-hidden="true" tabindex="-1"></a><span class="in">map_xc(song_pg, leaflet.map = TRUE)</span></span>
 <span id="cb20-66"><a href="#cb20-66" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-67"><a href="#cb20-67" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb20-68"><a href="#cb20-68" aria-hidden="true" tabindex="-1"></a></span>
@@ -1057,9 +1179,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb20-72"><a href="#cb20-72" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-73"><a href="#cb20-73" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE, fig.width=10}</span></span>
 <span id="cb20-74"><a href="#cb20-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-75"><a href="#cb20-75" aria-hidden="true" tabindex="-1"></a><span class="fu">query_xc</span>(<span class="at">X =</span> song_pg, <span class="at">path =</span> <span class="st">"./examples/p_guy"</span>, <span class="at">parallel =</span> <span class="dv">3</span>)</span>
+<span id="cb20-75"><a href="#cb20-75" aria-hidden="true" tabindex="-1"></a><span class="in">query_xc(X = song_pg, path = "./examples/p_guy", parallel = 3)</span></span>
 <span id="cb20-76"><a href="#cb20-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-77"><a href="#cb20-77" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(song_pg, <span class="at">file =</span> <span class="st">"./examples/p_guy/metadata_p_guy_XC.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb20-77"><a href="#cb20-77" aria-hidden="true" tabindex="-1"></a><span class="in">write.csv(song_pg, file = "./examples/p_guy/metadata_p_guy_XC.csv", row.names = FALSE)</span></span>
 <span id="cb20-78"><a href="#cb20-78" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-79"><a href="#cb20-79" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb20-80"><a href="#cb20-80" aria-hidden="true" tabindex="-1"></a></span>
@@ -1071,9 +1193,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb20-86"><a href="#cb20-86" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-87"><a href="#cb20-87" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
 <span id="cb20-88"><a href="#cb20-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-89"><a href="#cb20-89" aria-hidden="true" tabindex="-1"></a><span class="fu">mp3_2_wav</span>(<span class="at">samp.rate =</span> <span class="fl">22.05</span>, <span class="at">path =</span>  <span class="st">"./examples/p_guy"</span>)</span>
+<span id="cb20-89"><a href="#cb20-89" aria-hidden="true" tabindex="-1"></a><span class="in">mp3_2_wav(samp.rate = 22.05, path =  "./examples/p_guy")</span></span>
 <span id="cb20-90"><a href="#cb20-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-91"><a href="#cb20-91" aria-hidden="true" tabindex="-1"></a><span class="fu">fix_wavs</span>(<span class="at">path =</span>  <span class="st">"./examples/p_guy"</span>, <span class="at">samp.rate =</span> <span class="fl">44.1</span>, <span class="at">bit.depth =</span> <span class="dv">16</span>)</span>
+<span id="cb20-91"><a href="#cb20-91" aria-hidden="true" tabindex="-1"></a><span class="in">fix_wavs(path =  "./examples/p_guy", samp.rate = 44.1, bit.depth = 16)</span></span>
 <span id="cb20-92"><a href="#cb20-92" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-93"><a href="#cb20-93" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb20-94"><a href="#cb20-94" aria-hidden="true" tabindex="-1"></a></span>
@@ -1091,38 +1213,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb20-106"><a href="#cb20-106" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-107"><a href="#cb20-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE, echo = FALSE}</span></span>
 <span id="cb20-108"><a href="#cb20-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-109"><a href="#cb20-109" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Rraven)</span>
+<span id="cb20-109"><a href="#cb20-109" aria-hidden="true" tabindex="-1"></a><span class="in">library(Rraven)</span></span>
 <span id="cb20-110"><a href="#cb20-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-111"><a href="#cb20-111" aria-hidden="true" tabindex="-1"></a>ann_p_guy <span class="ot">&lt;-</span> <span class="fu">imp_raven</span>(<span class="at">path =</span> <span class="st">"./examples/p_guy"</span>, <span class="at">warbler.format =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-111"><a href="#cb20-111" aria-hidden="true" tabindex="-1"></a><span class="in">ann_p_guy &lt;- imp_raven(path = "./examples/p_guy", warbler.format = TRUE)</span></span>
 <span id="cb20-112"><a href="#cb20-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-113"><a href="#cb20-113" aria-hidden="true" tabindex="-1"></a><span class="fu">check_sels</span>(ann_p_guy, <span class="at">path =</span> <span class="st">"./examples/p_guy/converted_sound_files/"</span>)</span>
+<span id="cb20-113"><a href="#cb20-113" aria-hidden="true" tabindex="-1"></a><span class="in">check_sels(ann_p_guy, path = "./examples/p_guy/converted_sound_files/")</span></span>
 <span id="cb20-114"><a href="#cb20-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-115"><a href="#cb20-115" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(ann_p_guy, <span class="at">file =</span> <span class="st">"./examples/p_guy/annotations_p_guy.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb20-115"><a href="#cb20-115" aria-hidden="true" tabindex="-1"></a><span class="in">write.csv(ann_p_guy, file = "./examples/p_guy/annotations_p_guy.csv", row.names = FALSE)</span></span>
 <span id="cb20-116"><a href="#cb20-116" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-117"><a href="#cb20-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb20-118"><a href="#cb20-118" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-119"><a href="#cb20-119" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
-<span id="cb20-120"><a href="#cb20-120" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("readxl") # install if needed</span></span>
+<span id="cb20-120"><a href="#cb20-120" aria-hidden="true" tabindex="-1"></a><span class="in"># install.packages("readxl") # install if needed</span></span>
 <span id="cb20-121"><a href="#cb20-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-122"><a href="#cb20-122" aria-hidden="true" tabindex="-1"></a><span class="co"># load package</span></span>
-<span id="cb20-123"><a href="#cb20-123" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb20-122"><a href="#cb20-122" aria-hidden="true" tabindex="-1"></a><span class="in"># load package</span></span>
+<span id="cb20-123"><a href="#cb20-123" aria-hidden="true" tabindex="-1"></a><span class="in">library(readxl)</span></span>
 <span id="cb20-124"><a href="#cb20-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-125"><a href="#cb20-125" aria-hidden="true" tabindex="-1"></a><span class="co"># read data</span></span>
-<span id="cb20-126"><a href="#cb20-126" aria-hidden="true" tabindex="-1"></a>annotations <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="at">path =</span> <span class="st">"./examples/p_guy/annotations_p_guy.xlsx"</span>)</span>
+<span id="cb20-125"><a href="#cb20-125" aria-hidden="true" tabindex="-1"></a><span class="in"># read data</span></span>
+<span id="cb20-126"><a href="#cb20-126" aria-hidden="true" tabindex="-1"></a><span class="in">annotations &lt;- read_excel(path = "./examples/p_guy/annotations_p_guy.xlsx")</span></span>
 <span id="cb20-127"><a href="#cb20-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-128"><a href="#cb20-128" aria-hidden="true" tabindex="-1"></a><span class="co"># check data</span></span>
-<span id="cb20-129"><a href="#cb20-129" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(annotations)</span>
+<span id="cb20-128"><a href="#cb20-128" aria-hidden="true" tabindex="-1"></a><span class="in"># check data</span></span>
+<span id="cb20-129"><a href="#cb20-129" aria-hidden="true" tabindex="-1"></a><span class="in">head(annotations)</span></span>
 <span id="cb20-130"><a href="#cb20-130" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb20-131"><a href="#cb20-131" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-132"><a href="#cb20-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE}</span></span>
 <span id="cb20-133"><a href="#cb20-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-134"><a href="#cb20-134" aria-hidden="true" tabindex="-1"></a><span class="co"># load package</span></span>
-<span id="cb20-135"><a href="#cb20-135" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb20-134"><a href="#cb20-134" aria-hidden="true" tabindex="-1"></a><span class="in"># load package</span></span>
+<span id="cb20-135"><a href="#cb20-135" aria-hidden="true" tabindex="-1"></a><span class="in">library(readxl)</span></span>
 <span id="cb20-136"><a href="#cb20-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-137"><a href="#cb20-137" aria-hidden="true" tabindex="-1"></a><span class="co"># read data</span></span>
-<span id="cb20-138"><a href="#cb20-138" aria-hidden="true" tabindex="-1"></a>annotations <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="at">path =</span> <span class="st">"./examples/p_guy/annotations_p_guy.xlsx"</span>)</span>
+<span id="cb20-137"><a href="#cb20-137" aria-hidden="true" tabindex="-1"></a><span class="in"># read data</span></span>
+<span id="cb20-138"><a href="#cb20-138" aria-hidden="true" tabindex="-1"></a><span class="in">annotations &lt;- read_excel(path = "./examples/p_guy/annotations_p_guy.xlsx")</span></span>
 <span id="cb20-139"><a href="#cb20-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-140"><a href="#cb20-140" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(annotations[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="sc">-</span><span class="dv">7</span>])</span>
+<span id="cb20-140"><a href="#cb20-140" aria-hidden="true" tabindex="-1"></a><span class="in">kable(annotations[1:6, -7])</span></span>
 <span id="cb20-141"><a href="#cb20-141" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-142"><a href="#cb20-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb20-143"><a href="#cb20-143" aria-hidden="true" tabindex="-1"></a></span>
@@ -1143,7 +1265,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb20-160"><a href="#cb20-160" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-161"><a href="#cb20-161" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
 <span id="cb20-162"><a href="#cb20-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-163"><a href="#cb20-163" aria-hidden="true" tabindex="-1"></a>sp <span class="ot">&lt;-</span> <span class="fu">spectro_analysis</span>(<span class="at">X =</span> annotations, <span class="at">path =</span> sound_file_path)</span>
+<span id="cb20-163"><a href="#cb20-163" aria-hidden="true" tabindex="-1"></a><span class="in">sp &lt;- spectro_analysis(X = annotations, path = sound_file_path)</span></span>
 <span id="cb20-164"><a href="#cb20-164" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-165"><a href="#cb20-165" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb20-166"><a href="#cb20-166" aria-hidden="true" tabindex="-1"></a></span>
@@ -1166,11 +1288,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb20-185"><a href="#cb20-185" aria-hidden="true" tabindex="-1"></a>At this point should should get someting like this:</span>
 <span id="cb20-186"><a href="#cb20-186" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-187"><a href="#cb20-187" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
-<span id="cb20-188"><a href="#cb20-188" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pca_data)</span>
+<span id="cb20-188"><a href="#cb20-188" aria-hidden="true" tabindex="-1"></a><span class="in">head(pca_data)</span></span>
 <span id="cb20-189"><a href="#cb20-189" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb20-190"><a href="#cb20-190" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-191"><a href="#cb20-191" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE}</span></span>
-<span id="cb20-192"><a href="#cb20-192" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(pca_data[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, ])</span>
+<span id="cb20-192"><a href="#cb20-192" aria-hidden="true" tabindex="-1"></a><span class="in">kable(pca_data[1:6, ])</span></span>
 <span id="cb20-193"><a href="#cb20-193" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-194"><a href="#cb20-194" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb20-195"><a href="#cb20-195" aria-hidden="true" tabindex="-1"></a></span>
@@ -1234,15 +1356,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb20-259"><a href="#cb20-259" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-260"><a href="#cb20-260" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
 <span id="cb20-261"><a href="#cb20-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-262"><a href="#cb20-262" aria-hidden="true" tabindex="-1"></a><span class="co"># create geographic and acoustic distance matrices</span></span>
-<span id="cb20-263"><a href="#cb20-263" aria-hidden="true" tabindex="-1"></a>geo_dist <span class="ot">&lt;-</span> <span class="fu">dist</span>(pca_data_md[, <span class="fu">c</span>(<span class="st">"Latitude"</span>, <span class="st">"Longitude"</span>)])</span>
-<span id="cb20-264"><a href="#cb20-264" aria-hidden="true" tabindex="-1"></a>acoust_dist <span class="ot">&lt;-</span> <span class="fu">dist</span>(pca_data_md[, <span class="fu">c</span>(<span class="st">"PC1"</span>, <span class="st">"PC2"</span>)])</span>
+<span id="cb20-262"><a href="#cb20-262" aria-hidden="true" tabindex="-1"></a><span class="in"># create geographic and acoustic distance matrices</span></span>
+<span id="cb20-263"><a href="#cb20-263" aria-hidden="true" tabindex="-1"></a><span class="in">geo_dist &lt;- dist(pca_data_md[, c("Latitude", "Longitude")])</span></span>
+<span id="cb20-264"><a href="#cb20-264" aria-hidden="true" tabindex="-1"></a><span class="in">acoust_dist &lt;- dist(pca_data_md[, c("PC1", "PC2")])</span></span>
 <span id="cb20-265"><a href="#cb20-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-266"><a href="#cb20-266" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("vegan")</span></span>
-<span id="cb20-267"><a href="#cb20-267" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb20-266"><a href="#cb20-266" aria-hidden="true" tabindex="-1"></a><span class="in"># install.packages("vegan")</span></span>
+<span id="cb20-267"><a href="#cb20-267" aria-hidden="true" tabindex="-1"></a><span class="in">library(vegan)</span></span>
 <span id="cb20-268"><a href="#cb20-268" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-269"><a href="#cb20-269" aria-hidden="true" tabindex="-1"></a><span class="co"># run test</span></span>
-<span id="cb20-270"><a href="#cb20-270" aria-hidden="true" tabindex="-1"></a><span class="fu">mantel</span>(geo_dist, acoust_dist)</span>
+<span id="cb20-269"><a href="#cb20-269" aria-hidden="true" tabindex="-1"></a><span class="in"># run test</span></span>
+<span id="cb20-270"><a href="#cb20-270" aria-hidden="true" tabindex="-1"></a><span class="in">mantel(geo_dist, acoust_dist)</span></span>
 <span id="cb20-271"><a href="#cb20-271" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-272"><a href="#cb20-272" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb20-273"><a href="#cb20-273" aria-hidden="true" tabindex="-1"></a></span>
@@ -1252,11 +1374,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb20-277"><a href="#cb20-277" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-278"><a href="#cb20-278" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb20-279"><a href="#cb20-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-280"><a href="#cb20-280" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"4"</span><span class="kw">&gt;</span>Session information<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb20-280"><a href="#cb20-280" aria-hidden="true" tabindex="-1"></a>&lt;font size="4"&gt;Session information&lt;/font&gt;</span>
 <span id="cb20-281"><a href="#cb20-281" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-282"><a href="#cb20-282" aria-hidden="true" tabindex="-1"></a><span class="in">```{r session info, echo=F}</span></span>
 <span id="cb20-283"><a href="#cb20-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-284"><a href="#cb20-284" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
+<span id="cb20-284"><a href="#cb20-284" aria-hidden="true" tabindex="-1"></a><span class="in">sessionInfo()</span></span>
 <span id="cb20-285"><a href="#cb20-285" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-286"><a href="#cb20-286" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1267,12 +1389,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">Copyright 2024 | <a href="https://marce10.github.io">Marcelo Araya-Salas</a></div>
+    <div class="nav-footer-center">
+<p>Copyright 2024 | <a href="https://marce10.github.io">Marcelo Araya-Salas</a></p>
+</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
+
 
 
 

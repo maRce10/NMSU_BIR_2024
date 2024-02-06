@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-99.9.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>OTS Bioacoustic Analysis in R 2023 - R basics</title>
+<title>Bioacoustic Analysis in R, NMSU 2024 - R basics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,11 +17,12 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -109,6 +80,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "panel-placement": "end",
   "type": "overlay",
   "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -118,7 +95,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -132,33 +110,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">OTS Bioacoustic Analysis in R 2023</span>
+    <span class="navbar-title">Bioacoustic Analysis in R, NMSU 2024</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html">
- <span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./program.html">
- <span class="menu-text">Program</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Tutorials</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
-        <li>
-    <a class="dropdown-item" href="./introduction.html">
- <span class="dropdown-text">Introduction</span></a>
-  </li>  
         <li>
     <a class="dropdown-item" href="./r_basics.html">
  <span class="dropdown-text">R basics</span></a>
@@ -178,10 +149,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li>
     <a class="dropdown-item" href="./annotations.html">
  <span class="dropdown-text">Annotations</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./ohun.html">
- <span class="dropdown-text">ohun: automatic detection</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./intro_to_warbler.html">
@@ -225,49 +192,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./course_prep.html">
- <span class="menu-text">Course prep</span></a>
+    <a class="nav-link" href="./course_prep.html"> 
+<span class="menu-text">Course prep</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./code_redirect.html">
- <span class="menu-text">Code sharing</span></a>
+    <a class="nav-link" href="./code_redirect.html"> 
+<span class="menu-text">Code sharing</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./instructor.html">
- <span class="menu-text">Instructor</span></a>
+    <a class="nav-link" href="./instructor.html"> 
+<span class="menu-text">Instructor</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/maRce10/OTS_BIR_2023/"><i class="bi bi-github" role="img" aria-label="GitHub">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/maRce10/NMSU_BIR_2024/"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text">https://github.com/maRce10/NMSU_BIR_2024/</span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#what-is-r" id="toc-what-is-r" class="nav-link active" data-scroll-target="#what-is-r"><span class="toc-section-number">1</span>  What is R?</a></li>
-  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio"><span class="toc-section-number">2</span>  Rstudio</a></li>
-  <li><a href="#elements-of-the-r-language" id="toc-elements-of-the-r-language" class="nav-link" data-scroll-target="#elements-of-the-r-language"><span class="toc-section-number">3</span>  Elements of the R language</a></li>
-  <li><a href="#data-subsetting" id="toc-data-subsetting" class="nav-link" data-scroll-target="#data-subsetting"><span class="toc-section-number">4</span>  Data subsetting</a></li>
-  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><span class="toc-section-number">5</span>  Functions</a></li>
-  <li><a href="#style-matters" id="toc-style-matters" class="nav-link" data-scroll-target="#style-matters"><span class="toc-section-number">6</span>  Style matters</a></li>
-  <li><a href="#r-documentation" id="toc-r-documentation" class="nav-link" data-scroll-target="#r-documentation"><span class="toc-section-number">7</span>  R documentation</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">8</span>  References</a></li>
+  <li><a href="#what-is-r" id="toc-what-is-r" class="nav-link active" data-scroll-target="#what-is-r"><span class="header-section-number">1</span> What is R?</a></li>
+  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio"><span class="header-section-number">2</span> Rstudio</a></li>
+  <li><a href="#elements-of-the-r-language" id="toc-elements-of-the-r-language" class="nav-link" data-scroll-target="#elements-of-the-r-language"><span class="header-section-number">3</span> Elements of the R language</a></li>
+  <li><a href="#data-subsetting" id="toc-data-subsetting" class="nav-link" data-scroll-target="#data-subsetting"><span class="header-section-number">4</span> Data subsetting</a></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><span class="header-section-number">5</span> Functions</a></li>
+  <li><a href="#style-matters" id="toc-style-matters" class="nav-link" data-scroll-target="#style-matters"><span class="header-section-number">6</span> Style matters</a></li>
+  <li><a href="#r-documentation" id="toc-r-documentation" class="nav-link" data-scroll-target="#r-documentation"><span class="header-section-number">7</span> R documentation</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">8</span> References</a></li>
   </ul>
 </nav>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
@@ -289,11 +258,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
+
 </header>
 
-<div class="cell">
 
-</div>
 <p>&nbsp;</p>
 <section id="objetives" class="level2 unnumbered unlisted alert alert-info">
 <h2 class="unnumbered unlisted anchored" data-anchor-id="objetives"><strong>Objetives</strong></h2>
@@ -355,7 +323,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
@@ -413,7 +381,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(y)</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "character"</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>w <span class="ot">&lt;-</span> 1L</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="dv">1</span>L</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(w)</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "integer"</span></span>
@@ -753,7 +721,7 @@ Levels: a b</code></pre>
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">ID</th>
@@ -953,7 +921,7 @@ Levels: a b</code></pre>
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">family</th>
@@ -987,7 +955,7 @@ Levels: a b</code></pre>
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">family</th>
@@ -1025,7 +993,7 @@ Levels: a b</code></pre>
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
@@ -1057,7 +1025,7 @@ Levels: a b</code></pre>
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">genus</th>
@@ -1087,7 +1055,7 @@ Levels: a b</code></pre>
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
@@ -1123,7 +1091,7 @@ Levels: a b</code></pre>
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">family</th>
@@ -1233,7 +1201,7 @@ Levels: a b</code></pre>
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">family</th>
@@ -1267,7 +1235,7 @@ Levels: a b</code></pre>
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">family</th>
@@ -1348,17 +1316,17 @@ Levels: a b</code></pre>
 <span id="cb118-4"><a href="#cb118-4" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(bi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1375</code></pre>
+<pre><code>[1] 1388</code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb120"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(bi, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "bitwNot"              ".GlobalEnv"           "row.names.data.frame"
- [4] "%%"                   ".colSums"             "standardGeneric"     
- [7] "xtfrm.Date"           "&lt;="                   "!.octmode"           
-[10] "T"                   </code></pre>
+<pre><code> [1] "&lt;="                   "Sys.setlocale"        "intToUtf8"           
+ [4] "rep.difftime"         "is.qr"                "suppressWarnings"    
+ [7] "as.character.hexmode" "conflictRules"        ".row"                
+[10] "match"               </code></pre>
 </div>
 </div>
 <p>&nbsp;</p>
@@ -1543,8 +1511,8 @@ c..x..in..y....match..              "x %in% y"  "match"                   </code
 <p>&nbsp;</p>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning in 1:6 * 1:5: longitud de objeto mayor no es múltiplo de la longitud de
-uno menor</code></pre>
+<pre><code>Warning in 1:6 * 1:5: comprimento do objeto maior não é múltiplo do comprimento
+do objeto menor</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  1  4  9 16 25  6</code></pre>
@@ -1556,8 +1524,8 @@ uno menor</code></pre>
 <div class="sourceCode cell-code" id="cb161"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a href="#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">6</span> <span class="sc">+</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning in 1:6 + 1:5: longitud de objeto mayor no es múltiplo de la longitud de
-uno menor</code></pre>
+<pre><code>Warning in 1:6 + 1:5: comprimento do objeto maior não é múltiplo do comprimento
+do objeto menor</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  2  4  6  8 10  7</code></pre>
@@ -1821,9 +1789,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1910,10 +1892,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1923,8 +1904,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1939,6 +1929,194 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1977,12 +2155,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp(/https:\/\/marce10\.github\.io\/OTS_BIR_2023\//);
+      var filterRegex = new RegExp("https:\/\/marce10\.github\.io\/NMSU_BIR_2024\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
-    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -2013,8 +2191,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-17"><a href="#cb175-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-18"><a href="#cb175-18" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,echo=FALSE,message=FALSE}</span></span>
 <span id="cb175-19"><a href="#cb175-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-20"><a href="#cb175-20" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="st">"digits"</span><span class="ot">=</span><span class="dv">5</span>)</span>
-<span id="cb175-21"><a href="#cb175-21" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="st">"digits.secs"</span><span class="ot">=</span><span class="dv">3</span>)</span>
+<span id="cb175-20"><a href="#cb175-20" aria-hidden="true" tabindex="-1"></a><span class="in">options("digits"=5)</span></span>
+<span id="cb175-21"><a href="#cb175-21" aria-hidden="true" tabindex="-1"></a><span class="in">options("digits.secs"=3)</span></span>
 <span id="cb175-22"><a href="#cb175-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-23"><a href="#cb175-23" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-24"><a href="#cb175-24" aria-hidden="true" tabindex="-1"></a></span>
@@ -2042,7 +2220,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-46"><a href="#cb175-46" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Based on the S Programming Language</span>
 <span id="cb175-47"><a href="#cb175-47" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Around 20 years old (Lineage dates from 1975 - almost 40 years ago)</span>
 <span id="cb175-48"><a href="#cb175-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-49"><a href="#cb175-49" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">"images/Rinterf.jpeg"</span> <span class="er">alt</span><span class="ot">=</span><span class="st">"R"</span> <span class="er">height</span><span class="ot">=</span><span class="st">"600"</span> <span class="er">width</span><span class="ot">=</span><span class="st">"800"</span><span class="kw">/&gt;</span></span>
+<span id="cb175-49"><a href="#cb175-49" aria-hidden="true" tabindex="-1"></a>&lt;img src="images/Rinterf.jpeg" alt="R" height="600" width="800"/&gt;</span>
 <span id="cb175-50"><a href="#cb175-50" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-51"><a href="#cb175-51" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb175-52"><a href="#cb175-52" aria-hidden="true" tabindex="-1"></a></span>
@@ -2054,7 +2232,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-58"><a href="#cb175-58" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Syntax-highlighting editor that supports direct code execution</span>
 <span id="cb175-59"><a href="#cb175-59" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Tools for plotting, history, debugging and workspace management</span>
 <span id="cb175-60"><a href="#cb175-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-61"><a href="#cb175-61" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">"images/Rstudio.jpeg"</span> <span class="er">alt</span><span class="ot">=</span><span class="st">"R"</span> <span class="er">height</span><span class="ot">=</span><span class="st">"500"</span> <span class="er">width</span><span class="ot">=</span><span class="st">"800"</span><span class="kw">/&gt;</span></span>
+<span id="cb175-61"><a href="#cb175-61" aria-hidden="true" tabindex="-1"></a>&lt;img src="images/Rstudio.jpeg" alt="R" height="500" width="800"/&gt;</span>
 <span id="cb175-62"><a href="#cb175-62" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-63"><a href="#cb175-63" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb175-64"><a href="#cb175-64" aria-hidden="true" tabindex="-1"></a></span>
@@ -2070,7 +2248,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-74"><a href="#cb175-74" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>~~Arrays~~</span>
 <span id="cb175-75"><a href="#cb175-75" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>~~Environments~~</span>
 <span id="cb175-76"><a href="#cb175-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-77"><a href="#cb175-77" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Data structure<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb175-77"><a href="#cb175-77" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Data structure&lt;/font&gt;</span>
 <span id="cb175-78"><a href="#cb175-78" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-79"><a href="#cb175-79" aria-hidden="true" tabindex="-1"></a>The basic data structure in R is the vector. There are two basic types of vectors: atomic vectors and lists.</span>
 <span id="cb175-80"><a href="#cb175-80" aria-hidden="true" tabindex="-1"></a></span>
@@ -2084,29 +2262,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-88"><a href="#cb175-88" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-89"><a href="#cb175-89" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=F}</span></span>
 <span id="cb175-90"><a href="#cb175-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-91"><a href="#cb175-91" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb175-92"><a href="#cb175-92" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">"Atomic vector"</span>, <span class="st">"List"</span>),</span>
-<span id="cb175-93"><a href="#cb175-93" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">"Matrix"</span>, <span class="st">"Data frame"</span>),</span>
-<span id="cb175-94"><a href="#cb175-94" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"Array"</span>, <span class="st">""</span>))</span>
+<span id="cb175-91"><a href="#cb175-91" aria-hidden="true" tabindex="-1"></a><span class="in">d2 &lt;- data.frame(</span></span>
+<span id="cb175-92"><a href="#cb175-92" aria-hidden="true" tabindex="-1"></a><span class="in">    c("Atomic vector", "List"),</span></span>
+<span id="cb175-93"><a href="#cb175-93" aria-hidden="true" tabindex="-1"></a><span class="in">    c("Matrix", "Data frame"),</span></span>
+<span id="cb175-94"><a href="#cb175-94" aria-hidden="true" tabindex="-1"></a><span class="in">c("Array", ""))</span></span>
 <span id="cb175-95"><a href="#cb175-95" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-96"><a href="#cb175-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-97"><a href="#cb175-97" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> <span class="fu">t</span>(d2)</span>
+<span id="cb175-97"><a href="#cb175-97" aria-hidden="true" tabindex="-1"></a><span class="in">d2 &lt;- t(d2)</span></span>
 <span id="cb175-98"><a href="#cb175-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-99"><a href="#cb175-99" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(d2) <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Homogeneous"</span>, <span class="st">"Heterogeneous"</span>)</span>
+<span id="cb175-99"><a href="#cb175-99" aria-hidden="true" tabindex="-1"></a><span class="in">colnames(d2) &lt;-c("Homogeneous", "Heterogeneous")</span></span>
 <span id="cb175-100"><a href="#cb175-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-101"><a href="#cb175-101" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(d2) <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"1d"</span>,  <span class="st">"2d"</span>, <span class="st">"nd"</span>)</span>
+<span id="cb175-101"><a href="#cb175-101" aria-hidden="true" tabindex="-1"></a><span class="in">rownames(d2) &lt;-c("1d",  "2d", "nd")</span></span>
 <span id="cb175-102"><a href="#cb175-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-103"><a href="#cb175-103" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(d2)</span>
+<span id="cb175-103"><a href="#cb175-103" aria-hidden="true" tabindex="-1"></a><span class="in">d2 &lt;- as.data.frame(d2)</span></span>
 <span id="cb175-104"><a href="#cb175-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-105"><a href="#cb175-105" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> d2</span>
-<span id="cb175-106"><a href="#cb175-106" aria-hidden="true" tabindex="-1"></a>x</span>
+<span id="cb175-105"><a href="#cb175-105" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- d2</span></span>
+<span id="cb175-106"><a href="#cb175-106" aria-hidden="true" tabindex="-1"></a><span class="in">x</span></span>
 <span id="cb175-107"><a href="#cb175-107" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-108"><a href="#cb175-108" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-109"><a href="#cb175-109" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb175-110"><a href="#cb175-110" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-111"><a href="#cb175-111" aria-hidden="true" tabindex="-1"></a>R has no 0-dimensional elements (scalars). Individual numbers or strings are actually vectors of length one.</span>
 <span id="cb175-112"><a href="#cb175-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-113"><a href="#cb175-113" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Atomic vectors<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb175-113"><a href="#cb175-113" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Atomic vectors&lt;/font&gt;</span>
 <span id="cb175-114"><a href="#cb175-114" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-115"><a href="#cb175-115" aria-hidden="true" tabindex="-1"></a>Types of atomic vectors:</span>
 <span id="cb175-116"><a href="#cb175-116" aria-hidden="true" tabindex="-1"></a></span>
@@ -2119,28 +2297,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-123"><a href="#cb175-123" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-124"><a href="#cb175-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{r,collapse=TRUE}</span></span>
 <span id="cb175-125"><a href="#cb175-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-126"><a href="#cb175-126" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb175-127"><a href="#cb175-127" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>)</span>
+<span id="cb175-126"><a href="#cb175-126" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- 1</span></span>
+<span id="cb175-127"><a href="#cb175-127" aria-hidden="true" tabindex="-1"></a><span class="in">x1 &lt;- c(1)</span></span>
 <span id="cb175-128"><a href="#cb175-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-129"><a href="#cb175-129" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(x, x1)</span>
+<span id="cb175-129"><a href="#cb175-129" aria-hidden="true" tabindex="-1"></a><span class="in">all.equal(x, x1)</span></span>
 <span id="cb175-130"><a href="#cb175-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-131"><a href="#cb175-131" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span>
+<span id="cb175-131"><a href="#cb175-131" aria-hidden="true" tabindex="-1"></a><span class="in">class(x)</span></span>
 <span id="cb175-132"><a href="#cb175-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-133"><a href="#cb175-133" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">"something"</span></span>
+<span id="cb175-133"><a href="#cb175-133" aria-hidden="true" tabindex="-1"></a><span class="in">y &lt;- "something"</span></span>
 <span id="cb175-134"><a href="#cb175-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-135"><a href="#cb175-135" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(y)</span>
+<span id="cb175-135"><a href="#cb175-135" aria-hidden="true" tabindex="-1"></a><span class="in">class(y)</span></span>
 <span id="cb175-136"><a href="#cb175-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-137"><a href="#cb175-137" aria-hidden="true" tabindex="-1"></a>w <span class="ot">&lt;-</span> 1L</span>
+<span id="cb175-137"><a href="#cb175-137" aria-hidden="true" tabindex="-1"></a><span class="in">w &lt;- 1L</span></span>
 <span id="cb175-138"><a href="#cb175-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-139"><a href="#cb175-139" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(w)</span>
-<span id="cb175-140"><a href="#cb175-140" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb175-141"><a href="#cb175-141" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb175-139"><a href="#cb175-139" aria-hidden="true" tabindex="-1"></a><span class="in">class(w)</span></span>
+<span id="cb175-140"><a href="#cb175-140" aria-hidden="true" tabindex="-1"></a><span class="in"> </span></span>
+<span id="cb175-141"><a href="#cb175-141" aria-hidden="true" tabindex="-1"></a><span class="in">z &lt;- TRUE</span></span>
 <span id="cb175-142"><a href="#cb175-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-143"><a href="#cb175-143" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(z)</span>
+<span id="cb175-143"><a href="#cb175-143" aria-hidden="true" tabindex="-1"></a><span class="in">class(z)</span></span>
 <span id="cb175-144"><a href="#cb175-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-145"><a href="#cb175-145" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="dv">1</span>)</span>
+<span id="cb175-145"><a href="#cb175-145" aria-hidden="true" tabindex="-1"></a><span class="in">q &lt;- factor(1)</span></span>
 <span id="cb175-146"><a href="#cb175-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-147"><a href="#cb175-147" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(q)</span>
+<span id="cb175-147"><a href="#cb175-147" aria-hidden="true" tabindex="-1"></a><span class="in">class(q)</span></span>
 <span id="cb175-148"><a href="#cb175-148" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-149"><a href="#cb175-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-150"><a href="#cb175-150" aria-hidden="true" tabindex="-1"></a></span>
@@ -2150,23 +2328,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-154"><a href="#cb175-154" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-155"><a href="#cb175-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, collapse=TRUE}</span></span>
 <span id="cb175-156"><a href="#cb175-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-157"><a href="#cb175-157" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>)</span>
+<span id="cb175-157"><a href="#cb175-157" aria-hidden="true" tabindex="-1"></a><span class="in">v &lt;- c(10, 11, 12, 13)</span></span>
 <span id="cb175-158"><a href="#cb175-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-159"><a href="#cb175-159" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(v)</span>
+<span id="cb175-159"><a href="#cb175-159" aria-hidden="true" tabindex="-1"></a><span class="in">class(v)</span></span>
 <span id="cb175-160"><a href="#cb175-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-161"><a href="#cb175-161" aria-hidden="true" tabindex="-1"></a><span class="fu">is.integer</span>(v)</span>
+<span id="cb175-161"><a href="#cb175-161" aria-hidden="true" tabindex="-1"></a><span class="in">is.integer(v)</span></span>
 <span id="cb175-162"><a href="#cb175-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-163"><a href="#cb175-163" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Amazona"</span>, <span class="st">"Ara"</span>, <span class="st">"Eupsittula"</span>, <span class="st">"Myiopsitta"</span>)</span>
+<span id="cb175-163"><a href="#cb175-163" aria-hidden="true" tabindex="-1"></a><span class="in">y &lt;- c("Amazona", "Ara", "Eupsittula", "Myiopsitta")</span></span>
 <span id="cb175-164"><a href="#cb175-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-165"><a href="#cb175-165" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(y)</span>
+<span id="cb175-165"><a href="#cb175-165" aria-hidden="true" tabindex="-1"></a><span class="in">class(y)</span></span>
 <span id="cb175-166"><a href="#cb175-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-167"><a href="#cb175-167" aria-hidden="true" tabindex="-1"></a><span class="fu">is.integer</span>(y)</span>
+<span id="cb175-167"><a href="#cb175-167" aria-hidden="true" tabindex="-1"></a><span class="in">is.integer(y)</span></span>
 <span id="cb175-168"><a href="#cb175-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-169"><a href="#cb175-169" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>, <span class="st">"Myiopsitta"</span>)</span>
+<span id="cb175-169"><a href="#cb175-169" aria-hidden="true" tabindex="-1"></a><span class="in">x &lt;- c(1,2,3, "Myiopsitta")</span></span>
 <span id="cb175-170"><a href="#cb175-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-171"><a href="#cb175-171" aria-hidden="true" tabindex="-1"></a>x</span>
+<span id="cb175-171"><a href="#cb175-171" aria-hidden="true" tabindex="-1"></a><span class="in">x</span></span>
 <span id="cb175-172"><a href="#cb175-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-173"><a href="#cb175-173" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span>
+<span id="cb175-173"><a href="#cb175-173" aria-hidden="true" tabindex="-1"></a><span class="in">class(x)</span></span>
 <span id="cb175-174"><a href="#cb175-174" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-175"><a href="#cb175-175" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-176"><a href="#cb175-176" aria-hidden="true" tabindex="-1"></a></span>
@@ -2176,19 +2354,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-180"><a href="#cb175-180" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-181"><a href="#cb175-181" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, collapse=TRUE}</span></span>
 <span id="cb175-182"><a href="#cb175-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-183"><a href="#cb175-183" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="cn">NA</span>)</span>
+<span id="cb175-183"><a href="#cb175-183" aria-hidden="true" tabindex="-1"></a><span class="in">v &lt;- c(10, 11, 12, 13, NA)</span></span>
 <span id="cb175-184"><a href="#cb175-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-185"><a href="#cb175-185" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(v)</span>
+<span id="cb175-185"><a href="#cb175-185" aria-hidden="true" tabindex="-1"></a><span class="in">class(v)</span></span>
 <span id="cb175-186"><a href="#cb175-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-187"><a href="#cb175-187" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">c</span>(letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="cn">NA</span>)</span>
+<span id="cb175-187"><a href="#cb175-187" aria-hidden="true" tabindex="-1"></a><span class="in">v &lt;- c(letters[1:3], NA)</span></span>
 <span id="cb175-188"><a href="#cb175-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-189"><a href="#cb175-189" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(v)</span>
+<span id="cb175-189"><a href="#cb175-189" aria-hidden="true" tabindex="-1"></a><span class="in">class(v)</span></span>
 <span id="cb175-190"><a href="#cb175-190" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-191"><a href="#cb175-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-192"><a href="#cb175-192" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-193"><a href="#cb175-193" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb175-194"><a href="#cb175-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-195"><a href="#cb175-195" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Lists<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb175-195"><a href="#cb175-195" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Lists&lt;/font&gt;</span>
 <span id="cb175-196"><a href="#cb175-196" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-197"><a href="#cb175-197" aria-hidden="true" tabindex="-1"></a>Can contain objects of different classes and sizes. Lists are built using list():</span>
 <span id="cb175-198"><a href="#cb175-198" aria-hidden="true" tabindex="-1"></a></span>
@@ -2223,7 +2401,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-231"><a href="#cb175-231" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-232"><a href="#cb175-232" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb175-233"><a href="#cb175-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-234"><a href="#cb175-234" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Attributes<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb175-234"><a href="#cb175-234" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Attributes&lt;/font&gt;</span>
 <span id="cb175-235"><a href="#cb175-235" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-236"><a href="#cb175-236" aria-hidden="true" tabindex="-1"></a>Objects can have attributes. Attributes allow to store metadata about the object. Attributes are kind of named lists. Attributes can be accessed individually with <span class="in">`attr()`</span> or all at once (as a list) with <span class="in">`attributes()`</span>:</span>
 <span id="cb175-237"><a href="#cb175-237" aria-hidden="true" tabindex="-1"></a></span>
@@ -2273,7 +2451,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-287"><a href="#cb175-287" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-288"><a href="#cb175-288" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb175-289"><a href="#cb175-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-290"><a href="#cb175-290" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Factors<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb175-290"><a href="#cb175-290" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Factors&lt;/font&gt;</span>
 <span id="cb175-291"><a href="#cb175-291" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-292"><a href="#cb175-292" aria-hidden="true" tabindex="-1"></a>Attributes are used to define factors. A factor is a vector that can contain only predefined values, and is used to store categorical data.</span>
 <span id="cb175-293"><a href="#cb175-293" aria-hidden="true" tabindex="-1"></a></span>
@@ -2305,7 +2483,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-323"><a href="#cb175-323" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-324"><a href="#cb175-324" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb175-325"><a href="#cb175-325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-326"><a href="#cb175-326" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Matrices<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb175-326"><a href="#cb175-326" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Matrices&lt;/font&gt;</span>
 <span id="cb175-327"><a href="#cb175-327" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-328"><a href="#cb175-328" aria-hidden="true" tabindex="-1"></a>All entries are of the same type:</span>
 <span id="cb175-329"><a href="#cb175-329" aria-hidden="true" tabindex="-1"></a></span>
@@ -2327,7 +2505,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-347"><a href="#cb175-347" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-348"><a href="#cb175-348" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb175-349"><a href="#cb175-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-350"><a href="#cb175-350" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Data frames<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb175-350"><a href="#cb175-350" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Data frames&lt;/font&gt;</span>
 <span id="cb175-351"><a href="#cb175-351" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-352"><a href="#cb175-352" aria-hidden="true" tabindex="-1"></a>Special case of lists. Can contain entries of different types:</span>
 <span id="cb175-353"><a href="#cb175-353" aria-hidden="true" tabindex="-1"></a></span>
@@ -2356,9 +2534,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-378"><a href="#cb175-378" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-379"><a href="#cb175-379" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, error = TRUE}</span></span>
 <span id="cb175-380"><a href="#cb175-380" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-381"><a href="#cb175-381" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ID =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>, <span class="st">"e"</span>), </span>
-<span id="cb175-382"><a href="#cb175-382" aria-hidden="true" tabindex="-1"></a>                <span class="at">size =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>), </span>
-<span id="cb175-383"><a href="#cb175-383" aria-hidden="true" tabindex="-1"></a>                <span class="at">observed =</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>))</span>
+<span id="cb175-381"><a href="#cb175-381" aria-hidden="true" tabindex="-1"></a><span class="in">m &lt;- data.frame(ID = c("a", "b", "c", "d", "e"), </span></span>
+<span id="cb175-382"><a href="#cb175-382" aria-hidden="true" tabindex="-1"></a><span class="in">                size = c(1, 2, 3, 4, 5, 6), </span></span>
+<span id="cb175-383"><a href="#cb175-383" aria-hidden="true" tabindex="-1"></a><span class="in">                observed = c(FALSE, TRUE, FALSE, FALSE, FALSE))</span></span>
 <span id="cb175-384"><a href="#cb175-384" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-385"><a href="#cb175-385" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-386"><a href="#cb175-386" aria-hidden="true" tabindex="-1"></a></span>
@@ -2368,7 +2546,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-390"><a href="#cb175-390" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-391"><a href="#cb175-391" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data subsetting</span></span>
 <span id="cb175-392"><a href="#cb175-392" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-393"><a href="#cb175-393" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Indexing<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb175-393"><a href="#cb175-393" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Indexing&lt;/font&gt;</span>
 <span id="cb175-394"><a href="#cb175-394" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-395"><a href="#cb175-395" aria-hidden="true" tabindex="-1"></a>Elements within objects can be called by indexing. To subset a vector simply call the object position using square brackets:</span>
 <span id="cb175-396"><a href="#cb175-396" aria-hidden="true" tabindex="-1"></a></span>
@@ -2466,39 +2644,39 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-498"><a href="#cb175-498" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-499"><a href="#cb175-499" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb175-500"><a href="#cb175-500" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-501"><a href="#cb175-501" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Exploring objects<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb175-501"><a href="#cb175-501" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Exploring objects&lt;/font&gt;</span>
 <span id="cb175-502"><a href="#cb175-502" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-503"><a href="#cb175-503" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = TRUE}</span></span>
 <span id="cb175-504"><a href="#cb175-504" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-505"><a href="#cb175-505" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span>
+<span id="cb175-505"><a href="#cb175-505" aria-hidden="true" tabindex="-1"></a><span class="in">str(df)</span></span>
 <span id="cb175-506"><a href="#cb175-506" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-507"><a href="#cb175-507" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df)</span>
+<span id="cb175-507"><a href="#cb175-507" aria-hidden="true" tabindex="-1"></a><span class="in">names(df)</span></span>
 <span id="cb175-508"><a href="#cb175-508" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-509"><a href="#cb175-509" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(df)</span>
+<span id="cb175-509"><a href="#cb175-509" aria-hidden="true" tabindex="-1"></a><span class="in">dim(df)</span></span>
 <span id="cb175-510"><a href="#cb175-510" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-511"><a href="#cb175-511" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df)</span>
+<span id="cb175-511"><a href="#cb175-511" aria-hidden="true" tabindex="-1"></a><span class="in">nrow(df)</span></span>
 <span id="cb175-512"><a href="#cb175-512" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-513"><a href="#cb175-513" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(df)</span>
+<span id="cb175-513"><a href="#cb175-513" aria-hidden="true" tabindex="-1"></a><span class="in">ncol(df)</span></span>
 <span id="cb175-514"><a href="#cb175-514" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-515"><a href="#cb175-515" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span>
+<span id="cb175-515"><a href="#cb175-515" aria-hidden="true" tabindex="-1"></a><span class="in">head(df)</span></span>
 <span id="cb175-516"><a href="#cb175-516" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-517"><a href="#cb175-517" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(df)</span>
+<span id="cb175-517"><a href="#cb175-517" aria-hidden="true" tabindex="-1"></a><span class="in">tail(df)</span></span>
 <span id="cb175-518"><a href="#cb175-518" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-519"><a href="#cb175-519" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>genus)</span>
+<span id="cb175-519"><a href="#cb175-519" aria-hidden="true" tabindex="-1"></a><span class="in">table(df$genus)</span></span>
 <span id="cb175-520"><a href="#cb175-520" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-521"><a href="#cb175-521" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(df)</span>
+<span id="cb175-521"><a href="#cb175-521" aria-hidden="true" tabindex="-1"></a><span class="in">typeof(df)</span></span>
 <span id="cb175-522"><a href="#cb175-522" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-523"><a href="#cb175-523" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-524"><a href="#cb175-524" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-525"><a href="#cb175-525" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F}</span></span>
-<span id="cb175-526"><a href="#cb175-526" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(df)</span>
+<span id="cb175-526"><a href="#cb175-526" aria-hidden="true" tabindex="-1"></a><span class="in">View(df)</span></span>
 <span id="cb175-527"><a href="#cb175-527" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-528"><a href="#cb175-528" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-529"><a href="#cb175-529" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-530"><a href="#cb175-530" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb175-531"><a href="#cb175-531" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-532"><a href="#cb175-532" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert-info}</span>
-<span id="cb175-533"><a href="#cb175-533" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Exercise<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb175-533"><a href="#cb175-533" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Exercise&lt;/font&gt;</span>
 <span id="cb175-534"><a href="#cb175-534" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-535"><a href="#cb175-535" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb175-536"><a href="#cb175-536" aria-hidden="true" tabindex="-1"></a></span>
@@ -2521,9 +2699,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-553"><a href="#cb175-553" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-554"><a href="#cb175-554" aria-hidden="true" tabindex="-1"></a>All functions are created by the function <span class="in">`function()`</span> and follow the same structure:</span>
 <span id="cb175-555"><a href="#cb175-555" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-556"><a href="#cb175-556" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">"images/function.png"</span> <span class="er">alt</span><span class="ot">=</span><span class="st">"R"</span> <span class="er">height</span><span class="ot">=</span><span class="st">"350"</span> <span class="er">width</span><span class="ot">=</span><span class="st">"900"</span><span class="kw">/&gt;</span></span>
+<span id="cb175-556"><a href="#cb175-556" aria-hidden="true" tabindex="-1"></a>&lt;img src="images/function.png" alt="R" height="350" width="900"/&gt;</span>
 <span id="cb175-557"><a href="#cb175-557" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-558"><a href="#cb175-558" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"2"</span><span class="kw">&gt;</span><span class="sc">\*</span> Modified from <span class="kw">&lt;i&gt;</span>Grolemund 2014<span class="kw">&lt;/i&gt;&lt;/font&gt;</span> &nbsp;</span>
+<span id="cb175-558"><a href="#cb175-558" aria-hidden="true" tabindex="-1"></a>&lt;font size="2"&gt;<span class="sc">\*</span> Modified from &lt;i&gt;Grolemund 2014&lt;/i&gt;&lt;/font&gt; &nbsp;</span>
 <span id="cb175-559"><a href="#cb175-559" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-560"><a href="#cb175-560" aria-hidden="true" tabindex="-1"></a>R comes with many functions that you can use to do sophisticated tasks:</span>
 <span id="cb175-561"><a href="#cb175-561" aria-hidden="true" tabindex="-1"></a></span>
@@ -2557,26 +2735,26 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-593"><a href="#cb175-593" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-594"><a href="#cb175-594" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb175-595"><a href="#cb175-595" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-596"><a href="#cb175-596" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Most commonly used R operators<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb175-596"><a href="#cb175-596" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Most commonly used R operators&lt;/font&gt;</span>
 <span id="cb175-597"><a href="#cb175-597" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-598"><a href="#cb175-598" aria-hidden="true" tabindex="-1"></a>Arithmetic operators:</span>
 <span id="cb175-599"><a href="#cb175-599" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-600"><a href="#cb175-600" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=F}</span></span>
-<span id="cb175-601"><a href="#cb175-601" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb175-602"><a href="#cb175-602" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"+"</span> , <span class="st">"addition"</span>),</span>
-<span id="cb175-603"><a href="#cb175-603" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"-"</span>,  <span class="st">"subtraction"</span>),</span>
-<span id="cb175-604"><a href="#cb175-604" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"*"</span> , <span class="st">"multiplication"</span>),</span>
-<span id="cb175-605"><a href="#cb175-605" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"/"</span>,  <span class="st">"division"</span>),</span>
-<span id="cb175-606"><a href="#cb175-606" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"^ or **"</span>,    <span class="st">"exponent"</span>),</span>
-<span id="cb175-607"><a href="#cb175-607" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"x %% y"</span>, <span class="st">"modulus (x mod y)"</span>),</span>
-<span id="cb175-608"><a href="#cb175-608" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"x %/% y"</span>,    <span class="st">"integer division"</span>))</span>
+<span id="cb175-601"><a href="#cb175-601" aria-hidden="true" tabindex="-1"></a><span class="in">d &lt;- data.frame(</span></span>
+<span id="cb175-602"><a href="#cb175-602" aria-hidden="true" tabindex="-1"></a><span class="in">c("+" , "addition"),</span></span>
+<span id="cb175-603"><a href="#cb175-603" aria-hidden="true" tabindex="-1"></a><span class="in">c("-",  "subtraction"),</span></span>
+<span id="cb175-604"><a href="#cb175-604" aria-hidden="true" tabindex="-1"></a><span class="in">c("*" , "multiplication"),</span></span>
+<span id="cb175-605"><a href="#cb175-605" aria-hidden="true" tabindex="-1"></a><span class="in">c("/",  "division"),</span></span>
+<span id="cb175-606"><a href="#cb175-606" aria-hidden="true" tabindex="-1"></a><span class="in">c("^ or **",    "exponent"),</span></span>
+<span id="cb175-607"><a href="#cb175-607" aria-hidden="true" tabindex="-1"></a><span class="in">c("x %% y", "modulus (x mod y)"),</span></span>
+<span id="cb175-608"><a href="#cb175-608" aria-hidden="true" tabindex="-1"></a><span class="in">c("x %/% y",    "integer division"))</span></span>
 <span id="cb175-609"><a href="#cb175-609" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-610"><a href="#cb175-610" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-611"><a href="#cb175-611" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">t</span>(d)</span>
+<span id="cb175-611"><a href="#cb175-611" aria-hidden="true" tabindex="-1"></a><span class="in">d &lt;- t(d)</span></span>
 <span id="cb175-612"><a href="#cb175-612" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-613"><a href="#cb175-613" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(d) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Operator      "</span>, <span class="st">"Description   "</span>)</span>
+<span id="cb175-613"><a href="#cb175-613" aria-hidden="true" tabindex="-1"></a><span class="in">colnames(d) &lt;- c("Operator      ", "Description   ")</span></span>
 <span id="cb175-614"><a href="#cb175-614" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-615"><a href="#cb175-615" aria-hidden="true" tabindex="-1"></a>d</span>
+<span id="cb175-615"><a href="#cb175-615" aria-hidden="true" tabindex="-1"></a><span class="in">d</span></span>
 <span id="cb175-616"><a href="#cb175-616" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-617"><a href="#cb175-617" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-618"><a href="#cb175-618" aria-hidden="true" tabindex="-1"></a></span>
@@ -2597,23 +2775,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-635"><a href="#cb175-635" aria-hidden="true" tabindex="-1"></a>Logical operators:</span>
 <span id="cb175-636"><a href="#cb175-636" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-637"><a href="#cb175-637" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=F}</span></span>
-<span id="cb175-638"><a href="#cb175-638" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb175-639"><a href="#cb175-639" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"&lt;"</span>, <span class="st">"less than"</span>),</span>
-<span id="cb175-640"><a href="#cb175-640" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"&lt;="</span>, <span class="st">"less than or equal to"</span>),</span>
-<span id="cb175-641"><a href="#cb175-641" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"&gt;"</span>, <span class="st">"greater than"</span>),</span>
-<span id="cb175-642"><a href="#cb175-642" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"&gt;="</span>, <span class="st">"greater than or equal to"</span>),</span>
-<span id="cb175-643"><a href="#cb175-643" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"=="</span>, <span class="st">"exactly equal to"</span>),</span>
-<span id="cb175-644"><a href="#cb175-644" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"!="</span>, <span class="st">"not equal to"</span>),</span>
-<span id="cb175-645"><a href="#cb175-645" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"!x"</span>, <span class="st">"Not x"</span>),</span>
-<span id="cb175-646"><a href="#cb175-646" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"x | y"</span>, <span class="st">"    x OR y"</span>),</span>
-<span id="cb175-647"><a href="#cb175-647" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"x &amp; y"</span>,  <span class="st">"x AND y"</span>),</span>
-<span id="cb175-648"><a href="#cb175-648" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"x %in% y"</span>,   <span class="st">"match"</span>))</span>
+<span id="cb175-638"><a href="#cb175-638" aria-hidden="true" tabindex="-1"></a><span class="in">d &lt;- data.frame(</span></span>
+<span id="cb175-639"><a href="#cb175-639" aria-hidden="true" tabindex="-1"></a><span class="in">c("&lt;", "less than"),</span></span>
+<span id="cb175-640"><a href="#cb175-640" aria-hidden="true" tabindex="-1"></a><span class="in">c("&lt;=", "less than or equal to"),</span></span>
+<span id="cb175-641"><a href="#cb175-641" aria-hidden="true" tabindex="-1"></a><span class="in">c("&gt;", "greater than"),</span></span>
+<span id="cb175-642"><a href="#cb175-642" aria-hidden="true" tabindex="-1"></a><span class="in">c("&gt;=", "greater than or equal to"),</span></span>
+<span id="cb175-643"><a href="#cb175-643" aria-hidden="true" tabindex="-1"></a><span class="in">c("==", "exactly equal to"),</span></span>
+<span id="cb175-644"><a href="#cb175-644" aria-hidden="true" tabindex="-1"></a><span class="in">c("!=", "not equal to"),</span></span>
+<span id="cb175-645"><a href="#cb175-645" aria-hidden="true" tabindex="-1"></a><span class="in">c("!x", "Not x"),</span></span>
+<span id="cb175-646"><a href="#cb175-646" aria-hidden="true" tabindex="-1"></a><span class="in">c("x | y", "    x OR y"),</span></span>
+<span id="cb175-647"><a href="#cb175-647" aria-hidden="true" tabindex="-1"></a><span class="in">c("x &amp; y",  "x AND y"),</span></span>
+<span id="cb175-648"><a href="#cb175-648" aria-hidden="true" tabindex="-1"></a><span class="in">c("x %in% y",   "match"))</span></span>
 <span id="cb175-649"><a href="#cb175-649" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-650"><a href="#cb175-650" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">t</span>(d)</span>
+<span id="cb175-650"><a href="#cb175-650" aria-hidden="true" tabindex="-1"></a><span class="in">d &lt;- t(d)</span></span>
 <span id="cb175-651"><a href="#cb175-651" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-652"><a href="#cb175-652" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(d) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Operator   "</span>, <span class="st">"Description   "</span>)</span>
+<span id="cb175-652"><a href="#cb175-652" aria-hidden="true" tabindex="-1"></a><span class="in">colnames(d) &lt;- c("Operator   ", "Description   ")</span></span>
 <span id="cb175-653"><a href="#cb175-653" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-654"><a href="#cb175-654" aria-hidden="true" tabindex="-1"></a>d</span>
+<span id="cb175-654"><a href="#cb175-654" aria-hidden="true" tabindex="-1"></a><span class="in">d</span></span>
 <span id="cb175-655"><a href="#cb175-655" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-656"><a href="#cb175-656" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-657"><a href="#cb175-657" aria-hidden="true" tabindex="-1"></a></span>
@@ -2643,19 +2821,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-683"><a href="#cb175-683" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-684"><a href="#cb175-684" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=F}</span></span>
 <span id="cb175-685"><a href="#cb175-685" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-686"><a href="#cb175-686" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">6</span> <span class="sc">*</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span></span>
+<span id="cb175-686"><a href="#cb175-686" aria-hidden="true" tabindex="-1"></a><span class="in">1:6 * 1:6</span></span>
 <span id="cb175-687"><a href="#cb175-687" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-688"><a href="#cb175-688" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-689"><a href="#cb175-689" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-690"><a href="#cb175-690" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">"images/vectorize.png"</span> <span class="er">alt</span><span class="ot">=</span><span class="st">"R"</span> <span class="er">height</span><span class="ot">=</span><span class="st">"350"</span> <span class="er">width</span><span class="ot">=</span><span class="st">"900"</span><span class="kw">/&gt;</span></span>
+<span id="cb175-690"><a href="#cb175-690" aria-hidden="true" tabindex="-1"></a>&lt;img src="images/vectorize.png" alt="R" height="350" width="900"/&gt;</span>
 <span id="cb175-691"><a href="#cb175-691" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-692"><a href="#cb175-692" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"2"</span><span class="kw">&gt;</span><span class="sc">\*</span> Modified from <span class="kw">&lt;i&gt;</span>Grolemund &amp; Wickham 2017<span class="kw">&lt;/i&gt;&lt;/font&gt;</span></span>
+<span id="cb175-692"><a href="#cb175-692" aria-hidden="true" tabindex="-1"></a>&lt;font size="2"&gt;<span class="sc">\*</span> Modified from &lt;i&gt;Grolemund &amp; Wickham 2017&lt;/i&gt;&lt;/font&gt;</span>
 <span id="cb175-693"><a href="#cb175-693" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-694"><a href="#cb175-694" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb175-695"><a href="#cb175-695" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-696"><a href="#cb175-696" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=F}</span></span>
 <span id="cb175-697"><a href="#cb175-697" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-698"><a href="#cb175-698" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">6</span> <span class="sc">*</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span></span>
+<span id="cb175-698"><a href="#cb175-698" aria-hidden="true" tabindex="-1"></a><span class="in">1:6 * 1:6</span></span>
 <span id="cb175-699"><a href="#cb175-699" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-700"><a href="#cb175-700" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-703"><a href="#cb175-703" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
@@ -2666,19 +2844,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-708"><a href="#cb175-708" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-709"><a href="#cb175-709" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=F}</span></span>
 <span id="cb175-710"><a href="#cb175-710" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-711"><a href="#cb175-711" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">6</span> <span class="sc">*</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb175-711"><a href="#cb175-711" aria-hidden="true" tabindex="-1"></a><span class="in">1:6 * 1:5</span></span>
 <span id="cb175-712"><a href="#cb175-712" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-713"><a href="#cb175-713" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-714"><a href="#cb175-714" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-715"><a href="#cb175-715" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">"images/recycle.png"</span> <span class="er">alt</span><span class="ot">=</span><span class="st">"R"</span> <span class="er">height</span><span class="ot">=</span><span class="st">"350"</span> <span class="er">width</span><span class="ot">=</span><span class="st">"900"</span><span class="kw">/&gt;</span></span>
+<span id="cb175-715"><a href="#cb175-715" aria-hidden="true" tabindex="-1"></a>&lt;img src="images/recycle.png" alt="R" height="350" width="900"/&gt;</span>
 <span id="cb175-716"><a href="#cb175-716" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-717"><a href="#cb175-717" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"2"</span><span class="kw">&gt;</span><span class="sc">\*</span> Modified from <span class="kw">&lt;i&gt;</span>Grolemund &amp; Wickham 2017<span class="kw">&lt;/i&gt;&lt;/font&gt;</span></span>
+<span id="cb175-717"><a href="#cb175-717" aria-hidden="true" tabindex="-1"></a>&lt;font size="2"&gt;<span class="sc">\*</span> Modified from &lt;i&gt;Grolemund &amp; Wickham 2017&lt;/i&gt;&lt;/font&gt;</span>
 <span id="cb175-718"><a href="#cb175-718" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-719"><a href="#cb175-719" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb175-720"><a href="#cb175-720" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-721"><a href="#cb175-721" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=F}</span></span>
 <span id="cb175-722"><a href="#cb175-722" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-723"><a href="#cb175-723" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">6</span> <span class="sc">*</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb175-723"><a href="#cb175-723" aria-hidden="true" tabindex="-1"></a><span class="in">1:6 * 1:5</span></span>
 <span id="cb175-724"><a href="#cb175-724" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-725"><a href="#cb175-725" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-726"><a href="#cb175-726" aria-hidden="true" tabindex="-1"></a></span>
@@ -2693,16 +2871,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-737"><a href="#cb175-737" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-738"><a href="#cb175-738" aria-hidden="true" tabindex="-1"></a><span class="fu">## Style matters</span></span>
 <span id="cb175-739"><a href="#cb175-739" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-740"><a href="#cb175-740" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"2"</span><span class="kw">&gt;&lt;a</span> <span class="er">href</span><span class="ot">=</span><span class="st">"https://google.github.io/styleguide/Rguide.xml"</span><span class="kw">&gt;</span>Based on google's R Style Guide<span class="kw">&lt;/a&gt;&lt;/font&gt;</span></span>
+<span id="cb175-740"><a href="#cb175-740" aria-hidden="true" tabindex="-1"></a>&lt;font size="2"&gt;&lt;a href="https://google.github.io/styleguide/Rguide.xml"&gt;Based on google's R Style Guide&lt;/a&gt;&lt;/font&gt;</span>
 <span id="cb175-741"><a href="#cb175-741" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-742"><a href="#cb175-742" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>File names<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb175-742"><a href="#cb175-742" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;File names&lt;/font&gt;</span>
 <span id="cb175-743"><a href="#cb175-743" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-744"><a href="#cb175-744" aria-hidden="true" tabindex="-1"></a>File names should end in .R and, of course, be meaningful:</span>
 <span id="cb175-745"><a href="#cb175-745" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-746"><a href="#cb175-746" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>GOOD: predict_ad_revenue.R</span>
 <span id="cb175-747"><a href="#cb175-747" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>BAD: foo.R</span>
 <span id="cb175-748"><a href="#cb175-748" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-749"><a href="#cb175-749" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Object names<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb175-749"><a href="#cb175-749" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Object names&lt;/font&gt;</span>
 <span id="cb175-750"><a href="#cb175-750" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-751"><a href="#cb175-751" aria-hidden="true" tabindex="-1"></a>Variables and functions:</span>
 <span id="cb175-752"><a href="#cb175-752" aria-hidden="true" tabindex="-1"></a></span>
@@ -2714,14 +2892,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-758"><a href="#cb175-758" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-759"><a href="#cb175-759" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=F}</span></span>
 <span id="cb175-760"><a href="#cb175-760" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-761"><a href="#cb175-761" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> GOOD<span class="sc">:</span> day_one<span class="sc">:</span> day_1, <span class="fu">mean.day</span>(),</span>
-<span id="cb175-762"><a href="#cb175-762" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb175-763"><a href="#cb175-763" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> BAD<span class="sc">:</span> dayOne, day1, firstDay_of.month, mean <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">sum</span>(x), c <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb175-761"><a href="#cb175-761" aria-hidden="true" tabindex="-1"></a><span class="in">  - GOOD: day_one: day_1, mean.day(),</span></span>
+<span id="cb175-762"><a href="#cb175-762" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb175-763"><a href="#cb175-763" aria-hidden="true" tabindex="-1"></a><span class="in">  - BAD: dayOne, day1, firstDay_of.month, mean &lt;- function(x) sum(x), c &lt;- 10</span></span>
 <span id="cb175-764"><a href="#cb175-764" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-765"><a href="#cb175-765" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-766"><a href="#cb175-766" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb175-767"><a href="#cb175-767" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-768"><a href="#cb175-768" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Syntax<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb175-768"><a href="#cb175-768" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Syntax&lt;/font&gt;</span>
 <span id="cb175-769"><a href="#cb175-769" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-770"><a href="#cb175-770" aria-hidden="true" tabindex="-1"></a>Spacing:</span>
 <span id="cb175-771"><a href="#cb175-771" aria-hidden="true" tabindex="-1"></a></span>
@@ -2731,24 +2909,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-775"><a href="#cb175-775" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-776"><a href="#cb175-776" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=F}</span></span>
 <span id="cb175-777"><a href="#cb175-777" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-778"><a href="#cb175-778" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> GOOD<span class="sc">:</span> </span>
-<span id="cb175-779"><a href="#cb175-779" aria-hidden="true" tabindex="-1"></a>          a <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">1</span>)</span>
-<span id="cb175-780"><a href="#cb175-780" aria-hidden="true" tabindex="-1"></a>          tab.prior <span class="ot">&lt;-</span> <span class="fu">table</span>(df[df<span class="sc">$</span>days.from.opt <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="st">"campaign.id"</span>])</span>
-<span id="cb175-781"><a href="#cb175-781" aria-hidden="true" tabindex="-1"></a>          total <span class="ot">&lt;-</span> <span class="fu">sum</span>(x[, <span class="dv">1</span>])</span>
-<span id="cb175-782"><a href="#cb175-782" aria-hidden="true" tabindex="-1"></a>          total <span class="ot">&lt;-</span> <span class="fu">sum</span>(x[<span class="dv">1</span>, ])</span>
-<span id="cb175-783"><a href="#cb175-783" aria-hidden="true" tabindex="-1"></a>          <span class="cf">if</span> (debug)</span>
-<span id="cb175-784"><a href="#cb175-784" aria-hidden="true" tabindex="-1"></a>          <span class="fu">mean</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
-<span id="cb175-785"><a href="#cb175-785" aria-hidden="true" tabindex="-1"></a>          </span>
-<span id="cb175-786"><a href="#cb175-786" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> BAD<span class="sc">:</span> </span>
-<span id="cb175-787"><a href="#cb175-787" aria-hidden="true" tabindex="-1"></a>         a<span class="ot">&lt;-</span><span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">10</span>,<span class="at">sd=</span><span class="dv">10</span>,<span class="at">mean=</span><span class="dv">1</span>)</span>
-<span id="cb175-788"><a href="#cb175-788" aria-hidden="true" tabindex="-1"></a>         tab.prior <span class="ot">&lt;-</span> <span class="fu">table</span>(df[df<span class="sc">$</span>days.from.opt<span class="sc">&lt;</span><span class="dv">0</span>, <span class="st">"campaign.id"</span>])  <span class="co"># Needs spaces around '&lt;'</span></span>
-<span id="cb175-789"><a href="#cb175-789" aria-hidden="true" tabindex="-1"></a>         tab.prior <span class="ot">&lt;-</span> <span class="fu">table</span>(df[df<span class="sc">$</span>days.from.opt <span class="sc">&lt;</span> <span class="dv">0</span>,<span class="st">"campaign.id"</span>])  <span class="co"># Needs a space after the comma</span></span>
-<span id="cb175-790"><a href="#cb175-790" aria-hidden="true" tabindex="-1"></a>         tab.prior<span class="ot">&lt;-</span> <span class="fu">table</span>(df[df<span class="sc">$</span>days.from.opt <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="st">"campaign.id"</span>])  <span class="co"># Needs a space before &lt;-</span></span>
-<span id="cb175-791"><a href="#cb175-791" aria-hidden="true" tabindex="-1"></a>         tab.prior<span class="ot">&lt;-</span><span class="fu">table</span>(df[df<span class="sc">$</span>days.from.opt <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="st">"campaign.id"</span>])  <span class="co"># Needs spaces around &lt;-</span></span>
-<span id="cb175-792"><a href="#cb175-792" aria-hidden="true" tabindex="-1"></a>         total <span class="ot">&lt;-</span> <span class="fu">sum</span>(x[,<span class="dv">1</span>])  <span class="co"># Needs a space after the comma</span></span>
-<span id="cb175-793"><a href="#cb175-793" aria-hidden="true" tabindex="-1"></a>         total <span class="ot">&lt;-</span> <span class="fu">sum</span>(x[ ,<span class="dv">1</span>])  <span class="co"># Needs a space after the comma, not before  </span></span>
-<span id="cb175-794"><a href="#cb175-794" aria-hidden="true" tabindex="-1"></a>         <span class="cf">if</span>(debug) <span class="co"># Needs a space before parenthesis</span></span>
-<span id="cb175-795"><a href="#cb175-795" aria-hidden="true" tabindex="-1"></a>         <span class="fu">mean</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="co"># ) # Extra space before parenthesis</span></span>
+<span id="cb175-778"><a href="#cb175-778" aria-hidden="true" tabindex="-1"></a><span class="in">  - GOOD: </span></span>
+<span id="cb175-779"><a href="#cb175-779" aria-hidden="true" tabindex="-1"></a><span class="in">          a &lt;- rnorm(n = 10, sd = 10, mean = 1)</span></span>
+<span id="cb175-780"><a href="#cb175-780" aria-hidden="true" tabindex="-1"></a><span class="in">          tab.prior &lt;- table(df[df$days.from.opt &lt; 0, "campaign.id"])</span></span>
+<span id="cb175-781"><a href="#cb175-781" aria-hidden="true" tabindex="-1"></a><span class="in">          total &lt;- sum(x[, 1])</span></span>
+<span id="cb175-782"><a href="#cb175-782" aria-hidden="true" tabindex="-1"></a><span class="in">          total &lt;- sum(x[1, ])</span></span>
+<span id="cb175-783"><a href="#cb175-783" aria-hidden="true" tabindex="-1"></a><span class="in">          if (debug)</span></span>
+<span id="cb175-784"><a href="#cb175-784" aria-hidden="true" tabindex="-1"></a><span class="in">          mean(1:10)</span></span>
+<span id="cb175-785"><a href="#cb175-785" aria-hidden="true" tabindex="-1"></a><span class="in">          </span></span>
+<span id="cb175-786"><a href="#cb175-786" aria-hidden="true" tabindex="-1"></a><span class="in">  - BAD: </span></span>
+<span id="cb175-787"><a href="#cb175-787" aria-hidden="true" tabindex="-1"></a><span class="in">         a&lt;-rnorm(n=10,sd=10,mean=1)</span></span>
+<span id="cb175-788"><a href="#cb175-788" aria-hidden="true" tabindex="-1"></a><span class="in">         tab.prior &lt;- table(df[df$days.from.opt&lt;0, "campaign.id"])  # Needs spaces around '&lt;'</span></span>
+<span id="cb175-789"><a href="#cb175-789" aria-hidden="true" tabindex="-1"></a><span class="in">         tab.prior &lt;- table(df[df$days.from.opt &lt; 0,"campaign.id"])  # Needs a space after the comma</span></span>
+<span id="cb175-790"><a href="#cb175-790" aria-hidden="true" tabindex="-1"></a><span class="in">         tab.prior&lt;- table(df[df$days.from.opt &lt; 0, "campaign.id"])  # Needs a space before &lt;-</span></span>
+<span id="cb175-791"><a href="#cb175-791" aria-hidden="true" tabindex="-1"></a><span class="in">         tab.prior&lt;-table(df[df$days.from.opt &lt; 0, "campaign.id"])  # Needs spaces around &lt;-</span></span>
+<span id="cb175-792"><a href="#cb175-792" aria-hidden="true" tabindex="-1"></a><span class="in">         total &lt;- sum(x[,1])  # Needs a space after the comma</span></span>
+<span id="cb175-793"><a href="#cb175-793" aria-hidden="true" tabindex="-1"></a><span class="in">         total &lt;- sum(x[ ,1])  # Needs a space after the comma, not before  </span></span>
+<span id="cb175-794"><a href="#cb175-794" aria-hidden="true" tabindex="-1"></a><span class="in">         if(debug) # Needs a space before parenthesis</span></span>
+<span id="cb175-795"><a href="#cb175-795" aria-hidden="true" tabindex="-1"></a><span class="in">         mean (1:10) # ) # Extra space before parenthesis</span></span>
 <span id="cb175-796"><a href="#cb175-796" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-797"><a href="#cb175-797" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-798"><a href="#cb175-798" aria-hidden="true" tabindex="-1"></a></span>
@@ -2762,23 +2940,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-806"><a href="#cb175-806" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-807"><a href="#cb175-807" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=F}</span></span>
 <span id="cb175-808"><a href="#cb175-808" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-809"><a href="#cb175-809" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> GOOD<span class="sc">:</span></span>
-<span id="cb175-810"><a href="#cb175-810" aria-hidden="true" tabindex="-1"></a>              <span class="cf">if</span> (<span class="fu">is.null</span>(ylim)) {</span>
-<span id="cb175-811"><a href="#cb175-811" aria-hidden="true" tabindex="-1"></a>              ylim <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)</span>
-<span id="cb175-812"><a href="#cb175-812" aria-hidden="true" tabindex="-1"></a>            }</span>
-<span id="cb175-813"><a href="#cb175-813" aria-hidden="true" tabindex="-1"></a>                      </span>
-<span id="cb175-814"><a href="#cb175-814" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (<span class="fu">is.null</span>(ylim))</span>
-<span id="cb175-815"><a href="#cb175-815" aria-hidden="true" tabindex="-1"></a>              ylim <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)</span>
-<span id="cb175-816"><a href="#cb175-816" aria-hidden="true" tabindex="-1"></a>          </span>
-<span id="cb175-817"><a href="#cb175-817" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> BAD<span class="sc">:</span></span>
-<span id="cb175-818"><a href="#cb175-818" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb175-819"><a href="#cb175-819" aria-hidden="true" tabindex="-1"></a>         <span class="cf">if</span> (<span class="fu">is.null</span>(ylim)) ylim <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)</span>
-<span id="cb175-820"><a href="#cb175-820" aria-hidden="true" tabindex="-1"></a>                    </span>
-<span id="cb175-821"><a href="#cb175-821" aria-hidden="true" tabindex="-1"></a>         <span class="cf">if</span> (<span class="fu">is.null</span>(ylim)) {ylim <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)} </span>
+<span id="cb175-809"><a href="#cb175-809" aria-hidden="true" tabindex="-1"></a><span class="in">  - GOOD:</span></span>
+<span id="cb175-810"><a href="#cb175-810" aria-hidden="true" tabindex="-1"></a><span class="in">              if (is.null(ylim)) {</span></span>
+<span id="cb175-811"><a href="#cb175-811" aria-hidden="true" tabindex="-1"></a><span class="in">              ylim &lt;- c(0, 0.06)</span></span>
+<span id="cb175-812"><a href="#cb175-812" aria-hidden="true" tabindex="-1"></a><span class="in">            }</span></span>
+<span id="cb175-813"><a href="#cb175-813" aria-hidden="true" tabindex="-1"></a><span class="in">                      </span></span>
+<span id="cb175-814"><a href="#cb175-814" aria-hidden="true" tabindex="-1"></a><span class="in">            if (is.null(ylim))</span></span>
+<span id="cb175-815"><a href="#cb175-815" aria-hidden="true" tabindex="-1"></a><span class="in">              ylim &lt;- c(0, 0.06)</span></span>
+<span id="cb175-816"><a href="#cb175-816" aria-hidden="true" tabindex="-1"></a><span class="in">          </span></span>
+<span id="cb175-817"><a href="#cb175-817" aria-hidden="true" tabindex="-1"></a><span class="in">  - BAD:</span></span>
+<span id="cb175-818"><a href="#cb175-818" aria-hidden="true" tabindex="-1"></a><span class="in">            </span></span>
+<span id="cb175-819"><a href="#cb175-819" aria-hidden="true" tabindex="-1"></a><span class="in">         if (is.null(ylim)) ylim &lt;- c(0, 0.06)</span></span>
+<span id="cb175-820"><a href="#cb175-820" aria-hidden="true" tabindex="-1"></a><span class="in">                    </span></span>
+<span id="cb175-821"><a href="#cb175-821" aria-hidden="true" tabindex="-1"></a><span class="in">         if (is.null(ylim)) {ylim &lt;- c(0, 0.06)} </span></span>
 <span id="cb175-822"><a href="#cb175-822" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-823"><a href="#cb175-823" aria-hidden="true" tabindex="-1"></a>         <span class="cf">if</span> (<span class="fu">is.null</span>(ylim)) {</span>
-<span id="cb175-824"><a href="#cb175-824" aria-hidden="true" tabindex="-1"></a>           ylim <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)</span>
-<span id="cb175-825"><a href="#cb175-825" aria-hidden="true" tabindex="-1"></a>           } </span>
+<span id="cb175-823"><a href="#cb175-823" aria-hidden="true" tabindex="-1"></a><span class="in">         if (is.null(ylim)) {</span></span>
+<span id="cb175-824"><a href="#cb175-824" aria-hidden="true" tabindex="-1"></a><span class="in">           ylim &lt;- c(0, 0.06)</span></span>
+<span id="cb175-825"><a href="#cb175-825" aria-hidden="true" tabindex="-1"></a><span class="in">           } </span></span>
 <span id="cb175-826"><a href="#cb175-826" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-827"><a href="#cb175-827" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-828"><a href="#cb175-828" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
@@ -2789,11 +2967,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-833"><a href="#cb175-833" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-834"><a href="#cb175-834" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F}</span></span>
 <span id="cb175-835"><a href="#cb175-835" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-836"><a href="#cb175-836" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> GOOD<span class="sc">:</span></span>
-<span id="cb175-837"><a href="#cb175-837" aria-hidden="true" tabindex="-1"></a>         x <span class="ot">&lt;-</span> <span class="dv">5</span> </span>
-<span id="cb175-838"><a href="#cb175-838" aria-hidden="true" tabindex="-1"></a>          </span>
-<span id="cb175-839"><a href="#cb175-839" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> BAD<span class="sc">:</span></span>
-<span id="cb175-840"><a href="#cb175-840" aria-hidden="true" tabindex="-1"></a>         x <span class="ot">=</span> <span class="dv">5</span></span>
+<span id="cb175-836"><a href="#cb175-836" aria-hidden="true" tabindex="-1"></a><span class="in">  - GOOD:</span></span>
+<span id="cb175-837"><a href="#cb175-837" aria-hidden="true" tabindex="-1"></a><span class="in">         x &lt;- 5 </span></span>
+<span id="cb175-838"><a href="#cb175-838" aria-hidden="true" tabindex="-1"></a><span class="in">          </span></span>
+<span id="cb175-839"><a href="#cb175-839" aria-hidden="true" tabindex="-1"></a><span class="in">  - BAD:</span></span>
+<span id="cb175-840"><a href="#cb175-840" aria-hidden="true" tabindex="-1"></a><span class="in">         x = 5</span></span>
 <span id="cb175-841"><a href="#cb175-841" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-842"><a href="#cb175-842" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-843"><a href="#cb175-843" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
@@ -2806,12 +2984,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-850"><a href="#cb175-850" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-851"><a href="#cb175-851" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=F}</span></span>
 <span id="cb175-852"><a href="#cb175-852" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-853"><a href="#cb175-853" aria-hidden="true" tabindex="-1"></a><span class="co"># Create histogram of frequency of campaigns by pct budget spent.</span></span>
-<span id="cb175-854"><a href="#cb175-854" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(df<span class="sc">$</span>pct.spent,</span>
-<span id="cb175-855"><a href="#cb175-855" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="st">"scott"</span>,  <span class="co"># method for choosing number of buckets</span></span>
-<span id="cb175-856"><a href="#cb175-856" aria-hidden="true" tabindex="-1"></a>     <span class="at">main   =</span> <span class="st">"Histogram: fraction budget spent by campaignid"</span>,</span>
-<span id="cb175-857"><a href="#cb175-857" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab   =</span> <span class="st">"Fraction of budget spent"</span>,</span>
-<span id="cb175-858"><a href="#cb175-858" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab   =</span> <span class="st">"Frequency (count of campaignids)"</span>)</span>
+<span id="cb175-853"><a href="#cb175-853" aria-hidden="true" tabindex="-1"></a><span class="in"># Create histogram of frequency of campaigns by pct budget spent.</span></span>
+<span id="cb175-854"><a href="#cb175-854" aria-hidden="true" tabindex="-1"></a><span class="in">hist(df$pct.spent,</span></span>
+<span id="cb175-855"><a href="#cb175-855" aria-hidden="true" tabindex="-1"></a><span class="in">     breaks = "scott",  # method for choosing number of buckets</span></span>
+<span id="cb175-856"><a href="#cb175-856" aria-hidden="true" tabindex="-1"></a><span class="in">     main   = "Histogram: fraction budget spent by campaignid",</span></span>
+<span id="cb175-857"><a href="#cb175-857" aria-hidden="true" tabindex="-1"></a><span class="in">     xlab   = "Fraction of budget spent",</span></span>
+<span id="cb175-858"><a href="#cb175-858" aria-hidden="true" tabindex="-1"></a><span class="in">     ylab   = "Frequency (count of campaignids)")</span></span>
 <span id="cb175-859"><a href="#cb175-859" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-860"><a href="#cb175-860" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-861"><a href="#cb175-861" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
@@ -2833,13 +3011,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-877"><a href="#cb175-877" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-878"><a href="#cb175-878" aria-hidden="true" tabindex="-1"></a>Most R resources are extremely well documented. So the first source for help you should go to when writting R code is the R documention itself. All packages are documented in the same standard way. Getting familiar with the format can simplify things a lot.</span>
 <span id="cb175-879"><a href="#cb175-879" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-880"><a href="#cb175-880" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Package documentation<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb175-880"><a href="#cb175-880" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Package documentation&lt;/font&gt;</span>
 <span id="cb175-881"><a href="#cb175-881" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-882"><a href="#cb175-882" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">"images/packagepage.png"</span> <span class="er">alt</span><span class="ot">=</span><span class="st">"R"</span> <span class="er">height</span><span class="ot">=</span><span class="st">"900"</span> <span class="er">width</span><span class="ot">=</span><span class="st">"800"</span> <span class="er">style</span><span class="ot">=</span><span class="st">"border:3px solid gray"</span><span class="kw">/&gt;</span></span>
+<span id="cb175-882"><a href="#cb175-882" aria-hidden="true" tabindex="-1"></a>&lt;img src="images/packagepage.png" alt="R" height="900" width="800" style="border:3px solid gray"/&gt;</span>
 <span id="cb175-883"><a href="#cb175-883" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-884"><a href="#cb175-884" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb175-885"><a href="#cb175-885" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-886"><a href="#cb175-886" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Reference manuals<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb175-886"><a href="#cb175-886" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Reference manuals&lt;/font&gt;</span>
 <span id="cb175-887"><a href="#cb175-887" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-888"><a href="#cb175-888" aria-hidden="true" tabindex="-1"></a>Reference manuals are collections of the documentation for all functions in a package (only 1 per package):</span>
 <span id="cb175-889"><a href="#cb175-889" aria-hidden="true" tabindex="-1"></a></span>
@@ -2849,18 +3027,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-893"><a href="#cb175-893" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-894"><a href="#cb175-894" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb175-895"><a href="#cb175-895" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-896"><a href="#cb175-896" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Function documentation<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb175-896"><a href="#cb175-896" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Function documentation&lt;/font&gt;</span>
 <span id="cb175-897"><a href="#cb175-897" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-898"><a href="#cb175-898" aria-hidden="true" tabindex="-1"></a>All functions (default or from loaded packages) must have a documentation that follows a standard format:</span>
 <span id="cb175-899"><a href="#cb175-899" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-900"><a href="#cb175-900" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=F}</span></span>
-<span id="cb175-901"><a href="#cb175-901" aria-hidden="true" tabindex="-1"></a>?mean</span>
+<span id="cb175-901"><a href="#cb175-901" aria-hidden="true" tabindex="-1"></a><span class="in">?mean</span></span>
 <span id="cb175-902"><a href="#cb175-902" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-903"><a href="#cb175-903" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">"mean"</span>)</span>
+<span id="cb175-903"><a href="#cb175-903" aria-hidden="true" tabindex="-1"></a><span class="in">help("mean")</span></span>
 <span id="cb175-904"><a href="#cb175-904" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-905"><a href="#cb175-905" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-906"><a href="#cb175-906" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-907"><a href="#cb175-907" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">"images/documentation.png"</span> <span class="er">alt</span><span class="ot">=</span><span class="st">"R"</span> <span class="er">height</span><span class="ot">=</span><span class="st">"700"</span> <span class="er">width</span><span class="ot">=</span><span class="st">"800"</span> <span class="er">style</span><span class="ot">=</span><span class="st">"border:3px solid gray"</span><span class="kw">/&gt;</span> &nbsp;</span>
+<span id="cb175-907"><a href="#cb175-907" aria-hidden="true" tabindex="-1"></a>&lt;img src="images/documentation.png" alt="R" height="700" width="800" style="border:3px solid gray"/&gt; &nbsp;</span>
 <span id="cb175-908"><a href="#cb175-908" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-909"><a href="#cb175-909" aria-hidden="true" tabindex="-1"></a>This documentation can also be shown in Rstudio by pressing <span class="in">`F1`</span> when the cursor is on the function name</span>
 <span id="cb175-910"><a href="#cb175-910" aria-hidden="true" tabindex="-1"></a></span>
@@ -2875,7 +3053,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-921"><a href="#cb175-921" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-922"><a href="#cb175-922" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb175-923"><a href="#cb175-923" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-924"><a href="#cb175-924" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Vignettes<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb175-924"><a href="#cb175-924" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Vignettes&lt;/font&gt;</span>
 <span id="cb175-925"><a href="#cb175-925" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-926"><a href="#cb175-926" aria-hidden="true" tabindex="-1"></a>Vignettes are illustrative documents or study cases detailing the use of a package (optional, can be several per package).</span>
 <span id="cb175-927"><a href="#cb175-927" aria-hidden="true" tabindex="-1"></a></span>
@@ -2886,29 +3064,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb175-934"><a href="#cb175-934" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-935"><a href="#cb175-935" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-936"><a href="#cb175-936" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F}</span></span>
-<span id="cb175-937"><a href="#cb175-937" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>()</span>
+<span id="cb175-937"><a href="#cb175-937" aria-hidden="true" tabindex="-1"></a><span class="in">vignette()</span></span>
 <span id="cb175-938"><a href="#cb175-938" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-939"><a href="#cb175-939" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-940"><a href="#cb175-940" aria-hidden="true" tabindex="-1"></a>They should also be listed in the package CRAN page.</span>
 <span id="cb175-941"><a href="#cb175-941" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-942"><a href="#cb175-942" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb175-943"><a href="#cb175-943" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-944"><a href="#cb175-944" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Demonstrations<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb175-944"><a href="#cb175-944" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Demonstrations&lt;/font&gt;</span>
 <span id="cb175-945"><a href="#cb175-945" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-946"><a href="#cb175-946" aria-hidden="true" tabindex="-1"></a>Packages may also include extended code demonstrations ('demos'). To list demos in a package run <span class="in">`demo("package name")`</span>:</span>
 <span id="cb175-947"><a href="#cb175-947" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-948"><a href="#cb175-948" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=F}</span></span>
-<span id="cb175-949"><a href="#cb175-949" aria-hidden="true" tabindex="-1"></a><span class="fu">demo</span>(<span class="at">package=</span><span class="st">"stats"</span>)</span>
+<span id="cb175-949"><a href="#cb175-949" aria-hidden="true" tabindex="-1"></a><span class="in">demo(package="stats")</span></span>
 <span id="cb175-950"><a href="#cb175-950" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-951"><a href="#cb175-951" aria-hidden="true" tabindex="-1"></a><span class="co"># call demo directly</span></span>
-<span id="cb175-952"><a href="#cb175-952" aria-hidden="true" tabindex="-1"></a><span class="fu">demo</span>(<span class="st">"nlm"</span>)</span>
+<span id="cb175-951"><a href="#cb175-951" aria-hidden="true" tabindex="-1"></a><span class="in"># call demo directly</span></span>
+<span id="cb175-952"><a href="#cb175-952" aria-hidden="true" tabindex="-1"></a><span class="in">demo("nlm")</span></span>
 <span id="cb175-953"><a href="#cb175-953" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-954"><a href="#cb175-954" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb175-955"><a href="#cb175-955" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-956"><a href="#cb175-956" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb175-957"><a href="#cb175-957" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-958"><a href="#cb175-958" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert-info}</span>
-<span id="cb175-959"><a href="#cb175-959" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;font</span> <span class="er">size</span><span class="ot">=</span><span class="st">"5"</span><span class="kw">&gt;</span>Exercise<span class="kw">&lt;/font&gt;</span></span>
+<span id="cb175-959"><a href="#cb175-959" aria-hidden="true" tabindex="-1"></a>&lt;font size="5"&gt;Exercise&lt;/font&gt;</span>
 <span id="cb175-960"><a href="#cb175-960" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-961"><a href="#cb175-961" aria-hidden="true" tabindex="-1"></a>&nbsp;</span>
 <span id="cb175-962"><a href="#cb175-962" aria-hidden="true" tabindex="-1"></a></span>
@@ -2935,9 +3113,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-      <div class="nav-footer-center">Copyright 2023 | <a href="https://marce10.github.io">Marcelo Araya-Salas</a></div>
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Copyright 2024 | <a href="https://marce10.github.io">Marcelo Araya-Salas</a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
   </div>
 </footer>
+
 
 
 
