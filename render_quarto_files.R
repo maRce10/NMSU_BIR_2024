@@ -1,4 +1,6 @@
 # install.packages("quarto")
+# install.packages("devtools")
+# devtools::install_github("hadley/emo")
 
 library(quarto)
 

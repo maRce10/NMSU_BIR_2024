@@ -14,11 +14,9 @@ format:
     link-external-newwindow: true  
 ---
 
-<br>
+<center><font size="6"><b>Reproducible Science Workshop</b></font></center>
 
-<center><font size="6"><b>Bioacoustic Analysis in R</b></font></center>
-
-<center><font size="5"><b><a href="https://www.nmsu.edu/">New Mexico State University</a><br></b></font></center>
+<center><font size="5"><b><a href="https://tropicalstudies.org/">Organization For Tropical Studies</a><br></b></font></center>
 
 <i>
 
@@ -26,16 +24,22 @@ format:
 
 </i>
 
-<center><font size="4">Feb, 2024</font></center>
+<center><font size="4">April, 2024</font></center>
 
-<center><img src="images/measures-parrot-call-spectro3.jpg" alt="acoustic measurements"/></center>
+<center><img src="images/crisis.png" alt="acoustic measurements"width="400"/></center>
 
  
 
-The study of animal acoustic signals is a central tool for many fields in behavior, ecology, evolution and biodiversity monitoring. The accessibility of recording equipment and growing availability of open-access acoustic libraries provide an unprecedented opportunity to study animal acoustic signals at large temporal, geographic and taxonomic scales. However, the diversity of analytical methods and the multidimensionality of these signals posts significant challenges to conduct analyses that can quantify biologically meaningful variation. The recent development of acoustic analysis tools in the R programming environment provides a powerful means for overcoming these challenges, facilitating the gathering and organization of large acoustic data sets and the use of more elaborated analyses that better fit the studied acoustic signals and associated biological questions. The course will introduce students on the basic concepts in animal acoustic signal research as well as hands-on experience on analytical tools in R.
+Scientific production currently suffers from a lack of reproducibility (the ability to recreate a study based on published information), due to the poor documentation of the methods and analyses used, as well as the lack of access to the data generated. Biology has not escaped this crisis of scientific reproducibility, which affects the credibility of our community. Fortunately, in response to this crisis, a multitude of tools have been developed, in most cases freely available, to increase the transparency and accessibility of data supporting the conclusions of scientific studies. Making these tools available to the scientific community and encouraging their use early in the training of researchers is critical to solving the reproducibility crisis. These tools revolve around three main axes: 1) online repositories for sharing data and research products, 2) open access digital tools, and 3) the implementation of good data management and analysis practices**. These three axes represent the modules in which the course is organized. This course aims to deepen the use of tools (mostly digital) as well as good practices along each of the common stages of the each of the stages common to the development of research projects in biology.
+
 
 ::: {.alert .alert-info}
-### Objetive {.unnumbered .unlisted}
+### Objetives {.unnumbered .unlisted}
 
-Training biological science students and researchers in the detection and analysis of animal sounds in R. Specifically, it seeks to familiarize participants with computational tools in the R environment aiming at curating, detecting and analyzing animal acoustic signals, with an especial focus on quantifying fine-scale structural variation. The course will introduce the most relevant acoustics concepts to allow a detailed understanding of the metrics used for characterize acoustic signals. It will also guide participants through a variety of R packages for bioacoustics analysis, including seewave, tuneR, warbleR and baRulho.
+- To raise awareness of the current problem of scientific reproducibility and its implications for the production of knowledge and its legitimacy in society.
+production of knowledge and its legitimacy in society.
+- To provide students with free software computational tools that facilitate the documentation and accessibility of research.
+- Identify processes at different stages of scientific research where practices that facilitate reproducibility can be adopted.
+- Provide students with experience in applying the tools provided through internships and individual projects.
+
 :::

@@ -1,1 +1,1 @@
-Sitemap: https://marce10.github.io/NMSU_BIR_2024/sitemap.xml
+Sitemap: https://marce10.github.io/OTS_REU_OS_2024/sitemap.xml

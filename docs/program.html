@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-99.9.9">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2024-02-06">
 
-<title>Bioacoustic Analysis in R, NMSU 2024 – program</title>
+<title>Reproducible Science Workshop, REU OTS 2024</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -80,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
@@ -95,6 +95,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -109,11 +110,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Bioacoustic Analysis in R, NMSU 2024</span>
+    <span class="navbar-title">Reproducible Science Workshop, REU OTS 2024</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -135,61 +136,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="./r_basics.html">
  <span class="dropdown-text">R basics</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./sound.html">
- <span class="dropdown-text">Sound</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./spectrograms.html">
- <span class="dropdown-text">Spectrograms</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./seewave.html">
- <span class="dropdown-text">seewave</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./annotations.html">
- <span class="dropdown-text">Annotations</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./intro_to_warbler.html">
- <span class="dropdown-text">Intro to warbleR</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./measure_acoustic_structure.html">
- <span class="dropdown-text">Measure acoustic structure</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./comparing_methods.html">
- <span class="dropdown-text">Comparing measuring methods</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./quality_checks.html">
- <span class="dropdown-text">Quality checks</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./measure_structure_green_hermit.html">
- <span class="dropdown-text">Measure structure on XC recordings</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-colab-notebooks" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Colab notebooks</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-colab-notebooks">    
-        <li>
-    <a class="dropdown-item" href="./general_redirect.html">
- <span class="dropdown-text">General</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./dynaspec_redirect.html">
- <span class="dropdown-text">dynaSpec</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./ohun_redirect.html">
- <span class="dropdown-text">ohun</span></a>
-  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -206,10 +152,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="https://github.com/maRce10/NMSU_BIR_2024/"> <i class="bi bi-github" role="img" aria-label="GitHub">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/maRce10/OTS_REU_OS_2024/"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
-<span class="menu-text">https://github.com/maRce10/NMSU_BIR_2024/</span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -221,7 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
@@ -253,7 +199,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </nav>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
@@ -335,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </div>
 <p>&nbsp;</p>
-<p><strong>Introduction</strong> <a href="./introduction.html" class="btn btn-warning btn-xs" role="button">Introduction</a></p>
+<p><strong>Introduction</strong> <a href="introduction.qmd" class="btn btn-warning btn-xs" role="button">Introduction</a></p>
 <ul>
 <li>How animal acoustic signals look like?</li>
 <li>Analytical workflow in bioacoustics research</li>
@@ -343,7 +289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Course outline</li>
 </ul>
 <p>&nbsp;</p>
-<p><strong>What is sound?</strong> <a href="./sound.html" class="btn btn-warning btn-xs" role="button">Sound</a></p>
+<p><strong>What is sound?</strong> <a href="sound.qmd" class="btn btn-warning btn-xs" role="button">Sound</a></p>
 <div class="alert alert-warning">
 <ul>
 <li><p>Create a Rstudio project for the course</p></li>
@@ -362,7 +308,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="homework" class="level3 alert alert-info" data-number="1.4">
 <h3 data-number="1.4" class="anchored" data-anchor-id="homework"><span class="header-section-number">1.4</span> Homework</h3>
 <ol type="1">
-<li><p>Use the function <code>query_xc()</code> to check the availability of recordings for any bird species (do not download at this step) (<a href="./get_xc_recordings.html"><em>check this brief tutorial on how to do that</em></a>)</p></li>
+<li><p>Use the function <code>query_xc()</code> to check the availability of recordings for any bird species (do not download at this step) (<a href="get_xc_recordings.qmd"><em>check this brief tutorial on how to do that</em></a>)</p></li>
 <li><p>Subset the data frame returned by the function to get a subset of subspecies/populations or recordings from a specific country and for certain vocalization type (using base R subsetting tools)</p></li>
 <li><p>Download the associated recordings using <code>query_xc()</code> again</p></li>
 <li><p>Explore the recordings with any spectrogram creating GUI program</p></li>
@@ -386,14 +332,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 </section>
-<p><strong>Building spectrograms</strong> <a href="./spectrograms.html" class="btn btn-warning btn-xs" role="button">Building spectrograms</a></p>
+<p><strong>Building spectrograms</strong> <a href="spectrograms.qmd" class="btn btn-warning btn-xs" role="button">Building spectrograms</a></p>
 <ul>
 <li>Fourier transform</li>
 <li>Building a spectrogram</li>
 <li>Characteristics and limitations</li>
 <li>Spectrograms in R</li>
 </ul>
-<p><strong>Package seewave</strong> <a href="./seewave.html" class="btn btn-warning btn-xs" role="button">seewave</a></p>
+<p><strong>Package seewave</strong> <a href="seewave.qmd" class="btn btn-warning btn-xs" role="button">seewave</a></p>
 <ul>
 <li>Explore, modify and measure ‘wave’ objects</li>
 <li>Spectrograms and oscillograms</li>
@@ -420,14 +366,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 <p>&nbsp;</p>
-<p><strong>Annotation software</strong> <a href="./annotations.html" class="btn btn-warning btn-xs" role="button">annotations</a></p>
+<p><strong>Annotation software</strong> <a href="annotations.qmd" class="btn btn-warning btn-xs" role="button">annotations</a></p>
 <ul>
 <li>Raven / audacity</li>
 <li>Open and explore recordings</li>
 <li>Modify-optimize visualization parameters</li>
 <li>Annotate signals</li>
 </ul>
-<p><strong>Quantifying acoustic signal structure</strong> <a href="./measure_acoustic_structure.html" class="btn btn-warning btn-xs" role="button">Quantify structure</a></p>
+<p><strong>Quantifying acoustic signal structure</strong> <a href="measure_acoustic_structure.qmd" class="btn btn-warning btn-xs" role="button">Quantify structure</a></p>
 <ul>
 <li>Spectro-temporal measurements (<code>spectro_analysis()</code>)</li>
 <li>Parameter description</li>
@@ -471,7 +417,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 <p>&nbsp;</p>
-<p><strong>Quality control in recordings and annotation</strong> <a href="./quality_checks.html" class="btn btn-warning btn-xs" role="button">Quality checks</a></p>
+<p><strong>Quality control in recordings and annotation</strong> <a href="quality_checks.qmd" class="btn btn-warning btn-xs" role="button">Quality checks</a></p>
 <ul>
 <li>Check and modify sound file format (<code>check_wavs()</code>, <code>info_wavs()</code>, <code>duration_wavs()</code>, <code>mp32wav()</code> y <code>fix_wavs()</code>)</li>
 <li>Tuning spectrogram parameters (<code>tweak_spectro()</code>)</li>
@@ -506,7 +452,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 <p>&nbsp;</p>
-<p><strong>Choosing the right method for quantifying structure</strong> <a href="./comparing_methods.html" class="btn btn-warning btn-xs" role="button">Comparing methods</a></p>
+<p><strong>Choosing the right method for quantifying structure</strong> <a href="comparing_methods.qmd" class="btn btn-warning btn-xs" role="button">Comparing methods</a></p>
 <ul>
 <li>Compare different methods for quantifying structure (<code>compare_methods()</code>)</li>
 </ul>
@@ -953,6 +899,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/marce10\.github\.io\/OTS_REU_OS_2024\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -987,7 +958,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -1002,15 +977,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -1019,7 +1007,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -1061,6 +1057,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -1215,22 +1234,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp("https:\/\/marce10\.github\.io\/NMSU_BIR_2024\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          // default icon
-          link.classList.add("external");
-      }
-    }
 });
 </script>
 </font></div><font size="4"> <!-- /content -->

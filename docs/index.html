@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-99.9.9">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Bioacoustic Analysis in R, NMSU 2024</title>
+<title>Reproducible Science Workshop, REU OTS 2024</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -45,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
@@ -60,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -75,11 +76,11 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Bioacoustic Analysis in R, NMSU 2024</span>
+    <span class="navbar-title">Reproducible Science Workshop, REU OTS 2024</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -101,61 +102,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./r_basics.html">
  <span class="dropdown-text">R basics</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./sound.html">
- <span class="dropdown-text">Sound</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./spectrograms.html">
- <span class="dropdown-text">Spectrograms</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./seewave.html">
- <span class="dropdown-text">seewave</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./annotations.html">
- <span class="dropdown-text">Annotations</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./intro_to_warbler.html">
- <span class="dropdown-text">Intro to warbleR</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./measure_acoustic_structure.html">
- <span class="dropdown-text">Measure acoustic structure</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./comparing_methods.html">
- <span class="dropdown-text">Comparing measuring methods</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./quality_checks.html">
- <span class="dropdown-text">Quality checks</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./measure_structure_green_hermit.html">
- <span class="dropdown-text">Measure structure on XC recordings</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-colab-notebooks" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Colab notebooks</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-colab-notebooks">    
-        <li>
-    <a class="dropdown-item" href="./general_redirect.html">
- <span class="dropdown-text">General</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./dynaspec_redirect.html">
- <span class="dropdown-text">dynaSpec</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./ohun_redirect.html">
- <span class="dropdown-text">ohun</span></a>
-  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -172,10 +118,10 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="https://github.com/maRce10/NMSU_BIR_2024/"> <i class="bi bi-github" role="img" aria-label="GitHub">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/maRce10/OTS_REU_OS_2024/"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
-<span class="menu-text">https://github.com/maRce10/NMSU_BIR_2024/</span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -187,10 +133,10 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
@@ -200,12 +146,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p><br></p>
 <center>
-<font size="6"><b>Bioacoustic Analysis in R</b></font>
+<font size="6"><b>Reproducible Science Workshop</b></font>
 </center>
 <center>
-<font size="5"><b><a href="https://www.nmsu.edu/">New Mexico State University</a><br></b></font>
+<font size="5"><b><a href="https://tropicalstudies.org/">Organization For Tropical Studies</a><br></b></font>
 </center>
 <p><i></i></p><i>
 <center>
@@ -213,16 +158,21 @@ ul.task-list li input[type="checkbox"] {
 </center>
 </i><p><i></i></p>
 <center>
-<font size="4">Feb, 2024</font>
+<font size="4">April, 2024</font>
 </center>
 <center>
-<img src="images/measures-parrot-call-spectro3.jpg" alt="acoustic measurements">
+<img src="images/crisis.png" alt="acoustic measurements" width="400">
 </center>
 <p>&nbsp;</p>
-<p>The study of animal acoustic signals is a central tool for many fields in behavior, ecology, evolution and biodiversity monitoring. The accessibility of recording equipment and growing availability of open-access acoustic libraries provide an unprecedented opportunity to study animal acoustic signals at large temporal, geographic and taxonomic scales. However, the diversity of analytical methods and the multidimensionality of these signals posts significant challenges to conduct analyses that can quantify biologically meaningful variation. The recent development of acoustic analysis tools in the R programming environment provides a powerful means for overcoming these challenges, facilitating the gathering and organization of large acoustic data sets and the use of more elaborated analyses that better fit the studied acoustic signals and associated biological questions. The course will introduce students on the basic concepts in animal acoustic signal research as well as hands-on experience on analytical tools in R.</p>
-<section id="objetive" class="level3 unnumbered unlisted alert alert-info">
-<h3 class="unnumbered unlisted anchored" data-anchor-id="objetive">Objetive</h3>
-<p>Training biological science students and researchers in the detection and analysis of animal sounds in R. Specifically, it seeks to familiarize participants with computational tools in the R environment aiming at curating, detecting and analyzing animal acoustic signals, with an especial focus on quantifying fine-scale structural variation. The course will introduce the most relevant acoustics concepts to allow a detailed understanding of the metrics used for characterize acoustic signals. It will also guide participants through a variety of R packages for bioacoustics analysis, including seewave, tuneR, warbleR and baRulho.</p>
+<p>Scientific production currently suffers from a lack of reproducibility (the ability to recreate a study based on published information), due to the poor documentation of the methods and analyses used, as well as the lack of access to the data generated. Biology has not escaped this crisis of scientific reproducibility, which affects the credibility of our community. Fortunately, in response to this crisis, a multitude of tools have been developed, in most cases freely available, to increase the transparency and accessibility of data supporting the conclusions of scientific studies. Making these tools available to the scientific community and encouraging their use early in the training of researchers is critical to solving the reproducibility crisis. These tools revolve around three main axes: 1) online repositories for sharing data and research products, 2) open access digital tools, and 3) the implementation of good data management and analysis practices**. These three axes represent the modules in which the course is organized. This course aims to deepen the use of tools (mostly digital) as well as good practices along each of the common stages of the each of the stages common to the development of research projects in biology.</p>
+<section id="objetives" class="level3 unnumbered unlisted alert alert-info">
+<h3 class="unnumbered unlisted anchored" data-anchor-id="objetives">Objetives</h3>
+<ul>
+<li>To raise awareness of the current problem of scientific reproducibility and its implications for the production of knowledge and its legitimacy in society. production of knowledge and its legitimacy in society.</li>
+<li>To provide students with free software computational tools that facilitate the documentation and accessibility of research.</li>
+<li>Identify processes at different stages of scientific research where practices that facilitate reproducibility can be adopted.</li>
+<li>Provide students with experience in applying the tools provided through internships and individual projects.</li>
+</ul>
 </section>
 
 
@@ -307,6 +257,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/marce10\.github\.io\/OTS_REU_OS_2024\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -341,7 +316,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -356,15 +335,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -373,7 +365,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -415,6 +415,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -569,22 +592,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp("https:\/\/marce10\.github\.io\/NMSU_BIR_2024\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          // default icon
-          link.classList.add("external");
-      }
-    }
 });
 </script>
 </div> <!-- /content -->
