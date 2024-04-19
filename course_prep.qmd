@@ -47,7 +47,7 @@ update.packages(ask = FALSE)
 
 7)  Also in Rstudio: Go back up to the "File" tab and select "New Project", then select the "OTS_REU_OS_2024" directory.
 
-8)  Now in the R console in Rstudio: Run the following code to install the latest developmental versions (from github) of warbleR, Rraven, PhenotypeSpace, ohun, baRulho and dynaSpec (remove the packages first if you have them installed already).
+8)  Now in the R console in Rstudio: Run the following code to install some R packages (remove the packages first if you have them installed already).
 
 ```{r}
 
@@ -59,9 +59,13 @@ remotes::install_github("maRce10/sketchy")
 
 ```
 
-8)  Create a github account (<https://github.com/signup>)
+8) Install git (<https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>)
 
-9)  Install github desktop (<https://docs.github.com/en/desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop>)
+9)  Create a github account (<https://github.com/signup>)
+
+10)  Install github desktop (<https://docs.github.com/en/desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop>)
+
+11) Log in into your github account using github
 
 ::: {.alert .alert-warning}
 **A few tips to make sure you will take full advantage of the course**:
