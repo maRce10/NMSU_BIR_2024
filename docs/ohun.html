@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-99.9.9">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
@@ -94,6 +94,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -108,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
@@ -205,10 +206,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+  <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/maRce10/NMSU_BIR_2024/"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
-<span class="menu-text">https://github.com/maRce10/NMSU_BIR_2024/</span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -220,7 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
@@ -238,7 +239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </nav>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
@@ -295,7 +296,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <p>To install the latest developmental version from <a href="https://github.com/">github</a> you will need the R package <a href="https://cran.r-project.org/package=devtools">remotes</a>:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install pacakge</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"maRce10/ohun"</span>)</span>
@@ -344,7 +345,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>A perfect detection will have no false positives or false negatives, which will result in both recall and precision equal to 1. However, perfect detection cannot always be reached and some compromise between detecting all target signals plus some noise (recall = 1 &amp; precision &lt; 1) and detecting only target signals but not all of them (recall &lt; 1 &amp; precision = 1) is warranted. The right balance between these two extremes will be given by the relative costs of missing signals and mistaking noise for signals. Hence, these indices provide an useful framework for diagnosing and optimizing the performance of a detection routine.</p>
 <p>The package <a href="https://github.com/maRce10/ohun">ohun</a> provides a set of tools to evaluate the performance of an sound event detection based on the indices described above. To accomplish this, the result of a detection routine is compared against a reference table containing the time position of all target sound events in the sound files. The package comes with an example reference table containing annotations of long-billed hermit hummingbird songs from two sound files (also supplied as example data: ‘lbh1’ and ‘lbh2’), which can be used to illustrate detection performance evaluation. The example data can be explored as follows:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load example data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"lbh1"</span>, <span class="st">"lbh2"</span>, <span class="st">"lbh_reference"</span>)</span>
@@ -526,7 +527,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>All <a href="https://github.com/maRce10/ohun">ohun</a> functions that work with this kind of data can take both selection tables and data frames. Spectrograms with highlighted sound events from a selection table can be plotted with the function <code>label_spectro()</code> (this function only plots one wave object at the time):</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save sound file</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>tuneR<span class="sc">::</span><span class="fu">writeWave</span>(lbh1, <span class="fu">file.path</span>(<span class="fu">tempdir</span>(), <span class="st">"lbh1.wav"</span>))</span>
@@ -544,15 +545,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="quarto-figure quarto-figure-center anchored" width="100%" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="ohun_files/figure-html/unnamed-chunk-3-1.jpeg" id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="img-fluid quarto-figure-center figure-img" style="width:100.0%">
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ohun_files/figure-html/unnamed-chunk-3-1.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print spectrogram</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">label_spectro</span>(</span>
@@ -564,18 +563,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="quarto-figure quarto-figure-center anchored" width="100%" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="ohun_files/figure-html/unnamed-chunk-3-2.jpeg" id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="img-fluid quarto-figure-center figure-img" style="width:100.0%">
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ohun_files/figure-html/unnamed-chunk-3-2.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>The function <code>diagnose_detection()</code> evaluates the performance of a detection routine by comparing it to a reference table. For instance, a perfect detection is given by comparing <code>lbh_reference</code> to itself:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lbh1_reference <span class="ot">&lt;-</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  lbh_reference[lbh_reference<span class="sc">$</span>sound.files <span class="sc">==</span> <span class="st">"lbh1.wav"</span>,]</span>
@@ -622,7 +619,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>We will work mostly with a single sound file for convenience but the functions can work on several sound files at the time. The files should be found in a single working directory. Although the above example is a bit silly, it shows the basic diagnostic indices, which include basic detection theory indices (‘true.positives’, ‘false.positives’, ‘false.negatives’, ‘recall’ and ‘precision’) mentioned above. We can play around with the reference table to see how these indices can be used to spot imperfect detection routines (and hopefully improve them!). For instance, we can remove some sound events to see how this is reflected in the diagnostics. Getting rid of some rows in ‘detection’, simulating a detection with some false negatives, will affect the recall but not the precision:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create new table</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>lbh1_detection <span class="ot">&lt;-</span> lbh1_reference[<span class="dv">3</span><span class="sc">:</span><span class="dv">9</span>, ]</span>
@@ -638,15 +635,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-3" class="quarto-figure quarto-figure-center anchored" width="100%" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="ohun_files/figure-html/unnamed-chunk-5-1.jpeg" id="fig-539a35d47e664c97a50115a146a7f1bd-3" class="img-fluid quarto-figure-center figure-img" style="width:100.0%">
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ohun_files/figure-html/unnamed-chunk-5-1.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diagnose</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">diagnose_detection</span>(<span class="at">reference =</span> lbh1_reference, </span>
@@ -690,7 +685,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>Having some additional sound events not in reference will do the opposite, reducing precision but not recall. We can do this simply by switching the tables:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print spectrogram</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">label_spectro</span>(</span>
@@ -703,15 +698,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-4" class="quarto-figure quarto-figure-center anchored" width="100%" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="ohun_files/figure-html/unnamed-chunk-6-1.jpeg" id="fig-539a35d47e664c97a50115a146a7f1bd-4" class="img-fluid quarto-figure-center figure-img" style="width:100.0%">
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ohun_files/figure-html/unnamed-chunk-6-1.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diagnose</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">diagnose_detection</span>(<span class="at">reference =</span> lbh1_detection, </span>
@@ -761,7 +754,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>In a perfect detection routine split and merged positives should be 0 while proportional overlap should be 1. We can shift the start of sound events a bit to reflect a detection in which there is some mismatch to the reference table regarding to the time location of sound events:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create new table</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>lbh1_detection <span class="ot">&lt;-</span> lbh1_reference</span>
@@ -783,15 +776,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-5" class="quarto-figure quarto-figure-center anchored" width="100%" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="ohun_files/figure-html/unnamed-chunk-7-1.jpeg" id="fig-539a35d47e664c97a50115a146a7f1bd-5" class="img-fluid quarto-figure-center figure-img" style="width:100.0%">
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ohun_files/figure-html/unnamed-chunk-7-1.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diagnose</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">diagnose_detection</span>(<span class="at">reference =</span> lbh1_reference, </span>
@@ -847,7 +838,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>In addition, the following diagnostics related to the duration of the sound events can also be returned by setting <code>time.diagnostics = TRUE</code>. Here we tweak the reference and detection data just to have some false positives and false negatives:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diagnose with time diagnostics</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">diagnose_detection</span>(<span class="at">reference =</span> lbh1_reference[<span class="sc">-</span><span class="dv">1</span>, ], <span class="at">detection =</span> lbh1_detection[<span class="sc">-</span><span class="dv">10</span>, ], <span class="at">time.diagnostics =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -915,7 +906,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>These additional metrics can be used to further filter out undesired sound events based on their duration (for instance in a energy-based detection as in <code>energy_detector()</code>, explained below).</p>
 <p>Diagnostics can also be detailed by sound file:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diagnose by sound file</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>diagnostic <span class="ot">&lt;-</span></span>
@@ -978,7 +969,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>These diagnostics can be summarized (as in the default <code>diagnose_detection()</code> output) with the function <code>summarize_diagnostic()</code>:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summarize</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize_diagnostic</span>(diagnostic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1038,7 +1029,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="3.1" class="anchored" data-anchor-id="energy-based-detection"><span class="header-section-number">3.1</span> Energy-based detection</h2>
 <p>This detector uses amplitude envelopes to infer the position of sound events. Amplitude envelopes are representations of the variation in energy through time. The following code plots an amplitude envelope along with the spectrogram for the example data <code>lbh1</code>:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot spectrogram and envelope</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">label_spectro</span>(</span>
@@ -1055,11 +1046,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-6" class="quarto-figure quarto-figure-center anchored" width="100%" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="ohun_files/figure-html/unnamed-chunk-11-1.jpeg" id="fig-539a35d47e664c97a50115a146a7f1bd-6" class="img-fluid quarto-figure-center figure-img" style="width:100.0%">
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ohun_files/figure-html/unnamed-chunk-11-1.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1071,7 +1060,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="how-it-works"><span class="header-section-number">3.1.1</span> How it works</h3>
 <p>We can understand how to use <code>energy_detector()</code> using simulated sound events. We will do that using the function <code>simulate_songs()</code> from <a href="https://CRAN.R-project.org/package=warbleR">warbleR</a>. In this example we simulate a recording with 10 sounds with two different frequency ranges and durations:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install this package first if not installed</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("Sim.DiffProc")</span></span>
@@ -1103,7 +1092,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>The function call saves a ‘.wav’ sound file in a temporary directory (<code>tempdir()</code>) and also returns a <code>wave</code> object in the R environment. This outputs will be used to run energy-based detection and creating plots, respectively. This is how the spectrogram and amplitude envelope of the simulated recording look like:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot spectrogram and envelope</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">label_spectro</span>(<span class="at">wave =</span> simulated_1,</span>
@@ -1111,11 +1100,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">fastdisp =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-7" class="quarto-figure quarto-figure-center anchored" width="100%" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="ohun_files/figure-html/unnamed-chunk-13-1.jpeg" id="fig-539a35d47e664c97a50115a146a7f1bd-7" class="img-fluid quarto-figure-center figure-img" style="width:100.0%">
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ohun_files/figure-html/unnamed-chunk-13-1.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1123,7 +1110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>Note that the amplitude envelope shows a high signal-to-noise ratio of the sound events, which is ideal for energy-based detection. This can be conducted using <code>energy_detector()</code> as follows:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run detection</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>detection <span class="ot">&lt;-</span></span>
@@ -1144,11 +1131,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-8" class="quarto-figure quarto-figure-center anchored" width="100%" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="ohun_files/figure-html/unnamed-chunk-14-1.jpeg" id="fig-539a35d47e664c97a50115a146a7f1bd-8" class="img-fluid quarto-figure-center figure-img" style="width:100.0%">
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ohun_files/figure-html/unnamed-chunk-14-1.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1156,7 +1141,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>The output is a selection table:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>detection</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -1250,7 +1235,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Now we will make use of some additional arguments to filter out specific sound events based on their structural features. For instance we can use the argument <code>min.duration</code> to provide a time treshold (in ms) to exclude short sound events and keep only the longest sound events:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run detection</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>detection <span class="ot">&lt;-</span></span>
@@ -1267,11 +1252,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="fu">label_spectro</span>(<span class="at">wave =</span> simulated_1, <span class="at">detection =</span> detection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-9" class="quarto-figure quarto-figure-center anchored" width="100%" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="ohun_files/figure-html/unnamed-chunk-16-1.jpeg" id="fig-539a35d47e664c97a50115a146a7f1bd-9" class="img-fluid quarto-figure-center figure-img" style="width:100.0%">
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ohun_files/figure-html/unnamed-chunk-16-1.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1279,7 +1262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>We can use the argument <code>max.duration</code> (also in ms) to exclude long sound events and keep the short ones:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run detection</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>detection <span class="ot">&lt;-</span></span>
@@ -1296,11 +1279,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="fu">label_spectro</span>(<span class="at">wave =</span> simulated_1,  <span class="at">detection =</span> detection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-10" class="quarto-figure quarto-figure-center anchored" width="100%" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="ohun_files/figure-html/unnamed-chunk-17-1.jpeg" id="fig-539a35d47e664c97a50115a146a7f1bd-10" class="img-fluid quarto-figure-center figure-img" style="width:100.0%">
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ohun_files/figure-html/unnamed-chunk-17-1.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1308,7 +1289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>We can also focus the detection on specific frequency ranges using the argument <code>bp</code> (bandpass). By setting <code>bp = c(5, 8)</code> only those sound events found within that frequency range (5-8 kHz) will be detected, which excludes sound events below 5 kHz:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Detecting</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>detection <span class="ot">&lt;-</span></span>
@@ -1324,11 +1305,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="fu">label_spectro</span>(<span class="at">wave =</span> simulated_1,  <span class="at">detection =</span> detection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-11" class="quarto-figure quarto-figure-center anchored" width="100%" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="ohun_files/figure-html/unnamed-chunk-18-1.jpeg" id="fig-539a35d47e664c97a50115a146a7f1bd-11" class="img-fluid quarto-figure-center figure-img" style="width:100.0%">
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ohun_files/figure-html/unnamed-chunk-18-1.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1343,7 +1322,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>Amplitude modulation (variation in amplitude across a sound event) can be problematic for detection based on amplitude envelopes. We can also simulate some amplitude modulation using <code>warbleR::simulate_songs()</code>:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating simulated song</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12</span>)</span>
@@ -1378,11 +1357,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a><span class="fu">label_spectro</span>(<span class="at">wave =</span> simulated_2, <span class="at">envelope =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-12" class="quarto-figure quarto-figure-center anchored" width="100%" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="ohun_files/figure-html/unnamed-chunk-20-1.jpeg" id="fig-539a35d47e664c97a50115a146a7f1bd-12" class="img-fluid quarto-figure-center figure-img" style="width:100.0%">
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ohun_files/figure-html/unnamed-chunk-20-1.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1390,7 +1367,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>When sound events have strong amplitude modulation they can be split during detection:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># detect sounds</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>detection <span class="ot">&lt;-</span> <span class="fu">energy_detector</span>(<span class="at">files =</span> <span class="st">"simulated_2.wav"</span>, <span class="at">threshold =</span> <span class="dv">50</span>, <span class="at">path =</span> <span class="fu">tempdir</span>())</span>
@@ -1399,11 +1376,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">label_spectro</span>(<span class="at">wave =</span> simulated_2, <span class="at">envelope =</span> <span class="cn">TRUE</span>, <span class="at">threshold =</span> <span class="dv">50</span>, <span class="at">detection =</span> detection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-13" class="quarto-figure quarto-figure-center anchored" width="100%" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="ohun_files/figure-html/unnamed-chunk-21-1.jpeg" id="fig-539a35d47e664c97a50115a146a7f1bd-13" class="img-fluid quarto-figure-center figure-img" style="width:100.0%">
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ohun_files/figure-html/unnamed-chunk-21-1.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1411,7 +1386,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>There are two arguments that can deal with this: <code>holdtime</code> and <code>smooth</code>. <code>hold.time</code> allows to merge split sound events that are found within a given time range (in ms). This time range should be high enough to merge things belonging to the same sound event but not too high so it merges different sound events. For this example a <code>hold.time</code> of 200 ms can do the trick (we know gaps between sound events are ~0.5 s long):</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># detect sounds</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>detection <span class="ot">&lt;-</span></span>
@@ -1432,11 +1407,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-14" class="quarto-figure quarto-figure-center anchored" width="100%" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="ohun_files/figure-html/unnamed-chunk-22-1.jpeg" id="fig-539a35d47e664c97a50115a146a7f1bd-14" class="img-fluid quarto-figure-center figure-img" style="width:100.0%">
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ohun_files/figure-html/unnamed-chunk-22-1.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1444,7 +1417,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p><code>smooth</code> works by merging the amplitude envelope ‘hills’ of the split sound events themselves. It smooths envelopes by applying a sliding window averaging of amplitude values. It’s given in ms of the window size. A <code>smooth</code> of 350 ms can merged back split sound events from our example:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># detect sounds</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>detection <span class="ot">&lt;-</span></span>
@@ -1466,11 +1439,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-15" class="quarto-figure quarto-figure-center anchored" width="100%" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="ohun_files/figure-html/unnamed-chunk-23-1.jpeg" id="fig-539a35d47e664c97a50115a146a7f1bd-15" class="img-fluid quarto-figure-center figure-img" style="width:100.0%">
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ohun_files/figure-html/unnamed-chunk-23-1.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1483,7 +1454,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="optimizing-energy-based-detection"><span class="header-section-number">3.1.2</span> Optimizing energy-based detection</h3>
 <p>This last example using <code>smooth</code> can be used to showcase how the tunning parameters can be optimized. As explained above, to do this we need a reference table that contains the time position of the target sound events. The function <code>optimize_energy_detector()</code> can be used finding the optimal parameter values. We must provide the range of parameter values that will be evaluated:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>optim_detection <span class="ot">&lt;-</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">optimize_energy_detector</span>(</span>
@@ -1498,7 +1469,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>3 combinations will be evaluated:</code></pre>
 </div>
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>optim_detection[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">7</span><span class="sc">:</span><span class="dv">12</span>, <span class="dv">17</span><span class="sc">:</span><span class="dv">18</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -1592,7 +1563,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The output contains the combination of parameters used at each iteration as well as the corresponding diagnose indices. In this case all combinations generate a good detection (recall &amp; precision = 1). However, only the routine with the highest <code>smooth</code> (last row) has no split sound events (‘split.positive’ column). It also shows a better overlap to the reference sound events (‘overlap.to.true.positives’ closer to 1).</p>
 <p>In addition, there are two complementary functions for optimizing energy-based detection routines: <code>feature_reference()</code> and <code>merge_overlaps()</code>. <code>feature_reference()</code> allow user to get a sense of the time and frequency characteristics of a reference table. This information can be used to determine the range of tuning parameter values during optimization. This is the output of the function applied to <code>lbh_reference</code>:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">feature_reference</span>(<span class="at">reference =</span> lbh_reference, <span class="at">path =</span> <span class="fu">tempdir</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -1623,7 +1594,7 @@ top.freq         8.49   8.82   9.53</code></pre>
 </ul>
 <p>The function <code>get_templates()</code> can help you find a template closer to the average acoustic structure of the sound events in a reference table. This is done by finding the sound events closer to the centroid of the acoustic space. When the acoustic space is not supplied (‘acoustic.space’ argument) the function estimates it by measuring several acoustic parameters using the function <a href="https://marce10.github.io/warbleR/reference/spectro_analysis.html"><code>spectro_analysis()</code></a> from <a href="https://CRAN.R-project.org/package=warbleR"><code>warbleR</code></a>) and summarizing it with Principal Component Analysis (after z-transforming parameters). If only 1 template is required the function returns the sound event closest to the acoustic space centroid. The rationale here is that a sound event closest to the average sound event structure is more likely to share structural features with most sounds across the acoustic space than a sound event in the periphery of the space. These ‘mean structure’ templates can be obtained as follows:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get mean structure template</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>template <span class="ot">&lt;-</span></span>
@@ -1632,11 +1603,9 @@ top.freq         8.49   8.82   9.53</code></pre>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-16" class="quarto-figure quarto-figure-center anchored" width="100%" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="ohun_files/figure-html/unnamed-chunk-27-1.jpeg" id="fig-539a35d47e664c97a50115a146a7f1bd-16" class="img-fluid quarto-figure-center figure-img" style="width:100.0%">
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ohun_files/figure-html/unnamed-chunk-27-1.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1644,7 +1613,7 @@ top.freq         8.49   8.82   9.53</code></pre>
 <p>&nbsp;</p>
 <p>The graph above shows the overall acoustic spaces, in which the sound closest to the space centroid is highlighted. The highlighted sound is selected as the template and can be used to detect similar sound events. The function <code>get_templates()</code> can also select several templates. This can be helpful when working with sounds that are just moderately stereotyped. This is done by dividing the acoustic space into sub-spaces defined as equal-size slices of a circle centered at the centroid of the acoustic space:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get 3 templates</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">get_templates</span>(<span class="at">reference =</span> lbh_reference, </span>
@@ -1653,18 +1622,16 @@ top.freq         8.49   8.82   9.53</code></pre>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-17" class="quarto-figure quarto-figure-center anchored" width="100%" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="ohun_files/figure-html/unnamed-chunk-29-1.jpeg" id="fig-539a35d47e664c97a50115a146a7f1bd-17" class="img-fluid quarto-figure-center figure-img" style="width:100.0%">
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ohun_files/figure-html/unnamed-chunk-29-1.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>We will use the single template object (‘template’) to run a detection on the example ‘lbh1’ data:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get correlations</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>correlations <span class="ot">&lt;-</span></span>
@@ -1676,7 +1643,7 @@ top.freq         8.49   8.82   9.53</code></pre>
 <p>&nbsp;</p>
 <p>The output is an object of class ‘template_correlations’, with its own printing method:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>correlations</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1685,7 +1652,7 @@ top.freq         8.49   8.82   9.53</code></pre>
 <p>&nbsp;</p>
 <p>This object can then be used to detect sound events using <code>template_detector()</code>:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run detection</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>detection <span class="ot">&lt;-</span></span>
@@ -1803,7 +1770,7 @@ top.freq         8.49   8.82   9.53</code></pre>
 <p>&nbsp;</p>
 <p>The output can be explored by plotting the spectrogram along with the detection and correlation scores:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot spectrogram</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">label_spectro</span>(</span>
@@ -1815,11 +1782,9 @@ top.freq         8.49   8.82   9.53</code></pre>
 <span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">hop.size =</span> <span class="dv">10</span>, <span class="at">ovlp =</span> <span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-18" class="quarto-figure quarto-figure-center anchored" width="100%" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="ohun_files/figure-html/unnamed-chunk-33-1.jpeg" id="fig-539a35d47e664c97a50115a146a7f1bd-18" class="img-fluid quarto-figure-center figure-img" style="width:100.0%">
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ohun_files/figure-html/unnamed-chunk-33-1.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1827,7 +1792,7 @@ top.freq         8.49   8.82   9.53</code></pre>
 <p>&nbsp;</p>
 <p>The performance can be evaluated using <code>diagnose_detection()</code>:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">#diagnose</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">diagnose_detection</span>(<span class="at">reference =</span> lbh1_reference, <span class="at">detection =</span> detection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1884,7 +1849,7 @@ top.freq         8.49   8.82   9.53</code></pre>
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="optimizing-template-based-detection"><span class="header-section-number">3.2.1</span> Optimizing template-based detection</h3>
 <p>The function <code>optimize_template_detector()</code> allows to evaluate the performance under different correlation thresholds:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run optimization</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>optimization <span class="ot">&lt;-</span></span>
@@ -1897,7 +1862,7 @@ top.freq         8.49   8.82   9.53</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>5 thresholds will be evaluated:</code></pre>
 </div>
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print output</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>optimization</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2014,7 +1979,7 @@ top.freq         8.49   8.82   9.53</code></pre>
 <p>&nbsp;</p>
 <p>Additional threshold values can be evaluated without having to run it all over again. We just need to supplied the output from the previous run with the argument <code>previous.output</code> (the same trick can be done when optimizing an energy-based detection):</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run optimization</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">optimize_template_detector</span>(</span>
@@ -2172,7 +2137,7 @@ top.freq         8.49   8.82   9.53</code></pre>
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="detecting-several-templates"><span class="header-section-number">3.2.2</span> Detecting several templates</h3>
 <p>Several templates can be used within the same call. Here we correlate two templates on the two example sound files, taking one template from each sound file:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get correlations</span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>correlations <span class="ot">&lt;-</span></span>
@@ -2193,7 +2158,7 @@ top.freq         8.49   8.82   9.53</code></pre>
 <p>&nbsp;</p>
 <p>Note that in these cases we can get the same sound event detected several times (duplicates), one by each template. We can check if that is the case just by diagnosing the detection:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">#diagnose</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">diagnose_detection</span>(<span class="at">reference =</span> lbh_reference, <span class="at">detection =</span> detection[<span class="sc">-</span><span class="dv">1</span>,])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2244,7 +2209,7 @@ top.freq         8.49   8.82   9.53</code></pre>
 </table>
 </div>
 </div>
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>lbh_reference</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -2422,7 +2387,7 @@ top.freq         8.49   8.82   9.53</code></pre>
 <p>&nbsp;</p>
 <p>Duplicates are shown as split positives. Fortunately, we can leave a single detected sound event by leaving only those with the highest correlation. To do this we first need to label each row in the detection using <code>label_detection()</code> and then remove duplicates using <code>filter_detection()</code>:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># labeling detection</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>labeled <span class="ot">&lt;-</span></span>
@@ -2431,7 +2396,7 @@ top.freq         8.49   8.82   9.53</code></pre>
 </div>
 <p>This function adds a column (‘detection.class’) with the class label for each row:</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(labeled<span class="sc">$</span>detection.class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -2444,7 +2409,7 @@ false.positive (split)          true.positive  true.positive (split)
 <p>&nbsp;</p>
 <p>Now we can filter out duplicates and diagnose the detection again, telling the function to select a single row per duplicate using the correlation score as a criterium (<code>by = "scores"</code>, this column is part of the <code>template_detector()</code> output):</p>
 <div class="cell" data-layout-align="center">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter</span></span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>filtered <span class="ot">&lt;-</span> <span class="fu">filter_detection</span>(<span class="at">detection =</span> labeled, <span class="at">by =</span> <span class="st">"scores"</span>)</span>
@@ -2550,19 +2515,19 @@ false.positive (split)          true.positive  true.positive (split)
 <p><font size="4">Session information</font></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.3.1 (2023-06-16)
+<pre><code>R version 4.3.2 (2023-10-31)
 Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 20.04.2 LTS
+Running under: Ubuntu 22.04.2 LTS
 
 Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/atlas/libblas.so.3.10.3 
-LAPACK: /usr/lib/x86_64-linux-gnu/atlas/liblapack.so.3.10.3;  LAPACK version 3.9.0
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.10.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.10.0
 
 locale:
- [1] LC_CTYPE=pt_BR.UTF-8       LC_NUMERIC=C               LC_TIME=es_CR.UTF-8       
- [4] LC_COLLATE=pt_BR.UTF-8     LC_MONETARY=es_CR.UTF-8    LC_MESSAGES=pt_BR.UTF-8   
- [7] LC_PAPER=es_CR.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
-[10] LC_TELEPHONE=C             LC_MEASUREMENT=es_CR.UTF-8 LC_IDENTIFICATION=C       
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8       
+ [4] LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
+[10] LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 
 time zone: America/Costa_Rica
 tzcode source: system (glibc)
@@ -2571,26 +2536,26 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] warbleR_1.1.30     NatureSounds_1.0.4 knitr_1.45         seewave_2.2.3     
+[1] warbleR_1.1.30     NatureSounds_1.0.4 knitr_1.46         seewave_2.2.3     
 [5] tuneR_1.4.6        ohun_1.0.2        
 
 loaded via a namespace (and not attached):
- [1] gtable_0.3.4       rjson_0.2.21       xfun_0.41          ggplot2_3.4.4     
- [5] htmlwidgets_1.6.4  vctrs_0.6.5        tools_4.3.1        bitops_1.0-7      
- [9] generics_0.1.3     parallel_4.3.1     tibble_3.2.1       proxy_0.4-27      
-[13] fansi_1.0.6        pkgconfig_2.0.3    KernSmooth_2.23-22 checkmate_2.3.1   
-[17] lifecycle_1.0.4    compiler_4.3.1     brio_1.1.4         munsell_0.5.0     
-[21] codetools_0.2-19   htmltools_0.5.7    class_7.3-22       RCurl_1.98-1.14   
-[25] yaml_2.3.8         pillar_1.9.0       MASS_7.3-60.0.1    classInt_0.4-10   
+ [1] gtable_0.3.4       rjson_0.2.21       xfun_0.43          ggplot2_3.5.1     
+ [5] htmlwidgets_1.6.4  vctrs_0.6.5        tools_4.3.2        bitops_1.0-7      
+ [9] generics_0.1.3     parallel_4.3.2     tibble_3.2.1       proxy_0.4-27      
+[13] fansi_1.0.6        pkgconfig_2.0.3    KernSmooth_2.23-20 checkmate_2.3.1   
+[17] lifecycle_1.0.4    compiler_4.3.2     brio_1.1.4         munsell_0.5.0     
+[21] codetools_0.2-18   htmltools_0.5.8.1  class_7.3-20       RCurl_1.98-1.14   
+[25] yaml_2.3.8         pillar_1.9.0       MASS_7.3-55        classInt_0.4-10   
 [29] iterators_1.0.14   viridis_0.6.5      foreach_1.5.2      Deriv_4.1.3       
-[33] tidyselect_1.2.0   digest_0.6.34      sf_1.0-15          dplyr_1.1.4       
-[37] fastmap_1.1.1      grid_4.3.1         colorspace_2.1-0   cli_3.6.2         
+[33] tidyselect_1.2.0   digest_0.6.35      sf_1.0-15          dplyr_1.1.4       
+[37] fastmap_1.1.1      grid_4.3.2         colorspace_2.1-0   cli_3.6.2         
 [41] magrittr_2.0.3     utf8_1.2.4         e1071_1.7-14       scales_1.3.0      
-[45] backports_1.4.1    shinyBS_0.61.1     rmarkdown_2.25     Sim.DiffProc_4.8  
-[49] signal_1.8-0       igraph_1.6.0       gridExtra_2.3      pbapply_1.7-2     
+[45] backports_1.4.1    shinyBS_0.61.1     rmarkdown_2.26     Sim.DiffProc_4.8  
+[49] signal_1.8-0       igraph_2.0.3       gridExtra_2.3      pbapply_1.7-2     
 [53] evaluate_0.23      dtw_1.23-1         fftw_1.0-8         testthat_3.2.1    
 [57] viridisLite_0.4.2  rlang_1.1.3        Rcpp_1.0.12        glue_1.7.0        
-[61] DBI_1.2.1          rstudioapi_0.15.0  jsonlite_1.8.8     R6_2.5.1          
+[61] DBI_1.2.2          rstudioapi_0.15.0  jsonlite_1.8.8     R6_2.5.1          
 [65] soundgen_2.6.2     units_0.8-5       </code></pre>
 </div>
 </div>
@@ -2732,6 +2697,26 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/marce10\.github\.io\/NMSU_BIR_2024\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -2781,15 +2766,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -2798,7 +2796,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -2840,6 +2846,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -2994,22 +3023,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp("https:\/\/marce10\.github\.io\/NMSU_BIR_2024\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          // default icon
-          link.classList.add("external");
-      }
-    }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb52" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>

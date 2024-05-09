@@ -719,9 +719,9 @@ rsf5 <- read_sound_file(X = "https://xeno-canto.org/35340/download")
 
 class(rsf5)
 
-rsf6 <- read_sound_file(X = "https://github.com/maRce10/NMSU_BIR_2024/raw/master/examples/Phae.long1.flac")
-
-class(rsf6)
+# rsf6 <- read_sound_file(X = "https://github.com/maRce10/NMSU_BIR_2024/raw/master/examples/Phae.long1.flac")
+# 
+# class(rsf6)
 
 ```
 

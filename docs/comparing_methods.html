@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-99.9.9">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
@@ -94,6 +94,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -108,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
@@ -205,10 +206,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+  <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/maRce10/NMSU_BIR_2024/"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
-<span class="menu-text">https://github.com/maRce10/NMSU_BIR_2024/</span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -220,7 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
@@ -230,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </nav>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
@@ -278,7 +279,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="1" class="anchored" data-anchor-id="compare-methods-in-warbler"><span class="header-section-number">1</span> Compare methods in warbleR</h2>
 <p>This is a brief example of how to use the function using the data files included in the package (and in the examples folder). Simply execute the function by selecting the 2 methods you want to compare. The following code compares spectrographic cross correlation (<code>XCORR</code>) and dynamic time warping in the dominant frequency contours (<code>freq_DTW</code>). The compared selections are randomly selected from the set of selections in the input data frame. The argument ‘n’ defines the number of comparisons (that is, graphs) that must be created:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(warbleR)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -292,38 +293,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>&nbsp;</p>
 <p>It must produce 12 image files (in the working directory) that look like this one:</p>
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="images/comp.meth1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="img-fluid figure-img">
-</div>
-</figure>
-</div>
+<p><img src="images/comp.meth1.png" class="img-fluid"></p>
 <p>&nbsp;</p>
 <p>Looking at several iterations of the comparison, you can have a better idea of which method works best for the signals being analyzed:</p>
 <p>&nbsp;</p>
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="images/compare.methods.1.gif" id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="img-fluid figure-img">
-</div>
-</figure>
-</div>
+<p><img src="images/compare.methods.1.gif" class="img-fluid"></p>
 <p>&nbsp;</p>
 <p>The distance of the acoustic pair between the signals is shown next to the arrows that link them. The font color of a distance value corresponds to the font color of the method that generated it, as shown in the scatter diagrams (in this case, the black font represents the XCORR distances). The distances are standardized, being 0 the distance of a signal to itself and 1 the distance in pairs farthest in the set of signals. The principal component analysis (function <code>prcomp()</code>) is applied to calculate distances when spectral parameters (SP) are used. In that case the first 2 components are used. Classic multidimensional scaling, also known as principal coordinate analysis, function <code>cmdscale()</code>) is used for all other methods. The file name contains the methods that are compared and the row number of the selections. This function internally uses a modified version of the <code>spectro()</code> function of the <strong>seewave</strong> package to create spectrograms. Note that all spectrograms are plotted with the same frequency and time scale.</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">compare_methods</span>(<span class="at">X =</span> lbh_selec_table, <span class="at">methods =</span> <span class="fu">c</span>(<span class="st">"XCORR"</span>, <span class="st">"SP"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-3" class="quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="images/comp.meth3.png" id="fig-539a35d47e664c97a50115a146a7f1bd-3" class="img-fluid figure-img">
-</div>
-</figure>
-</div>
+<p><img src="images/comp.meth3.png" class="img-fluid"></p>
 <p>&nbsp;</p>
 <div class="alert alert-info">
 <p><font size="5">Exercise</font></p>
@@ -347,7 +330,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="2" class="anchored" data-anchor-id="compare-custom-measurements"><span class="header-section-number">2</span> Compare custom measurements</h2>
 <p>Alternatively, you can provide your own data. This could be useful to eliminate unwanted parameters or to enter parameters obtained with other programs (for example, from Raven). To do this, enter your data with the argument <code>custom1</code>. The following example 1) calculate the spectral parameters with the <code>spectro_analysis()</code> function, 2) select only the first 7 columns of the output, and 3) enter this data in <code>compare_methods()</code>:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># measure parameters</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span> <span class="fu">spectro_analysis</span>(lbh_selec_table)</span>
@@ -364,34 +347,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">compare_methods</span>(<span class="at">X =</span> lbh_selec_table, <span class="at">methods =</span> <span class="fu">c</span>(<span class="st">"dfDTW"</span>), <span class="at">custom1 =</span> Y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-4" class="quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="images/comp.meth4.png" id="fig-539a35d47e664c97a50115a146a7f1bd-4" class="img-fluid figure-img">
-</div>
-</figure>
-</div>
+<p><img src="images/comp.meth4.png" class="img-fluid"></p>
 <p>&nbsp;</p>
 <p>Note that there is also a <code>custom2</code> argument for entering another custom data. The function has many other arguments for specifying methods (for example bandpass, overlap) and spectrogram settings (margin, grid, frequency limits, etc).</p>
 <hr>
 <p><font size="4">Session information</font></p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.3.1 (2023-06-16)
+<pre><code>R version 4.3.2 (2023-10-31)
 Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 20.04.2 LTS
+Running under: Ubuntu 22.04.2 LTS
 
 Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/atlas/libblas.so.3.10.3 
-LAPACK: /usr/lib/x86_64-linux-gnu/atlas/liblapack.so.3.10.3;  LAPACK version 3.9.0
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.10.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.10.0
 
 locale:
- [1] LC_CTYPE=pt_BR.UTF-8       LC_NUMERIC=C              
- [3] LC_TIME=es_CR.UTF-8        LC_COLLATE=pt_BR.UTF-8    
- [5] LC_MONETARY=es_CR.UTF-8    LC_MESSAGES=pt_BR.UTF-8   
- [7] LC_PAPER=es_CR.UTF-8       LC_NAME=C                 
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=es_CR.UTF-8 LC_IDENTIFICATION=C       
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 
 time zone: America/Costa_Rica
 tzcode source: system (glibc)
@@ -400,14 +377,14 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 loaded via a namespace (and not attached):
- [1] cli_3.6.2          knitr_1.45         rlang_1.1.3        xfun_0.41         
+ [1] cli_3.6.2          knitr_1.46         rlang_1.1.3        xfun_0.43         
  [5] tuneR_1.4.6        jsonlite_1.8.8     rjson_0.2.21       RCurl_1.98-1.14   
- [9] dtw_1.23-1         fftw_1.0-8         htmltools_0.5.7    warbleR_1.1.30    
-[13] brio_1.1.4         rmarkdown_2.25     NatureSounds_1.0.4 evaluate_0.23     
-[17] MASS_7.3-60.0.1    bitops_1.0-7       fastmap_1.1.1      yaml_2.3.8        
-[21] compiler_4.3.1     testthat_3.2.1     htmlwidgets_1.6.4  Rcpp_1.0.12       
-[25] pbapply_1.7-2      rstudioapi_0.15.0  digest_0.6.34      R6_2.5.1          
-[29] signal_1.8-0       parallel_4.3.1     magrittr_2.0.3     tools_4.3.1       
+ [9] dtw_1.23-1         fftw_1.0-8         htmltools_0.5.8.1  warbleR_1.1.30    
+[13] brio_1.1.4         rmarkdown_2.26     NatureSounds_1.0.4 evaluate_0.23     
+[17] MASS_7.3-55        bitops_1.0-7       fastmap_1.1.1      yaml_2.3.8        
+[21] compiler_4.3.2     testthat_3.2.1     htmlwidgets_1.6.4  Rcpp_1.0.12       
+[25] pbapply_1.7-2      rstudioapi_0.15.0  digest_0.6.35      R6_2.5.1          
+[29] signal_1.8-0       parallel_4.3.2     magrittr_2.0.3     tools_4.3.2       
 [33] proxy_0.4-27       seewave_2.2.3     </code></pre>
 </div>
 </div>
@@ -548,6 +525,26 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/marce10\.github\.io\/NMSU_BIR_2024\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -597,15 +594,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -614,7 +624,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -656,6 +674,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -810,22 +851,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp("https:\/\/marce10\.github\.io\/NMSU_BIR_2024\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          // default icon
-          link.classList.add("external");
-      }
-    }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>

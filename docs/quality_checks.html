@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-99.9.9">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
@@ -94,6 +94,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -110,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
@@ -207,10 +208,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+  <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/maRce10/NMSU_BIR_2024/"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
-<span class="menu-text">https://github.com/maRce10/NMSU_BIR_2024/</span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -222,7 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
@@ -238,7 +239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </nav>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
@@ -278,7 +279,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="1" class="anchored" data-anchor-id="convert-.mp3-to-.wav"><span class="header-section-number">1</span> Convert .mp3 to .wav</h2>
 <p>The <code>mp32wav()</code> function allows you to convert files in ‘.mp3’ format to ‘.wav’ format. This function converts all the ‘mp3’ files in the working directory. Let’s use the files in the ‘./examples/mp3’ folder as an example:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r numberLines lineAnchors code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">warbleR_options</span>(<span class="at">wav.path =</span> <span class="st">"./examples"</span>, <span class="at">ovlp =</span> <span class="dv">90</span>)</span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
@@ -301,7 +302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>We can also modify the sampling rate and/or dynamic range with <code>mp32wav()</code>:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r numberLines lineAnchors code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">mp32wav</span>(<span class="at">path =</span> <span class="st">"./examples/mp3"</span>, <span class="at">samp.rate =</span> <span class="dv">48</span>, <span class="at">bit.depth =</span> <span class="dv">24</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb4-2"><a href="#cb4-2"></a>    <span class="at">dest.path =</span> <span class="st">"./examples/mp3"</span>)</span>
@@ -312,7 +313,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>We can check the properties of the ‘.wav’ sound files using the <code>info_sound_files()</code> function:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r numberLines lineAnchors code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">info_sound_files</span>(<span class="at">path =</span> <span class="st">"./examples/mp3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -398,7 +399,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="2" class="anchored" data-anchor-id="homogenize-recordings"><span class="header-section-number">2</span> Homogenize recordings</h2>
 <p>Alternatively, we can use the <code>fix_wavs()</code> function to homogenize the sampling rate, the dynamic interval and the number of channels. It is adviced that all sound files should have the same recording parameters before any acoustic analysis. In the example ‘.mp3’ files, not all of them have been recorded with the same parameters. We can see this if we convert them back to ‘.wav’ and see their properties:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r numberLines lineAnchors code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">mp32wav</span>(<span class="at">path =</span> <span class="st">"./examples/mp3"</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>, <span class="at">dest.path =</span> <span class="st">"./examples/mp3"</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a></span>
@@ -423,7 +424,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td style="text-align: center;">BlackCappedVireo.mp3</td>
 <td style="text-align: center;">5.459592</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">22.05</td>
+<td style="text-align: center; background-color: #ccebff !important;">22.05</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">0.087770</td>
@@ -432,7 +433,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td style="text-align: center;">BlackCappedVireo.wav</td>
 <td style="text-align: center;">5.459592</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">22.05</td>
+<td style="text-align: center; background-color: #ccebff !important;">22.05</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">0.240812</td>
@@ -441,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td style="text-align: center;">BowheadWhaleSong.mp3</td>
 <td style="text-align: center;">86.648163</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">22.05</td>
+<td style="text-align: center; background-color: #ccebff !important;">22.05</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">1.386787</td>
@@ -450,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td style="text-align: center;">BowheadWhaleSong.wav</td>
 <td style="text-align: center;">86.648163</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">22.05</td>
+<td style="text-align: center; background-color: #ccebff !important;">22.05</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">3.821228</td>
@@ -459,7 +460,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td style="text-align: center;">CanyonWren.mp3</td>
 <td style="text-align: center;">5.433469</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">44.10</td>
+<td style="text-align: center; background-color: #ccebff !important;">44.10</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">0.087352</td>
@@ -468,7 +469,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td style="text-align: center;">CanyonWren.wav</td>
 <td style="text-align: center;">5.433469</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">44.10</td>
+<td style="text-align: center; background-color: #ccebff !important;">44.10</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">0.479276</td>
@@ -483,7 +484,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>The <code>fix_wavs()</code> function will convert all files to the same sampling rate and dynamic range:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r numberLines lineAnchors code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">fix_wavs</span>(<span class="at">path =</span> mp3.pth, <span class="at">samp.rate =</span> <span class="fl">44.1</span>, <span class="at">bit.depth =</span> <span class="dv">24</span>)</span>
 <span id="cb7-2"><a href="#cb7-2"></a></span>
@@ -508,54 +509,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td style="text-align: center;">BlackCappedVireo.mp3</td>
 <td style="text-align: center;">5.459592</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">22.05</td>
+<td style="text-align: center; background-color: #ccebff !important;">22.05</td>
 <td style="text-align: center;">1</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">16</td>
+<td style="text-align: center; background-color: #ccebff !important;">16</td>
 <td style="text-align: center;">0.087770</td>
 <td style="text-align: center;">120384</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">BlackCappedVireo.wav</td>
 <td style="text-align: center;">5.459592</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">22.05</td>
+<td style="text-align: center; background-color: #ccebff !important;">22.05</td>
 <td style="text-align: center;">1</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">16</td>
+<td style="text-align: center; background-color: #ccebff !important;">16</td>
 <td style="text-align: center;">0.240812</td>
 <td style="text-align: center;">120384</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">BowheadWhaleSong.mp3</td>
 <td style="text-align: center;">86.648163</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">22.05</td>
+<td style="text-align: center; background-color: #ccebff !important;">22.05</td>
 <td style="text-align: center;">1</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">16</td>
+<td style="text-align: center; background-color: #ccebff !important;">16</td>
 <td style="text-align: center;">1.386787</td>
 <td style="text-align: center;">1910592</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">BowheadWhaleSong.wav</td>
 <td style="text-align: center;">86.648163</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">22.05</td>
+<td style="text-align: center; background-color: #ccebff !important;">22.05</td>
 <td style="text-align: center;">1</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">16</td>
+<td style="text-align: center; background-color: #ccebff !important;">16</td>
 <td style="text-align: center;">3.821228</td>
 <td style="text-align: center;">1910592</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">CanyonWren.mp3</td>
 <td style="text-align: center;">5.433469</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">44.10</td>
+<td style="text-align: center; background-color: #ccebff !important;">44.10</td>
 <td style="text-align: center;">1</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">16</td>
+<td style="text-align: center; background-color: #ccebff !important;">16</td>
 <td style="text-align: center;">0.087352</td>
 <td style="text-align: center;">239616</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">CanyonWren.wav</td>
 <td style="text-align: center;">5.433469</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">44.10</td>
+<td style="text-align: center; background-color: #ccebff !important;">44.10</td>
 <td style="text-align: center;">1</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">16</td>
+<td style="text-align: center; background-color: #ccebff !important;">16</td>
 <td style="text-align: center;">0.479276</td>
 <td style="text-align: center;">239616</td>
 </tr>
@@ -572,14 +573,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="3" class="anchored" data-anchor-id="check-recordings"><span class="header-section-number">3</span> Check recordings</h2>
 <p><code>check_sound_files()</code> should be the first function that should be used before running any <strong>warbleR</strong> analysis. The function simply checks if the sound files in ‘.wav’ format in the working directory can be read in R. For example, the following code checks all the files in the ‘examples’ folder, which should detect the ‘corrupted_file.wav’:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r numberLines lineAnchors code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">check_sound_files</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>If we remove that file from the folder, the function returns the following message:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r numberLines lineAnchors code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">check_sound_files</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -598,7 +599,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>The following code generates an image with spectrograms that vary in window size and window function (the rest of the parameters are passed to the <code>catalog ()</code> function internally to create the mosaic):</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r numberLines lineAnchors code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">tweak_spectro</span>(<span class="at">X =</span> lbh_selec_table, <span class="at">wl =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">1000</span>), <span class="at">wn =</span> <span class="fu">c</span>(<span class="st">"hanning"</span>,</span>
 <span id="cb10-2"><a href="#cb10-2"></a>    <span class="st">"hamming"</span>, <span class="st">"rectangle"</span>), <span class="at">length.out =</span> <span class="dv">16</span>, <span class="at">nrow =</span> <span class="dv">8</span>, <span class="at">ncol =</span> <span class="dv">6</span>,</span>
@@ -610,7 +611,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Note that the <code>length.out</code> argument defines the number of values to interpolate within the numerical ranges. <code>wl = 220</code> seems to produce clearer spectrograms.</p>
 <p>We can add a color palette to differentiate the levels of one of the parameters, for example ‘wn’:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r numberLines lineAnchors code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># install.packages('RColorBrewer')</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a></span>
@@ -631,7 +632,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>We can also use it to choose the color palette and the minimum amplitude for plotting (‘collev.min’):</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r numberLines lineAnchors code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">tweak_spectro</span>(<span class="at">X =</span> lbh_selec_table, <span class="at">wl =</span> <span class="dv">220</span>, <span class="at">collev.min =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="sc">-</span><span class="dv">100</span>),</span>
 <span id="cb12-2"><a href="#cb12-2"></a>    <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">"reverse.gray.colors.2"</span>, <span class="st">"reverse.topo.colors"</span>, <span class="st">"reverse.terrain.colors"</span>),</span>
@@ -660,7 +661,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>The value of ‘channel’ is not greater than the number of channels in the sound files (error information in the output data frame)</li>
 </ul>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r numberLines lineAnchors code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>cs <span class="ot">&lt;-</span> <span class="fu">check_sels</span>(lbh_selec_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -668,7 +669,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>The function returns a data frame that includes the information in ‘X’ plus additional columns about the format of the sound files, as well as the result of the checks (column ‘check.res’):</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r numberLines lineAnchors code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>cs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -706,7 +707,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: center;">8.604378</td>
 <td style="text-align: center;">OK</td>
 <td style="text-align: center;">0.1730334</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">3893</td>
+<td style="text-align: center; background-color: #ccebff !important;">3893</td>
 <td style="text-align: center;">22.5</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">16</td>
@@ -722,7 +723,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: center;">8.807053</td>
 <td style="text-align: center;">OK</td>
 <td style="text-align: center;">0.1630480</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">3668</td>
+<td style="text-align: center; background-color: #ccebff !important;">3668</td>
 <td style="text-align: center;">22.5</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">16</td>
@@ -738,7 +739,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: center;">8.756604</td>
 <td style="text-align: center;">OK</td>
 <td style="text-align: center;">0.1749187</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">3935</td>
+<td style="text-align: center; background-color: #ccebff !important;">3935</td>
 <td style="text-align: center;">22.5</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">16</td>
@@ -754,7 +755,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: center;">8.822316</td>
 <td style="text-align: center;">OK</td>
 <td style="text-align: center;">0.1325709</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">2982</td>
+<td style="text-align: center; background-color: #ccebff !important;">2982</td>
 <td style="text-align: center;">22.5</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">16</td>
@@ -770,7 +771,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: center;">8.888027</td>
 <td style="text-align: center;">OK</td>
 <td style="text-align: center;">0.1261502</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">2838</td>
+<td style="text-align: center; background-color: #ccebff !important;">2838</td>
 <td style="text-align: center;">22.5</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">16</td>
@@ -786,7 +787,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: center;">8.822316</td>
 <td style="text-align: center;">OK</td>
 <td style="text-align: center;">0.1312195</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">2952</td>
+<td style="text-align: center; background-color: #ccebff !important;">2952</td>
 <td style="text-align: center;">22.5</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">16</td>
@@ -802,7 +803,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: center;">8.888027</td>
 <td style="text-align: center;">OK</td>
 <td style="text-align: center;">0.1301789</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">2929</td>
+<td style="text-align: center; background-color: #ccebff !important;">2929</td>
 <td style="text-align: center;">22.5</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">16</td>
@@ -818,7 +819,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: center;">9.315153</td>
 <td style="text-align: center;">OK</td>
 <td style="text-align: center;">0.1312170</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">2952</td>
+<td style="text-align: center; background-color: #ccebff !important;">2952</td>
 <td style="text-align: center;">22.5</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">16</td>
@@ -834,7 +835,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: center;">9.216586</td>
 <td style="text-align: center;">OK</td>
 <td style="text-align: center;">0.1454249</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">3272</td>
+<td style="text-align: center; background-color: #ccebff !important;">3272</td>
 <td style="text-align: center;">22.5</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">16</td>
@@ -850,7 +851,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: center;">10.235116</td>
 <td style="text-align: center;">OK</td>
 <td style="text-align: center;">0.1441864</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">3244</td>
+<td style="text-align: center; background-color: #ccebff !important;">3244</td>
 <td style="text-align: center;">22.5</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">16</td>
@@ -866,7 +867,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: center;">9.742279</td>
 <td style="text-align: center;">OK</td>
 <td style="text-align: center;">0.1450989</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">3264</td>
+<td style="text-align: center; background-color: #ccebff !important;">3264</td>
 <td style="text-align: center;">22.5</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">16</td>
@@ -881,7 +882,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>Let’s modified a selection table to see how the function works:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r numberLines lineAnchors code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># copiar las primeras 6 filas</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>st2 <span class="ot">&lt;-</span> lbh_selec_table[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, ]</span>
@@ -934,7 +935,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: center;">1.3423884</td>
 <td style="text-align: center;">2.220105</td>
 <td style="text-align: center;">8.604378</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">NA</td>
+<td style="text-align: center; background-color: #ccebff !important;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">Phae.long1.wav</td>
@@ -944,7 +945,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: center;">2.3214565</td>
 <td style="text-align: center;">2.169437</td>
 <td style="text-align: center;">8.807053</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">3668</td>
+<td style="text-align: center; background-color: #ccebff !important;">3668</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">Phae.long1.wav</td>
@@ -954,7 +955,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: center;">100.0000000</td>
 <td style="text-align: center;">2.218294</td>
 <td style="text-align: center;">2.218294</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">2242274</td>
+<td style="text-align: center; background-color: #ccebff !important;">2242274</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">Phae.long2.wav</td>
@@ -964,7 +965,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: center;">0.2921692</td>
 <td style="text-align: center;">2.316862</td>
 <td style="text-align: center;">8.822316</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">2982</td>
+<td style="text-align: center; background-color: #ccebff !important;">2982</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">Phae.long2.wav</td>
@@ -974,7 +975,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: center;">1.5832087</td>
 <td style="text-align: center;">2.284006</td>
 <td style="text-align: center;">200.000000</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">2838</td>
+<td style="text-align: center; background-color: #ccebff !important;">2838</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">Phae.long3.wav</td>
@@ -984,7 +985,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: center;">0.7577715</td>
 <td style="text-align: center;">3.006834</td>
 <td style="text-align: center;">8.822316</td>
-<td style="text-align: center; background-color: rgba(204, 235, 255, 255) !important;">2952</td>
+<td style="text-align: center; background-color: #ccebff !important;">2952</td>
 </tr>
 </tbody>
 </table>
@@ -999,7 +1000,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="5.1" class="anchored" data-anchor-id="visual-inspection-of-spectrograms"><span class="header-section-number">5.1</span> Visual inspection of spectrograms</h3>
 <p>Once the information in the selections has been verified, the next step is to ensure that the selections contain accurate information about the location of the signals of interest. This can be done by creating spectrograms of all selections. For this we have several options. The first is <code>spectrograms()</code> (previously called <code>specreator()</code>) which generates (by default) a spectrogram for each selection. We can run it on the sample data like this:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r numberLines lineAnchors code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># using default parameters tweak_spectro()</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="fu">warbleR_options</span>(<span class="at">wav.path =</span> <span class="st">"./examples"</span>, <span class="at">wl =</span> <span class="dv">220</span>, <span class="at">wn =</span> <span class="st">"hanning"</span>,</span>
@@ -1025,7 +1026,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="5.2" class="anchored" data-anchor-id="full-spectrograms"><span class="header-section-number">5.2</span> Full spectrograms</h3>
 <p>We can create spectrograms for the whole sound files using <code>full_spectrograms()</code>. If the <code>X</code> argument is not given, the function will create the spectrograms for all the files in the working directory. Otherwise, the function generates spectrograms for sound files in <code>X</code> and highlights selections with transparent rectangles similar to those of<code>spectrograms()</code>. In this example we download a recording from a striped-throated hermit (<em>Phaethornis striigularis</em>) from Xeno-Canto:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r numberLines lineAnchors code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># load package with color palettes</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a><span class="fu">library</span>(viridis)</span>
@@ -1052,7 +1053,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="6" class="anchored" data-anchor-id="catalogs"><span class="header-section-number">6</span> Catalogs</h2>
 <p>Catalogs allow you to inspect selections of many recordings in the same image and group them by categories. This makes it easier to verify the consistency of the categories. Many of the arguments are shared with <code>tweak_spectro()</code> (<code>catalog()</code> is used internally in <code>tweak_spectro()</code>). We can generate a catalog with color tags to identify selections from the same sound file as follows:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r numberLines lineAnchors code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># read bat inquiry data</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>inq <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="at">file =</span> <span class="st">"ext_sel_tab_inquiry.RDS"</span>)</span>
@@ -1079,7 +1080,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="7" class="anchored" data-anchor-id="tailoring-selections"><span class="header-section-number">7</span> Tailoring selections</h2>
 <p>The position of the selections in the sound file (i.e.&nbsp;its ‘coordinates’ of time and frequency) can be modified interactively from R using the <code>sel_tailor()</code> function. This function produces a graphic window showing spectrograms and a series of ‘buttons’ that allow you to modify the view and move forward in the selection table:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r numberLines lineAnchors code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">tailor_sels</span>(<span class="at">X =</span> lbh_selec_table[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, ], <span class="at">auto.next =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -1089,7 +1090,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The function returns the corrected data as a data frame in R and also saves a ‘.csv’ file in the directory where the sound files are located.</p>
 <p><code>sel_tailor()</code> can also be used to modify frequency contours such as those produced by the <code>dfDTW()</code> or <code>ffDTW()</code> function:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r numberLines lineAnchors code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>cntours <span class="ot">&lt;-</span> <span class="fu">freq_ts</span>(<span class="at">X =</span> lbh_selec_table[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, ])</span>
 <span id="cb20-2"><a href="#cb20-2"></a></span>
@@ -1111,21 +1112,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><font size="4">Session information</font></p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.3.1 (2023-06-16)
+<pre><code>R version 4.3.2 (2023-10-31)
 Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 20.04.2 LTS
+Running under: Ubuntu 22.04.2 LTS
 
 Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/atlas/libblas.so.3.10.3 
-LAPACK: /usr/lib/x86_64-linux-gnu/atlas/liblapack.so.3.10.3;  LAPACK version 3.9.0
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.10.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.10.0
 
 locale:
- [1] LC_CTYPE=pt_BR.UTF-8       LC_NUMERIC=C              
- [3] LC_TIME=es_CR.UTF-8        LC_COLLATE=pt_BR.UTF-8    
- [5] LC_MONETARY=es_CR.UTF-8    LC_MESSAGES=pt_BR.UTF-8   
- [7] LC_PAPER=es_CR.UTF-8       LC_NAME=C                 
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=es_CR.UTF-8 LC_IDENTIFICATION=C       
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 
 time zone: America/Costa_Rica
 tzcode source: system (glibc)
@@ -1134,22 +1135,22 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] kableExtra_1.4.0   warbleR_1.1.30     NatureSounds_1.0.4 knitr_1.45        
+[1] kableExtra_1.3.4   warbleR_1.1.30     NatureSounds_1.0.4 knitr_1.46        
 [5] seewave_2.2.3      tuneR_1.4.6       
 
 loaded via a namespace (and not attached):
- [1] jsonlite_1.8.8     compiler_4.3.1     rjson_0.2.21       brio_1.1.4        
- [5] Rcpp_1.0.12        xml2_1.3.6         stringr_1.5.1      moments_0.14.1    
- [9] bitops_1.0-7       parallel_4.3.1     signal_1.8-0       systemfonts_1.0.5 
-[13] scales_1.3.0       yaml_2.3.8         fastmap_1.1.1      R6_2.5.1          
-[17] dtw_1.23-1         htmlwidgets_1.6.4  MASS_7.3-60.0.1    munsell_0.5.0     
-[21] svglite_2.1.3      rlang_1.1.3        testthat_3.2.1     stringi_1.8.3     
-[25] xfun_0.41          fftw_1.0-8         viridisLite_0.4.2  cli_3.6.2         
-[29] withr_3.0.0        formatR_1.14       magrittr_2.0.3     bioacoustics_0.2.8
-[33] digest_0.6.34      rstudioapi_0.15.0  pbapply_1.7-2      lifecycle_1.0.4   
-[37] vctrs_0.6.5        proxy_0.4-27       evaluate_0.23      glue_1.7.0        
-[41] RCurl_1.98-1.14    colorspace_2.1-0   rmarkdown_2.25     tools_4.3.1       
-[45] htmltools_0.5.7   </code></pre>
+ [1] jsonlite_1.8.8     compiler_4.3.2     rjson_0.2.21       brio_1.1.4        
+ [5] webshot_0.5.5      Rcpp_1.0.12        xml2_1.3.6         stringr_1.5.1     
+ [9] moments_0.14.1     bitops_1.0-7       parallel_4.3.2     signal_1.8-0      
+[13] systemfonts_1.0.5  scales_1.3.0       yaml_2.3.8         fastmap_1.1.1     
+[17] R6_2.5.1           dtw_1.23-1         htmlwidgets_1.6.4  MASS_7.3-55       
+[21] munsell_0.5.0      svglite_2.1.3      rlang_1.1.3        testthat_3.2.1    
+[25] stringi_1.8.3      xfun_0.43          fftw_1.0-8         viridisLite_0.4.2 
+[29] cli_3.6.2          withr_3.0.0        formatR_1.14       magrittr_2.0.3    
+[33] bioacoustics_0.2.8 digest_0.6.35      rvest_1.0.3        rstudioapi_0.15.0 
+[37] pbapply_1.7-2      lifecycle_1.0.4    vctrs_0.6.5        proxy_0.4-27      
+[41] evaluate_0.23      glue_1.7.0         RCurl_1.98-1.14    colorspace_2.1-0  
+[45] rmarkdown_2.26     httr_1.4.7         tools_4.3.2        htmltools_0.5.8.1 </code></pre>
 </div>
 </div>
 
@@ -1289,6 +1290,26 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/marce10\.github\.io\/NMSU_BIR_2024\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1338,15 +1359,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -1355,7 +1389,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -1397,6 +1439,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -1551,22 +1616,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp("https:\/\/marce10\.github\.io\/NMSU_BIR_2024\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          // default icon
-          link.classList.add("external");
-      }
-    }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb22" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>

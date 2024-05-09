@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-99.9.9">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
@@ -94,6 +94,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -108,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
@@ -205,10 +206,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+  <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/maRce10/NMSU_BIR_2024/"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
-<span class="menu-text">https://github.com/maRce10/NMSU_BIR_2024/</span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -220,7 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
@@ -235,7 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </nav>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
@@ -273,7 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The spectrogram is a fundamental tool in the study of acoustic communication in vertebrates. They are basically a visual representation of the sound where the variation in energy (or power spectral density) is shown on both the frequency and the time domains. Spectrograms allow us to visually explore acoustic variation in our study systems, which makes it easy to distinguish structural differences at small temporal/spectral scales that our ears cannot detect.</p>
 <p>We will use the <strong>seewave</strong> package and its sample data:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(seewave)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -288,7 +289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In order to understand the information contained in a spectrogram it is necessary to understand, at least briefly, the <a href="https://en.wikipedia.org/wiki/Fourier_transform">Fourier transformation</a>. In simple words, this is a mathematical transformation that detects the periodicity in time series, identifying the different frequencies that compose them and their relative energy. Therefore it is said that it transforms the signals from the time domain to the frequency domain.</p>
 <p>To better understand how it works, we can simulate time series composed of pre-defined frequencies. In this example we simulate 3 frequencies and join them in a single time series:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># freq</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="dv">11025</span></span>
@@ -306,15 +307,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(h1[<span class="dv">1</span><span class="sc">:</span><span class="dv">75</span>], <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">xlab =</span> <span class="st">"Time (samples)"</span>, <span class="at">ylab =</span> <span class="st">"Amplitude (no units)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
 <div>
-<img src="spectrograms_files/figure-html/unnamed-chunk-3-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="img-fluid figure-img" width="672">
-</div>
+<figure class="figure">
+<p><img src="spectrograms_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># frec 2</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>h2 <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="sc">*</span> <span class="fu">cos</span>(<span class="dv">2</span> <span class="sc">*</span> w0 <span class="sc">*</span> t)</span>
@@ -322,15 +321,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(h2[<span class="dv">1</span><span class="sc">:</span><span class="dv">75</span>], <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">xlab =</span> <span class="st">"Time (samples)"</span>, <span class="at">ylab =</span> <span class="st">"Amplitude (no units)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
 <div>
-<img src="spectrograms_files/figure-html/unnamed-chunk-3-2.png" id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="img-fluid figure-img" width="672">
-</div>
+<figure class="figure">
+<p><img src="spectrograms_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># frec 3</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>h3 <span class="ot">&lt;-</span> <span class="dv">15</span> <span class="sc">*</span> <span class="fu">sin</span>(<span class="dv">3</span> <span class="sc">*</span> w0 <span class="sc">*</span> t)</span>
@@ -338,36 +335,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(h3[<span class="dv">1</span><span class="sc">:</span><span class="dv">75</span>], <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">xlab =</span> <span class="st">"Time (samples)"</span>, <span class="at">ylab =</span> <span class="st">"Amplitude (no units)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-3" class="quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
 <div>
-<img src="spectrograms_files/figure-html/unnamed-chunk-3-3.png" id="fig-539a35d47e664c97a50115a146a7f1bd-3" class="img-fluid figure-img" width="672">
-</div>
+<figure class="figure">
+<p><img src="spectrograms_files/figure-html/unnamed-chunk-3-3.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>This is what the union of the three frequencies looks like:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>H0 <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="sc">+</span> h1 <span class="sc">+</span> h2 <span class="sc">+</span> h3</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(H0[<span class="dv">1</span><span class="sc">:</span><span class="dv">75</span>], <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">xlab =</span> <span class="st">"Time (samples)"</span>, <span class="at">ylab =</span> <span class="st">"Amplitude (no units)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-4" class="quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
 <div>
-<img src="spectrograms_files/figure-html/unnamed-chunk-4-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-4" class="img-fluid figure-img" width="672">
-</div>
+<figure class="figure">
+<p><img src="spectrograms_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Now we can apply the Fourier transform to this time series and graph the frequencies detected using a periodogram:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fspc <span class="ot">&lt;-</span> <span class="fu">Mod</span>(<span class="fu">fft</span>(H0))</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -378,28 +371,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> (f<span class="sc">/</span><span class="dv">2</span>) <span class="sc">+</span> <span class="dv">1650</span>, <span class="at">y =</span> <span class="dv">8000</span>, <span class="st">"Nyquist Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-5" class="quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
 <div>
-<img src="spectrograms_files/figure-html/unnamed-chunk-5-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-5" class="img-fluid figure-img" width="672">
-</div>
+<figure class="figure">
+<p><img src="spectrograms_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>We can make zoom in to frequencies below the Nyquist frequency:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fspc[<span class="dv">1</span><span class="sc">:</span>(<span class="fu">length</span>(fspc)<span class="sc">/</span><span class="dv">2</span>)], <span class="at">type =</span> <span class="st">"h"</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">xlab =</span> <span class="st">"Frecuency (Hz)"</span>,</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab =</span> <span class="st">"Amplitude (no units)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-6" class="quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
 <div>
-<img src="spectrograms_files/figure-html/unnamed-chunk-6-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-6" class="img-fluid figure-img" width="672">
-</div>
+<figure class="figure">
+<p><img src="spectrograms_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -407,11 +396,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This diagram (taken from Sueur 2018) summarizes the process we just simulated:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-7" class="quarto-figure quarto-figure-center anchored" data-fig-align="center" width="400px">
-<figure class="quarto-float quarto-float-fig figure">
-<div>
-<img src="images/FFT_decomp.png" id="fig-539a35d47e664c97a50115a146a7f1bd-7" class="img-fluid quarto-figure-center figure-img" width="400">
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/FFT_decomp.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
 </div>
@@ -420,11 +407,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The periodogram next to the spectrogram of these simulated sounds looks like this:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-8" class="quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
 <div>
-<img src="spectrograms_files/figure-html/unnamed-chunk-7-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-8" class="img-fluid figure-img" width="672">
-</div>
+<figure class="figure">
+<p><img src="spectrograms_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -436,11 +421,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The spectrograms are constructed of the spectral decomposition of discrete time segments of amplitude values. Each segment (or window) of time is a column of spectral density values in a frequency range. Take for example this simple modulated sound, which goes up and down in frequency:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-9" class="quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
 <div>
-<img src="spectrograms_files/figure-html/unnamed-chunk-8-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-9" class="img-fluid figure-img" width="672">
-</div>
+<figure class="figure">
+<p><img src="spectrograms_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -455,11 +438,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>When frequency spectra are combined to produce a spectrogram, the frequency and amplitude modulations are not gradual:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-10" class="quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
 <div>
-<img src="spectrograms_files/figure-html/unnamed-chunk-11-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-10" class="img-fluid figure-img" width="672">
-</div>
+<figure class="figure">
+<p><img src="spectrograms_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -468,11 +449,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>There are several “tricks” to smooth out the contours of signals with high modulation in a spectrogram, although the main and most common is window overlap. The overlap recycles a percentage of the amplitude samples of a window to calculate the next window. For example, the sound used as an example, with a window size of 512 points divides the sound into 15 segments:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-11" class="quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
 <div>
-<img src="spectrograms_files/figure-html/unnamed-chunk-12-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-11" class="img-fluid figure-img" width="672">
-</div>
+<figure class="figure">
+<p><img src="spectrograms_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -480,11 +459,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>A 50% overlap generates windows that share 50% of the amplitude values with the adjacent windows. This has the visual effect of making modulations much more gradual:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-12" class="quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
 <div>
-<img src="spectrograms_files/figure-html/unnamed-chunk-13-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-12" class="img-fluid figure-img" width="672">
-</div>
+<figure class="figure">
+<p><img src="spectrograms_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -492,11 +469,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Which increases (in some way artificially) the number of time windows, without changing the resolution in frequency. In this example, the number of time windows is doubled:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-13" class="quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
 <div>
-<img src="spectrograms_files/figure-html/unnamed-chunk-14-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-13" class="img-fluid figure-img" width="672">
-</div>
+<figure class="figure">
+<p><img src="spectrograms_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -506,11 +481,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This increases the number of windows as a function of the overlap for this particular sound:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-14" class="quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
 <div>
-<img src="spectrograms_files/figure-html/unnamed-chunk-16-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-14" class="img-fluid figure-img" width="672">
-</div>
+<figure class="figure">
+<p><img src="spectrograms_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -519,11 +492,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This increase in spectrogram sharpness does not come without a cost. The longer the time windows, the greater the number of Fourier transformations to compute, and therefore, the greater the duration of the process. This graphic shows the increase in duration as a function of the number of windows on my computer:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-15" class="quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
 <div>
-<img src="spectrograms_files/figure-html/unnamed-chunk-18-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-15" class="img-fluid figure-img" width="672">
-</div>
+<figure class="figure">
+<p><img src="spectrograms_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -540,11 +511,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This is the relationship between frequency resolution and time resolution for the example signal:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-16" class="quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
 <div>
-<img src="spectrograms_files/figure-html/unnamed-chunk-20-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-16" class="img-fluid figure-img" width="672">
-</div>
+<figure class="figure">
+<p><img src="spectrograms_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -558,7 +527,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>We will focus on making spectrograms using the <code>spectro ()</code> function of <strong>seewave</strong>:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>tico2 <span class="ot">&lt;-</span> <span class="fu">cutw</span>(tico, <span class="at">from =</span> <span class="fl">0.55</span>, <span class="at">to =</span> <span class="fl">0.9</span>, <span class="at">output =</span> <span class="st">"Wave"</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -566,11 +535,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="dv">6</span>), <span class="at">scale =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-17" class="quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
 <div>
-<img src="spectrograms_files/figure-html/unnamed-chunk-21-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-17" class="img-fluid figure-img" width="672">
-</div>
+<figure class="figure">
+<p><img src="spectrograms_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -589,84 +556,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p>Almost all components of a spectrogram in <strong>seewave</strong> can be modified. We can add scales:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">spectro</span>(tico2, <span class="at">f =</span> <span class="dv">22050</span>, <span class="at">wl =</span> <span class="dv">512</span>, <span class="at">ovlp =</span> <span class="dv">90</span>, <span class="at">collevels =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">40</span>, <span class="dv">0</span>, <span class="fl">0.5</span>), <span class="at">flim =</span> <span class="fu">c</span>(<span class="dv">2</span>,</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="dv">6</span>), <span class="at">scale =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-18" class="quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
 <div>
-<img src="spectrograms_files/figure-html/unnamed-chunk-22-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-18" class="img-fluid figure-img" width="672">
-</div>
+<figure class="figure">
+<p><img src="spectrograms_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Change the color palette:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">spectro</span>(tico2, <span class="at">f =</span> <span class="dv">22050</span>, <span class="at">wl =</span> <span class="dv">512</span>, <span class="at">ovlp =</span> <span class="dv">90</span>, <span class="at">collevels =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">40</span>, <span class="dv">0</span>, <span class="fl">0.5</span>), <span class="at">flim =</span> <span class="fu">c</span>(<span class="dv">2</span>,</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="dv">6</span>), <span class="at">scale =</span> <span class="cn">TRUE</span>, <span class="at">palette =</span> reverse.cm.colors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-19" class="quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
 <div>
-<img src="spectrograms_files/figure-html/unnamed-chunk-23-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-19" class="img-fluid figure-img" width="672">
-</div>
+<figure class="figure">
+<p><img src="spectrograms_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">spectro</span>(tico2, <span class="at">f =</span> <span class="dv">22050</span>, <span class="at">wl =</span> <span class="dv">512</span>, <span class="at">ovlp =</span> <span class="dv">90</span>, <span class="at">collevels =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">40</span>, <span class="dv">0</span>, <span class="fl">0.5</span>), <span class="at">flim =</span> <span class="fu">c</span>(<span class="dv">2</span>,</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="dv">6</span>), <span class="at">scale =</span> <span class="cn">TRUE</span>, <span class="at">palette =</span> reverse.gray.colors<span class="fl">.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-20" class="quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
 <div>
-<img src="spectrograms_files/figure-html/unnamed-chunk-24-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-20" class="img-fluid figure-img" width="672">
-</div>
+<figure class="figure">
+<p><img src="spectrograms_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Remove the vertical lines:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">spectro</span>(tico2, <span class="at">f =</span> <span class="dv">22050</span>, <span class="at">wl =</span> <span class="dv">512</span>, <span class="at">ovlp =</span> <span class="dv">90</span>, <span class="at">collevels =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">40</span>, <span class="dv">0</span>, <span class="fl">0.5</span>), <span class="at">flim =</span> <span class="fu">c</span>(<span class="dv">2</span>,</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="dv">6</span>), <span class="at">scale =</span> <span class="cn">TRUE</span>, <span class="at">palette =</span> reverse.gray.colors<span class="fl">.1</span>, <span class="at">grid =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-21" class="quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
 <div>
-<img src="spectrograms_files/figure-html/unnamed-chunk-25-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-21" class="img-fluid figure-img" width="672">
-</div>
+<figure class="figure">
+<p><img src="spectrograms_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Add oscillograms (waveforms):</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">spectro</span>(tico2, <span class="at">f =</span> <span class="dv">22050</span>, <span class="at">wl =</span> <span class="dv">512</span>, <span class="at">ovlp =</span> <span class="dv">90</span>, <span class="at">collevels =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">40</span>, <span class="dv">0</span>, <span class="fl">0.5</span>), <span class="at">flim =</span> <span class="fu">c</span>(<span class="dv">2</span>,</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="dv">6</span>), <span class="at">scale =</span> <span class="cn">TRUE</span>, <span class="at">palette =</span> reverse.gray.colors<span class="fl">.1</span>, <span class="at">grid =</span> <span class="cn">FALSE</span>, <span class="at">osc =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-22" class="quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
 <div>
-<img src="spectrograms_files/figure-html/unnamed-chunk-26-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-22" class="img-fluid figure-img" width="672">
-</div>
+<figure class="figure">
+<p><img src="spectrograms_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -697,7 +654,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="6" class="anchored" data-anchor-id="dynamic-spectrograms"><span class="header-section-number">6</span> Dynamic spectrograms</h2>
 <p>The package <a href="https://marce10.github.io/dynaSpec">dynaSpec</a> allows to create static and dynamic visualizations of sounds, ready for publication or presentation. These dynamic spectrograms are produced natively with base graphics, and are save as an .mp4 video in the working directory:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>ngh_wren <span class="ot">&lt;-</span> <span class="fu">read_sound_file</span>(<span class="st">"https://www.xeno-canto.org/518334/download"</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -727,21 +684,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><font size="4">Session information</font></p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.3.1 (2023-06-16)
+<pre><code>R version 4.3.2 (2023-10-31)
 Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 20.04.2 LTS
+Running under: Ubuntu 22.04.2 LTS
 
 Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/atlas/libblas.so.3.10.3 
-LAPACK: /usr/lib/x86_64-linux-gnu/atlas/liblapack.so.3.10.3;  LAPACK version 3.9.0
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.10.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.10.0
 
 locale:
- [1] LC_CTYPE=pt_BR.UTF-8       LC_NUMERIC=C              
- [3] LC_TIME=es_CR.UTF-8        LC_COLLATE=pt_BR.UTF-8    
- [5] LC_MONETARY=es_CR.UTF-8    LC_MESSAGES=pt_BR.UTF-8   
- [7] LC_PAPER=es_CR.UTF-8       LC_NAME=C                 
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=es_CR.UTF-8 LC_IDENTIFICATION=C       
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 
 time zone: America/Costa_Rica
 tzcode source: system (glibc)
@@ -750,14 +707,14 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] seewave_2.2.3 knitr_1.45   
+[1] seewave_2.2.3 knitr_1.46   
 
 loaded via a namespace (and not attached):
- [1] digest_0.6.34     signal_1.8-0      fastmap_1.1.1     xfun_0.41        
- [5] monitoR_1.0.7     htmltools_0.5.7   rmarkdown_2.25    tuneR_1.4.6      
- [9] cli_3.6.2         compiler_4.3.1    rstudioapi_0.15.0 tools_4.3.1      
+ [1] digest_0.6.35     signal_1.8-0      fastmap_1.1.1     xfun_0.43        
+ [5] monitoR_1.0.7     htmltools_0.5.8.1 rmarkdown_2.26    tuneR_1.4.6      
+ [9] cli_3.6.2         compiler_4.3.2    rstudioapi_0.15.0 tools_4.3.2      
 [13] evaluate_0.23     yaml_2.3.8        formatR_1.14      rlang_1.1.3      
-[17] jsonlite_1.8.8    htmlwidgets_1.6.4 MASS_7.3-60.0.1  </code></pre>
+[17] jsonlite_1.8.8    htmlwidgets_1.6.4 MASS_7.3-55      </code></pre>
 </div>
 </div>
 
@@ -897,6 +854,26 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/marce10\.github\.io\/NMSU_BIR_2024\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -946,15 +923,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -963,7 +953,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -1005,6 +1003,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -1159,22 +1180,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp("https:\/\/marce10\.github\.io\/NMSU_BIR_2024\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          // default icon
-          link.classList.add("external");
-      }
-    }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb16" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
